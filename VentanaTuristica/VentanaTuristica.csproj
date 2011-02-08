@@ -97,8 +97,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriumController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PublicacionController.cs" />
+    <Compile Include="Controllers\SubCategoriumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -113,6 +116,7 @@
     <Compile Include="Model\Patrocinante.cs" />
     <Compile Include="Model\Precio.cs" />
     <Compile Include="Model\Publicacion.cs" />
+    <Compile Include="Model\PublicacionServicio.cs" />
     <Compile Include="Model\Servicio.cs" />
     <Compile Include="Model\SubCategorium.cs" />
     <Compile Include="Model\Telefono.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="Repositorios\CategoriaRepositorio.cs" />
     <Compile Include="Repositorios\CarpetaRepositorio.cs" />
     <Compile Include="Repositorios\BlogRepositorio.cs" />
+    <Compile Include="Repositorios\PublicacionServicioRepositorio.cs" />
     <Compile Include="Repositorios\IdiomaRepositorio.cs" />
     <Compile Include="Repositorios\ImagenRepositorio.cs" />
     <Compile Include="Repositorios\PatrocinanteRepositorio.cs" />
@@ -155,13 +160,16 @@
     <EmbeddedResource Include="Mapeos\Contacto.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Empresa.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Idioma.hbm.xml" />
-    <EmbeddedResource Include="Mapeos\Imagene.hbm.xml" />
+    <EmbeddedResource Include="Mapeos\Imagene.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mapeos\Patrocinante.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Precio.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Publicacion.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Servicio.hbm.xml" />
     <EmbeddedResource Include="Mapeos\SubCategorium.hbm.xml" />
     <EmbeddedResource Include="Mapeos\Telefono.hbm.xml" />
+    <EmbeddedResource Include="Mapeos\PublicacionServicio.hbm.xml" />
     <Content Include="Scripts\jquery-1.2.6.min.js" />
     <Content Include="Scripts\jquery-1.4.2.min.js" />
     <Content Include="Scripts\jquery-1.4.3.js" />
@@ -174,7 +182,17 @@
     <Content Include="Scripts\jquery.ui.datepicker-es.js" />
     <Content Include="Scripts\jquery.ui.datepicker.js" />
     <Content Include="Scripts\mvcjqueryuiexample.js" />
+    <Content Include="Views\Categorium\Create.aspx" />
+    <Content Include="Views\Categorium\Edit.aspx" />
+    <Content Include="Views\Categorium\Index.aspx" />
+    <Content Include="Views\Empresa\Create.aspx" />
     <Content Include="Views\Empresa\Index.aspx" />
+    <Content Include="Views\Publicacion\Create.aspx" />
+    <Content Include="Views\Publicacion\Index.aspx" />
+    <Content Include="Views\Publicacion\Upload.aspx" />
+    <Content Include="Views\SubCategorium\Create.aspx" />
+    <Content Include="Views\SubCategorium\Edit.aspx" />
+    <Content Include="Views\SubCategorium\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

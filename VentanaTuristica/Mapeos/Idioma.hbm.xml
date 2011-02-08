@@ -6,8 +6,8 @@
 		</id>
 		<property name="Categoria" column="`Categoria`" />
 		<property name="Descripcion" column="`Descripcion`" />
+		<property name="IdPublicacion" column="`IdPublicacion`" />
 		<property name="Notas" column="`Notas`" />
 		<property name="ProcesosEcologicos" column="`ProcesosEcologicos`" />
-		<many-to-one name="Publicacion" class="Publicacion" column="`IdPublicacion`" not-null="true" fetch="select" update="true" insert="true" />
 	</class>
 </hibernate-mapping>

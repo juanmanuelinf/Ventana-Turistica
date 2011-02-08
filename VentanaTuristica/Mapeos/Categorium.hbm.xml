@@ -8,9 +8,5 @@
 		<property name="FkIdCategoria" column="`FkIdCategoria`" />
 		<property name="Idioma" column="`Idioma`" length="10" />
 		<property name="Nombre" column="`Nombre`" length="50" />
-		<set name="SubCategoria" fetch="select" cascade="save-update">
-			<key column="`IdCategoria`" />
-			<one-to-many class="SubCategorium" />
-		</set>
 	</class>
 </hibernate-mapping>

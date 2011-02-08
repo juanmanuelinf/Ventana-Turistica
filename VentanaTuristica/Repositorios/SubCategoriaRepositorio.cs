@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<SubCategorium> Members
 
-        void IRepositorio<SubCategorium>.Save(SubCategorium entity)
+        int IRepositorio<SubCategorium>.Save(SubCategorium entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -18,6 +18,7 @@ namespace VentanaTuristica.Repositorios
                 {
                     session.Save(entity);
                     transaction.Commit();
+                    return entity.IdSubCategoria;
                 }
             }
         }

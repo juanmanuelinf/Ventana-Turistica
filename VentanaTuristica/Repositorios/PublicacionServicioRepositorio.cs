@@ -6,11 +6,11 @@ using VentanaTuristica.Model;
 
 namespace VentanaTuristica.Repositorios
 {
-    public class PrecioRepositorio : IRepositorio<Precio>
+    public class PublicacionServicioRepositorio : IRepositorio<PublicacionServicio>
     {
-        #region IRepositorio<Precio> Members
+        #region IRepositorio<PublicacionServicio> Members
 
-        int IRepositorio<Precio>.Save(Precio entity)
+        int IRepositorio<PublicacionServicio>.Save(PublicacionServicio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -18,12 +18,12 @@ namespace VentanaTuristica.Repositorios
                 {
                     session.Save(entity);
                     transaction.Commit();
-                    return entity.IdPrecio;
+                    return entity.IdPublicacion;
                 }
             }
         }
 
-        bool IRepositorio<Precio>.Update(Precio entity)
+        bool IRepositorio<PublicacionServicio>.Update(PublicacionServicio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -36,7 +36,7 @@ namespace VentanaTuristica.Repositorios
             return true;
         }
 
-        void IRepositorio<Precio>.Delete(Precio entity)
+        void IRepositorio<PublicacionServicio>.Delete(PublicacionServicio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -48,20 +48,20 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Precio> IRepositorio<Precio>.GetAll()
+        IList<PublicacionServicio> IRepositorio<PublicacionServicio>.GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                ICriteria criteria = session.CreateCriteria(typeof(Precio));
+                ICriteria criteria = session.CreateCriteria(typeof(PublicacionServicio));
 
-                return criteria.List<Precio>();
+                return criteria.List<PublicacionServicio>();
             }
         }
 
-        Precio IRepositorio<Precio>.GetById(int id)
+        PublicacionServicio IRepositorio<PublicacionServicio>.GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
-                return session.CreateCriteria<Precio>().Add(Restrictions.Eq("IdPrecio", id)).UniqueResult<Precio>();
+                return session.CreateCriteria<PublicacionServicio>().Add(Restrictions.Eq("IdPublicacion", id)).UniqueResult<PublicacionServicio>();
         }
 
         #endregion

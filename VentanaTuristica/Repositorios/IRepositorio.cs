@@ -9,7 +9,7 @@ namespace VentanaTuristica.Repositorios
         ///  Metodo para guardar en el repositorio
         /// </summary>
         /// <param name="entity"> representa la entidad que maneja el repositorio</param>
-        void Save(T entity);
+        int Save(T entity);
 
         /// <summary>
         ///  Metodo para modificar el repositorio

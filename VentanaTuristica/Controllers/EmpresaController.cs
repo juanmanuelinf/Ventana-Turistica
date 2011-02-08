@@ -33,25 +33,25 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Create()
         {
-            return View();
+           return View();
         } 
 
         //
         // POST: /Empresa/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Empresa E)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                
+                IRepositorio<Empresa> repo = new EmpresaRepositorio();
+                repo.Save(E);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(E);
         }
         
         //
@@ -85,27 +85,13 @@ namespace VentanaTuristica.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+            IRepositorio<Empresa> repo = new EmpresaRepositorio();
+            Empresa E = repo.GetById(id);
+            repo.Delete(E);
+            return RedirectToAction("Index");
         }
 
-        //
-        // POST: /Empresa/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+       
         public ActionResult Find(string q)
         {
             IRepositorio<Empresa> repoP = new EmpresaRepositorio();

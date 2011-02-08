@@ -6,9 +6,9 @@
 		</id>
 		<property name="CodigoInt" column="`CodigoInt`" />
 		<property name="CodigoLoc" column="`CodigoLoc`" />
+		<property name="IdContacto" column="`IdContacto`" />
+		<property name="IdEmpresa" column="`IdEmpresa`" />
 		<property name="Numero" column="`Numero`" />
 		<property name="Tipo" column="`Tipo`" length="20" />
-		<many-to-one name="Contacto" class="Contacto" column="`IdContacto`" not-null="true" fetch="select" update="true" insert="true" />
-		<many-to-one name="Empresa" class="Empresa" column="`IdEmpresa`" not-null="true" fetch="select" update="true" insert="true" />
 	</class>
 </hibernate-mapping>

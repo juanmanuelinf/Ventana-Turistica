@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
-	<class name="Empresa" lazy="true" table="`Empresa`" schema="`dbo`">
+	<class name="Empresa" lazy="true" table="`Empresa`" schema="`dbo`" mutable="false">
 		<id name="IdEmpresa" access="property" column="`IdEmpresa`">
 			<generator class="native" />
 		</id>
@@ -11,17 +11,5 @@
 		<property name="Nombre" column="`Nombre`" length="50" />
 		<property name="Rif" column="`Rif`" length="15" />
 		<property name="Website" column="`Website`" length="50" />
-		<set name="Contactos" fetch="select" cascade="save-update">
-			<key column="`IdEmpresa`" />
-			<one-to-many class="Contacto" />
-		</set>
-		<set name="Publicacions" fetch="select" cascade="save-update">
-			<key column="`IdEmpresa`" />
-			<one-to-many class="Publicacion" />
-		</set>
-		<set name="Telefonos" fetch="select" cascade="save-update">
-			<key column="`IdEmpresa`" />
-			<one-to-many class="Telefono" />
-		</set>
 	</class>
 </hibernate-mapping>

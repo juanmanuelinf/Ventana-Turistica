@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<CarpetaViajera> Members
 
-        void IRepositorio<CarpetaViajera>.Save(CarpetaViajera entity)
+        int IRepositorio<CarpetaViajera>.Save(CarpetaViajera entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -18,6 +18,7 @@ namespace VentanaTuristica.Repositorios
                 {
                     session.Save(entity);
                     transaction.Commit();
+                    return entity.IdPublicacion;
                 }
             }
         }

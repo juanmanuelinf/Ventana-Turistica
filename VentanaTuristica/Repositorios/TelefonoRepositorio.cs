@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<Telefono> Members
 
-        void IRepositorio<Telefono>.Save(Telefono entity)
+        int IRepositorio<Telefono>.Save(Telefono entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -18,6 +18,7 @@ namespace VentanaTuristica.Repositorios
                 {
                     session.Save(entity);
                     transaction.Commit();
+                    return entity.IdTelefono;
                 }
             }
         }
