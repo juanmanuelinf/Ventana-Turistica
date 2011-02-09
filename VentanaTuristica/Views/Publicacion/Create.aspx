@@ -98,6 +98,43 @@
         <input  type="text" id= "Precio[1].PrecioMax" name="Precio[1].PrecioMax"/>
         </div>
 
+        <div class="editor-field">
+       
+
+       <div class="editor-label">
+            <label for="Coordenadas"> Categoria:</label>
+        </div>
+        <div class="editor-field">
+            <%= Html.DropDownList("Idioma[0].Categoria") %>
+            <%= Html.ValidationMessage("Idioma[0].Categoria", "*")%>
+        </div>
+
+        <label for="Otra"> Otra:</label>
+        <input  type="text" id= "Text1" name="Idioma[1].Categoria"/>
+        </div>
+
+        <div class="editor-label">
+            <label for="Coordenadas"> Descripcion:</label>
+        </div>
+        <div class="editor-field">
+        <textarea name="Idioma[0].Descripcion" rows="5" cols="45" ></textarea>
+        </div>
+
+        <div class="editor-label">
+            <label for="Coordenadas"> Notas:</label>
+        </div>
+        <div class="editor-field">
+         <textarea name="Idioma[0].Notas" rows="5" cols="45" ></textarea>
+        </div>
+
+        <div class="editor-label">
+            <label for="Coordenadas"> Procesos Ecologicos:</label>
+        </div>
+        <div class="editor-field">
+        <textarea name="Idioma[0].ProcesosEcologicos" rows="5" cols="45" ></textarea>
+        </div>
+
+
 
         <div class="editor-label">
                     <input type="submit" value="Registrar" />

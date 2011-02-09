@@ -188,6 +188,7 @@
     <Content Include="Views\Empresa\Create.aspx" />
     <Content Include="Views\Empresa\Index.aspx" />
     <Content Include="Views\Publicacion\Create.aspx" />
+    <Content Include="Views\Publicacion\Details.aspx" />
     <Content Include="Views\Publicacion\Index.aspx" />
     <Content Include="Views\Publicacion\Upload.aspx" />
     <Content Include="Views\SubCategorium\Create.aspx" />

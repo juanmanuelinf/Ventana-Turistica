@@ -5,6 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using VentanaTuristica.Model;
 using VentanaTuristica.Repositorios;
+using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace VentanaTuristica.Controllers
 {
@@ -29,12 +34,60 @@ namespace VentanaTuristica.Controllers
             return View(listaPublicacion);
         }
 
+        
+        public ActionResult Show(int id)
+        {
+             IRepositorio<Imagene> repoImagen = new ImageneRepositorio();
+            var imageData = repoImagen.GetById(id).DatosTrans;
+            return File( imageData, "image/jpg" );
+        }
+        
+
         //
         // GET: /Publicacion/Details/5
 
         public ActionResult Details(int id)
         {
-            return View();
+            IRepositorio<Publicacion> myRepoPublicacion = new PublicacionRepositorio();
+            IRepositorio<Imagene> myRepoImagene = new ImageneRepositorio();
+            Publicacion p = myRepoPublicacion.GetById(id);
+            IList<Imagene> listaImagenes = myRepoImagene.GetAll();
+            IList<Imagene> listaImagenesAux = new List<Imagene>();
+            foreach (var imagene in listaImagenes)
+            {
+                if (imagene.IdPublicacion==id)
+                {
+                    listaImagenesAux.Add(imagene);
+                }
+            }
+            p.Imagenes = listaImagenesAux;
+
+            IRepositorio<Idioma> myRepoIdioma = new IdiomaRepositorio();
+            IList<Idioma> listaIdioma = myRepoIdioma.GetAll();
+            p.Idioma = new List<Idioma>();
+            foreach (var idioma in listaIdioma)
+            {
+                if(idioma.IdPublicacion == id)
+                {
+                    p.Idioma.Add(idioma);
+                }
+            }
+
+            IRepositorio<PublicacionServicio> myRepoServicioP = new PublicacionServicioRepositorio();
+            IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();
+            IList<PublicacionServicio> listaServicio = myRepoServicioP.GetAll();
+
+            p.Servicios = new List<Servicio>();
+            foreach (var servicio in listaServicio)
+            {
+                if (servicio.IdPublicacion == id)
+                {
+                    p.Servicios.Add(myRepoServicio.GetById(servicio.IdServicio));
+                }
+            }
+
+
+            return View(p);
         }
 
         //
@@ -54,6 +107,18 @@ namespace VentanaTuristica.Controllers
             }
            
             ViewData["SubCategorium.Nombre"] = new SelectList(items);
+
+            IList<string> itemsCategoria = new List<string>
+                                               {
+                                                   "1 Estrella",
+                                                   "2 Estrella",
+                                                   "3 Estrella",
+                                                   "4 Estrella",
+                                                   "5 Estrella",
+                                                   "Otra"
+                                               };
+            ViewData["Idioma[0].Categoria"] = new SelectList(itemsCategoria);
+            
 
             IRepositorio<Servicio> repoServ = new ServicioRepositorio();
             IList<Servicio> miListaServ = repoServ.GetAll();
@@ -77,7 +142,6 @@ namespace VentanaTuristica.Controllers
             string nombreEmpresa =collection[0];
             IRepositorio<Empresa> repoEmp = new EmpresaRepositorio();
             IList<Empresa> listaEmp = repoEmp.GetAll();
-          
             foreach (var empresa in listaEmp)
             {
                 if(empresa.Nombre == nombreEmpresa)
@@ -116,8 +180,20 @@ namespace VentanaTuristica.Controllers
                 
             }
             Session["IdPublicacion"] = idPublicacion;
-           
-            return RedirectToAction("Upload");
+            Idioma idioma = new Idioma();
+            IRepositorio<Idioma> repoIdioma = new IdiomaRepositorio();
+            idioma = p.Idioma[0];
+            idioma.IdPublicacion = idPublicacion;
+            if(p.Idioma[0].Categoria != "Otra")
+            {
+               repoIdioma.Save(idioma);
+            } 
+            else
+            {
+                idioma.Categoria = p.Idioma[1].Categoria;
+                repoIdioma.Save(idioma);
+            }
+           return RedirectToAction("Upload");
           
         }
         
@@ -190,7 +266,7 @@ namespace VentanaTuristica.Controllers
              {
                  Byte[] miArchivo = ConvertFile(file);
                  myImagene.DatosOriginal = miArchivo;
-                 myImagene.DatosTrans = miArchivo;
+                 myImagene.DatosTrans = Resize(miArchivo);
                  myImagene.Tipo = "P";
                  myImagene.IdPublicacion = Convert.ToInt32(Session["IdPublicacion"]);
                  repoImagen.Save(myImagene);
@@ -207,7 +283,40 @@ namespace VentanaTuristica.Controllers
             source.InputStream.Read(destination, 0, source.ContentLength);
             return destination;
 
-        } 
+        }
+
+        public Byte[] Resize(Byte[] imageFile)
+        {
+            const int targetSize = 300;
+            Image original = Image.FromStream(new MemoryStream(imageFile));
+            int targetH, targetW;
+            if (original.Height > original.Width)
+            {
+                targetH = targetSize;
+                targetW = (int)(original.Width * ((float)targetSize / (float)original.Height));
+            }
+            else
+            {
+                targetW = targetSize;
+                targetH = (int)(original.Height * ((float)targetSize / (float)original.Width));
+            }
+            Image imgPhoto = Image.FromStream(new MemoryStream(imageFile));
+            // Create a new blank canvas.  The resized image will be drawn on this canvas.
+            Bitmap bmPhoto = new Bitmap(targetW, targetH, PixelFormat.Format24bppRgb);
+            bmPhoto.SetResolution(72, 72);
+            Graphics grPhoto = Graphics.FromImage(bmPhoto);
+            grPhoto.SmoothingMode = SmoothingMode.AntiAlias;
+            grPhoto.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            grPhoto.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            grPhoto.DrawImage(imgPhoto, new Rectangle(0, 0, targetW, targetH), 0, 0, original.Width, original.Height, GraphicsUnit.Pixel);
+            MemoryStream mm = new MemoryStream();
+            bmPhoto.Save(mm, System.Drawing.Imaging.ImageFormat.Jpeg);
+            original.Dispose();
+            imgPhoto.Dispose();
+            bmPhoto.Dispose();
+            grPhoto.Dispose();
+            return mm.GetBuffer();
+        }
        
     }
 }
