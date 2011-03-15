@@ -1,0 +1,379 @@
+﻿/*----------------------------------------------------------
+El color base de esta plantilla es White. Si desea usar
+otro color, empiece por reemplazar todas las instancias de
+White con el nuevo color.
+----------------------------------------------------------*/
+body
+{
+    background-color: White;
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+a:link
+{
+    color: #034af3;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+}
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+a:active
+{
+    color: #12eb87;
+}
+
+p, ul
+{
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+/* TÍTULOS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* esta regla crea etiquetas <h2> que son el 
+primer elemento secundario de las columnas de tabla izquierda y derecha */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* ELEMENTOS DE DISEÑO PRIMARIO   
+----------------------------------------------------------*/
+
+/* puede especificar un porcentaje mayor o menor para el 
+ancho de página. O bien puede especificar un ancho de píxel exacto. */
+.page
+{
+    width: 74%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    position: relative;
+    margin-bottom: 44px;
+    color: #000;
+    padding: 0;
+    top: 0px;
+    left: 0px;
+    height: 75px;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px !important;
+}
+
+#main
+{
+    padding: 30px 30px 15px 30px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    _height: 1px; /* solo IE6 aplica las propiedades de CSS con un carácter de subrayado inicial */
+}
+
+#footer
+{
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+}
+
+/* MENÚ TABULADOR   
+----------------------------------------------------------*/
+ul#menu
+{
+    border-bottom: 1px White solid;
+    padding: 0 0 0;
+    position: relative;
+    margin: 2px 35px 6px 0;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+}
+
+ul#menu li a:hover
+{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+
+/* ELEMENTOS DE DISEÑO DE FORMULARIOS  
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLA
+----------------------------------------------------------*/
+
+table 
+{
+}
+
+table td 
+{
+  padding: 5px;   
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: left;
+  background-color: #e8eef4; 
+}
+
+/* VARIOS  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+#menucontainer
+{
+    margin-top:40px;
+}
+
+div#title
+{
+    display: block;
+    margin-left: 50px;
+    float:left;
+}
+
+#logindisplay
+{
+    font-size:1.1em;
+    display:block;
+    text-align:right;
+    margin:10px;
+}
+
+#logindisplay a:link
+{
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    text-decoration: none;
+}
+
+/* Estilos para aplicaciones auxiliares de validación
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Estilos para aplicaciones auxiliares de editor y visualización
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 0;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+/*Estilo para el Autocomplete*/
+
+.acInput {
+        width: 200px;
+}
+.acResults {
+        padding: 0px;
+        border: 1px solid WindowFrame;
+        background-color: Window;
+        overflow: hidden;
+}
+
+.acResults ul {
+        width: 100%;
+        list-style-position: outside;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+}
+
+.acResults li {
+        margin: 0px;
+        padding: 2px 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        font: menu;
+        font-size: 12px;
+        overflow: hidden;
+}
+
+.acLoading {
+        background : url('indicator.gif') right center no-repeat;
+}
+
+.acSelect {
+        background-color: Highlight;
+        color: HighlightText;
+}
+

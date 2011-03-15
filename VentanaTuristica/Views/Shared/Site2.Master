@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <link href="<%: Url.Content("~/Content/Site.css")%>" rel="stylesheet" />
+    <link rel="SHORTCUT ICON" href="~/Content/logo.ico"/>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mvcjqueryuiexample.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <script type="text/javascript">
+        $(document).ready(initialise);
+    </script>
+    <asp:ContentPlaceHolder ID="HeaderContent" runat="server" />
+</head>
+<body>
+    <div class="main">
+        <div class="header ui-widget-content ui-corner-bottom ui-helper-clearfix">
+            <a class="logo" href="http://localhost:1491/">
+            </a>
+        </div>
+        <div class="content ui-widget-content ui-corner-all">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+ 
+    </div>
+</body>
+</html>

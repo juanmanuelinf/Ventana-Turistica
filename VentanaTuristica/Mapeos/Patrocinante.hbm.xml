@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Patrocinante" lazy="true" table="`Patrocinante`" schema="`dbo`">
+		<id name="IdPatrocinante" access="property" column="`IdPatrocinante`">
+			<generator class="native" />
+		</id>
+		<property name="Descripcion" column="`Descripcion`" />
+		<property name="Nombre" column="`Nombre`" length="50" />
+		<set name="Contactos" fetch="select" cascade="save-update">
+			<key column="`IdPatrocinante`" />
+			<one-to-many class="Contacto" />
+		</set>
+		<set name="Imagenes" fetch="select" cascade="save-update">
+			<key column="`IdPatrocinante`" />
+			<one-to-many class="Imagene" />
+		</set>
+	</class>
+</hibernate-mapping>

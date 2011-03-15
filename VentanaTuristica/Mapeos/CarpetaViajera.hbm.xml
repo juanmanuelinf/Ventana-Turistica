@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="CarpetaViajera" lazy="true" table="`CarpetaViajera`" schema="`dbo`">
+		<composite-id>
+			<key-property name="IdUsuario" column="`IdUsuario`" />
+			<key-property name="IdPublicacion" column="`IdPublicacion`" />
+		</composite-id>
+		<many-to-one name="Publicacion" class="Publicacion" column="`IdPublicacion`" not-null="true" fetch="select" update="true" insert="true" />
+	</class>
+</hibernate-mapping>

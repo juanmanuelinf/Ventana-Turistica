@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Publicacion" lazy="true" table="`Publicacion`" schema="`dbo`">
+		<id name="IdPublicacion" access="property" column="`IdPublicacion`">
+			<generator class="native" />
+		</id>
+		<property name="Efectivo" column="`Efectivo`" length="1" />
+		<property name="Latitud" column="`Latitud`" length="50" />
+		<property name="Longitud" column="`Longitud`" length="50" />
+		<property name="Reservacion" column="`Reservacion`" length="1" />
+		<property name="Tcredito" column="`TCredito`" length="1" />
+		<property name="Tdebito" column="`TDebito`" length="1" />
+		<property name="Transferencia" column="`Transferencia`" length="1" />
+		<set name="CarpetaViajeras" fetch="select" cascade="save-update">
+			<key column="`IdPublicacion`" />
+			<one-to-many class="CarpetaViajera" />
+		</set>
+		<many-to-one name="Empresa" class="Empresa" column="`IdEmpresa`" not-null="true" fetch="select" update="true" insert="true" />
+		<set name="Idiomas" fetch="select" cascade="save-update">
+			<key column="`IdPublicacion`" />
+			<one-to-many class="Idioma" />
+		</set>
+		<set name="Imagenes" fetch="select" cascade="save-update">
+			<key column="`IdPublicacion`" />
+			<one-to-many class="Imagene" />
+		</set>
+		<set name="Precios" fetch="select" cascade="save-update">
+			<key column="`IdPublicacion`" />
+			<one-to-many class="Precio" />
+		</set>
+		<set name="Servicios" fetch="select" cascade="save-update">
+			<key column="`IdPublicacion`" />
+			<one-to-many class="Servicio" />
+		</set>
+		<many-to-one name="SubCategorium" class="SubCategorium" column="`IdSubCategoria`" not-null="true" fetch="select" update="true" insert="true" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Categorium" lazy="true" table="`Categoria`" schema="`dbo`">
+		<id name="IdCategoria" access="property" column="`IdCategoria`">
+			<generator class="native" />
+		</id>
+		<property name="Descripcion" column="`Descripcion`" />
+		<property name="FkIdCategoria" column="`FkIdCategoria`" />
+		<property name="Idioma" column="`Idioma`" length="10" />
+		<property name="Nombre" column="`Nombre`" length="50" />
+		<set name="SubCategoria" fetch="select" cascade="save-update">
+			<key column="`IdCategoria`" />
+			<one-to-many class="SubCategorium" />
+		</set>
+	</class>
+</hibernate-mapping>

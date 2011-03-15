@@ -1,0 +1,30 @@
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\VentanaTuristica.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\VentanaTuristica.pdb
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\Castle.Core.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\Castle.DynamicProxy2.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\FlickrNet.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\Html5Asp.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\Iesi.Collections.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\log4net.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\NHibernate.ByteCode.Castle.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\NHibernate.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\NHibernate.Validator.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\bin\System.Web.Mvc.Html5.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\obj\Debug\VentanaTuristica.dll
+C:\Documents and Settings\Luis Exposito\Mis documentos\Visual Studio 10\Projects\VentanaTuristica\VentanaTuristica\obj\Debug\VentanaTuristica.pdb
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\VentanaTuristica.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\VentanaTuristica.pdb
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\Castle.Core.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\Castle.DynamicProxy2.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\FlickrNet.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\Html5Asp.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\Iesi.Collections.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\log4net.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\NHibernate.ByteCode.Castle.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\NHibernate.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\NHibernate.Validator.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\bin\System.Web.Mvc.Html5.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\obj\Debug\VentanaTuristica.dll
+C:\Users\Public\Documents\Ventana Turistica\VentanaTuristica\VentanaTuristica\obj\Debug\VentanaTuristica.pdb

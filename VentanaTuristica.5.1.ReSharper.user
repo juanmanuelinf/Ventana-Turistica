@@ -1,0 +1,102 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:HomeController.cs" caret="275" fromTop="12" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Model/f:Empresa.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site.Master" caret="1235" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site2.Master" caret="294" fromTop="7" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Mapeos/f:Telefono.hbm.xml" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:BlogRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:CarpetaRepositorio.cs" caret="2128" fromTop="62" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Mapeos/f:CarpetaViajera.hbm.xml" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Model/f:Categorium.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:CategoriaRepositorio.cs" caret="2066" fromTop="31" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Model/f:Contacto.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ContactoRepositorio.cs" caret="1751" fromTop="9" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:IdiomaRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Model/f:Imagene.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ImagenRepositorio.cs" caret="1790" fromTop="10" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PatrocinanteRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PrecioRepositorio.cs" caret="287" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ServicioRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:SubCategoriaRepositorio.cs" caret="2117" fromTop="17" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:TelefonoRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PublicacionRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="1023" fromTop="17" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:EmpresaController.cs" caret="1774" fromTop="11" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:EmpresaRepositorio.cs" caret="675" fromTop="23" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="2588" fromTop="18" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="2813" fromTop="12" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:EmpresaController.cs" caret="2609" fromTop="16" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:EmpresaController.cs" caret="2999" fromTop="27" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:EmpresaController.cs" caret="2846" fromTop="23" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Controllers/f:EmpresaController.cs" caret="3109" fromTop="20" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="701" fromTop="11" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="3025" fromTop="18" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site.Master" caret="1126" fromTop="15" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="3129" fromTop="9" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site.Master" caret="482" fromTop="8" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site2.Master" caret="300" fromTop="8" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site2.Master" caret="1368" fromTop="17" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Shared/f:Site2.Master" caret="1559" fromTop="23" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Views/d:Empresa/f:Index.aspx" caret="68" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:BlogRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:CarpetaRepositorio.cs" caret="2128" fromTop="25" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:CategoriaRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:CategoriaRepositorio.cs" caret="2066" fromTop="17" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ContactoRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:IdiomaRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ImagenRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ImagenRepositorio.cs" caret="2015" fromTop="14" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PatrocinanteRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PrecioRepositorio.cs" caret="2026" fromTop="11" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:PublicacionRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:ServicioRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:SubCategoriaRepositorio.cs" caret="0" fromTop="0" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:SubCategoriaRepositorio.cs" caret="2117" fromTop="17" />
+      <File id="015DFA69-08B3-4D77-8DBF-D334159FCC77/d:Repositorios/f:TelefonoRepositorio.cs" caret="0" fromTop="0" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Archivos de programa\NUnit 2.5.8\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="new" priority="0" />
+      <Item value="EmpresaRepositorio`0" priority="0" />
+      <Item value="myrepo" priority="0" />
+      <Item value="Empresa`0" priority="1" />
+      <Item value="listaEmpresa" priority="0" />
+      <Item value="empresa" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:VentanaTuristica.Repositorios.IRepositorio`1">
+      <Item value="GetAll`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:VentanaTuristica.Model.Empresa">
+      <Item value="Nombre" priority="0" />
+      <Item value="Rif" priority="0" />
+      <Item value="Direccion" priority="0" />
+      <Item value="Ciudad" priority="0" />
+      <Item value="Localidad" priority="0" />
+      <Item value="Mail" priority="0" />
+      <Item value="Website" priority="0" />
+      <Item value="IdEmpresa" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Precio" lazy="true" table="`Precio`" schema="`dbo`">
+		<id name="IdPrecio" access="property" column="`IdPrecio`">
+			<generator class="native" />
+		</id>
+		<property name="Moneda" column="`Moneda`" length="20" />
+		<property name="PrecioMax" column="`PrecioMax`" />
+		<property name="PrecioMin" column="`PrecioMin`" />
+		<property name="Tipo" column="`Tipo`" length="15" />
+		<many-to-one name="Publicacion" class="Publicacion" column="`IdPublicacion`" not-null="true" fetch="select" update="true" insert="true" />
+	</class>
+</hibernate-mapping>

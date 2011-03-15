@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Telefono" lazy="true" table="`Telefono`" schema="`dbo`">
+		<id name="IdTelefono" access="property" column="`IdTelefono`">
+			<generator class="native" />
+		</id>
+		<property name="CodigoInt" column="`CodigoInt`" />
+		<property name="CodigoLoc" column="`CodigoLoc`" />
+		<property name="Numero" column="`Numero`" />
+		<property name="Tipo" column="`Tipo`" length="20" />
+		<many-to-one name="Contacto" class="Contacto" column="`IdContacto`" not-null="true" fetch="select" update="true" insert="true" />
+		<many-to-one name="Empresa" class="Empresa" column="`IdEmpresa`" not-null="true" fetch="select" update="true" insert="true" />
+	</class>
+</hibernate-mapping>

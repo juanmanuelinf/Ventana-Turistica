@@ -1,0 +1,366 @@
+﻿@import "reset.css";
+@import "reset-fonts.css";
+@import "typography.css";
+@import "layout.css";
+
+/* TÍTULOS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+}
+
+h1
+{
+    font-size: 2em;
+}
+h2
+{
+    padding: 15px 15px 10px 15px;
+}
+h3
+{
+    padding: 5px 5px 5px 15px;
+    font-size: 1.2em;
+}
+h4
+{
+    padding: 5px 5px 5px 25px;
+    font-size: 1.1em;
+}
+h5, h6
+{
+    padding: 0px 0px 0px 45px;
+    font-size: 1em;
+}
+
+/* esta regla crea etiquetas <h2> que son el 
+primer elemento secundario de las columnas de tabla izquierda y derecha */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+/* MENÚ TABULADOR   
+----------------------------------------------------------*/
+ul#menu
+{
+    border-bottom: 1px Green solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+}
+
+ul#menu li a:hover
+{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+/* ELEMENTOS DE DISEÑO DE FORMULARIOS  
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC; 
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLA
+----------------------------------------------------------*/
+
+table 
+{
+  margin-left : auto;
+  margin-right : auto;
+}
+
+table td 
+{
+  padding: 5px;   
+}
+
+table th
+{
+  padding: 6px 5px;
+  text-align: center;
+  font-weight:bold;  
+}
+
+table td
+{
+    text-align: center;
+}
+
+/* VARIOS  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+#menucontainer
+{
+    margin-top:40px;
+}
+
+div#title
+{
+    display:block;
+    float:left;
+    text-align:left;
+}
+
+#logindisplay
+{
+    font-size:1.1em;
+    display:block;
+    text-align:right;
+    margin:10px;
+    color:White;
+}
+
+#logindisplay a:link
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited
+{
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;
+}
+
+/* Estilos para aplicaciones auxiliares de validación
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+.field-validation-valid
+{
+    display: none;
+}
+
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Estilos para aplicaciones auxiliares de editor y visualización
+----------------------------------------------------------*/
+.display-field,
+.editor-label,
+.editor-field
+{
+    margin: 0.5em 0;
+    
+}
+.display-label
+{
+     margin: 0.5em 0;
+     font-weight:bold;
+}
+
+.editor-field-hidden
+{
+    visibility: hidden;
+    margin: 0.5em 0;
+}
+
+.editor-field-disable
+{
+    margin: 0.5em 0;
+}
+
+.text-box
+{
+	height: 22px;
+	width: 230px;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+/*Ventana Modal*/
+.tooltip {
+	
+	border:1px solid #fff;
+	padding:10px 15px;
+	width:300px;
+	display:none;
+	color: Black;
+	
+	text-align:center;
+	font-size:12px;
+	background-color:White;
+
+	/* outline radius for mozilla/firefox only */
+	-moz-box-shadow:0 0 10px #000;
+	-webkit-box-shadow:0 0 10px #000;
+}
+/* Overlay -Para los detalles-
+----------------------------------------------------------*/
+.apple_overlay {
+	
+	/* initially overlay is hidden */
+	display:none;
+	
+	/* growing background image */
+	background-image:url(fondo.png);
+	
+	/* 
+		width after the growing animation finishes
+		height is automatically calculated
+	*/
+	width:640px;		
+	
+	/* some padding to layout nested elements nicely  */
+	padding:35px;
+
+	/* a little styling */	
+	font-size:11px;
+}
+
+/* default close button positioned on upper right corner */
+.apple_overlay .close {
+	background-image:url(close.png);
+	position:absolute; right:5px; top:5px;
+	cursor:pointer;
+	height:35px;
+	width:35px;
+}
+/*Estilo para el Autocomplete*/
+
+.acInput {
+        width: 200px;
+}
+.acResults {
+        padding: 0px;
+        border: 1px solid WindowFrame;
+        background-color: Window;
+        overflow: hidden;
+}
+
+.acResults ul {
+        width: 100%;
+        list-style-position: outside;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+}
+
+.acResults li {
+        margin: 0px;
+        padding: 2px 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        font: menu;
+        font-size: 12px;
+        overflow: hidden;
+}
+
+.acLoading {
+        background : url('indicator.gif') right center no-repeat;
+}
+
+.acSelect {
+        background-color: Highlight;
+        color: HighlightText;
+}
+
