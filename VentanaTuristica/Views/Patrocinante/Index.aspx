@@ -1,0 +1,104 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Patrocinante>>" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+	Index
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <h2>Patrocinantes</h2>
+    
+      <% using (Html.BeginForm())
+    {%>
+        <fieldset>
+        <legend>Buscar Patrocinante</legend>
+            
+            <div class="editor-label">
+                <label for="Nombre">Nombre:</label>
+            </div>
+            <div class="editor-field">
+                <%= Html.TextBox("patrocinante",null, new { @class = "text-box" })%>
+            </div>
+            <div class="editor-label">
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Buscar"/>
+            </div>
+         </fieldset>
+     <%
+    }%>
+    <fieldset>
+        <legend>Patrocinantes</legend>
+   
+    <table>
+    <tr> <th>Nuevo Patrocinante</th> <th> <a title="Agregar Patrocinante" href="<%=Url.Action("Create", "Patrocinante")%>">
+     <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></th> </tr>
+        
+
+
+        </table>
+        <%if (Model.Count() != 0)
+          { %>
+        <table>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Descripcion
+            </th>
+            <th>
+                Persona Contacto
+            </th>
+            <th>
+                Telefono
+            </th>
+            
+        </tr>
+
+    <%
+    
+        foreach (var item in Model)
+        {
+%>
+     <tr>
+                <td>
+                    <%:item.Nombre%>
+                </td>
+                <td>
+                    <%:item.Descripcion%>
+                </td>
+                <td>
+                    <%:item.Contacto[0].Nombre%>
+                </td>
+                <td>
+                    <%:item.Contacto[0].Telefono[0].CodigoInt + " " + item.Contacto[0].Telefono[0].CodigoLoc +
+                              " " + item.Contacto[0].Telefono[0].Numero%>
+                </td>
+                <td>
+                    <a title="Eliminar Patrocinante" href="<%=Url.Action("Delete", "Patrocinante", new {id = item.IdPatrocinante}, null)%>">
+                    <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
+                </td>
+                <td>
+                    <%: Html.ActionLink("Edit", "Edit", new {id=item.IdPatrocinante}) %>           
+                </td>
+      </tr>
+      
+        <%
+        }
+     %>
+    
+      </table>
+    <% }
+    else
+    {%> <h2>No Hay Patrocinantes...</h2>
+          
+<%  } %>
+   </fieldset>
+       <script type="text/javascript">
+
+           $(document).ready(function () {
+               $("input#patrocinante").autocomplete('<%= Url.Action("Find", "Patrocinante") %>');
+           }); 
+
+</script>
+
+</asp:Content>
