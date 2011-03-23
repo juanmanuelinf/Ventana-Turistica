@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<Idioma> Members
 
-        int IRepositorio<Idioma>.Save(Idioma entity)
+        public int Save(Idioma entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Idioma> IRepositorio<Idioma>.GetAll()
+        public IList<Idioma> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

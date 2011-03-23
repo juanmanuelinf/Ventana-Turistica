@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Categorium IRepositorio<Categorium>.GetById(int id)
+        public Categorium GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Categorium>().Add(Restrictions.Eq("IdCategoria", id)).UniqueResult<Categorium>();

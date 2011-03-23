@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Servicio> IRepositorio<Servicio>.GetAll()
+        public IList<Servicio> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Servicio IRepositorio<Servicio>.GetById(int id)
+        public Servicio GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Servicio>().Add(Restrictions.Eq("IdServicio", id)).UniqueResult<Servicio>();

@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Empresa> IRepositorio<Empresa>.GetAll()
+        public IList<Empresa> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Empresa IRepositorio<Empresa>.GetById(int id)
+        public Empresa GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Empresa>().Add(Restrictions.Eq("IdEmpresa", id)).UniqueResult<Empresa>();

@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<SubCategorium> IRepositorio<SubCategorium>.GetAll()
+        public IList<SubCategorium> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        SubCategorium IRepositorio<SubCategorium>.GetById(int id)
+        public SubCategorium GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<SubCategorium>().Add(Restrictions.Eq("IdSubCategoria", id)).UniqueResult<SubCategorium>();

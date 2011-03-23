@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<Publicacion> Members
 
-        int IRepositorio<Publicacion>.Save(Publicacion entity)
+        public int Save(Publicacion entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Publicacion> IRepositorio<Publicacion>.GetAll()
+        public IList<Publicacion> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Publicacion IRepositorio<Publicacion>.GetById(int id)
+        public Publicacion GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Publicacion>().Add(Restrictions.Eq("IdPublicacion", id)).UniqueResult<Publicacion>();
