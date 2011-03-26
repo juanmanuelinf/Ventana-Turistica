@@ -44,7 +44,6 @@ namespace VentanaTuristica.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 IRepositorio<Empresa> repo = new EmpresaRepositorio();
                 repo.Save(E);
                 return RedirectToAction("Index");

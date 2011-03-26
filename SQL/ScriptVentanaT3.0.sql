@@ -104,6 +104,11 @@ go
 CREATE TABLE [Publicacion]
 (
  [IdPublicacion] Int IDENTITY(1,1),
+ [Nombre] Varchar(100) NOT NULL,
+ [Direccion] Varchar(max) NOT NULL,
+ [Pais] Varchar(100) NOT NULL,
+ [Estado] Varchar(100) NOT NULL,
+ [Ciudad] Varchar(100) NOT NULL,
  [TCredito] Varchar(1) NULL,
  [TDebito] Varchar(1) NULL,
  [Transferencia] Varchar(1) NULL,
@@ -128,7 +133,6 @@ CREATE TABLE [Servicio]
  [IdServicio] Int IDENTITY(1,1),
  [Nombre] Varchar(50) NOT NULL,
  [Descripcion] Varchar(max) NULL,
- [IdPublicacion] Int NULL,
  [FkIdServicio] Int NULL,
  [Idioma] Varchar(10) NULL
 )
@@ -137,6 +141,20 @@ go
 -- Add keys for table Servicio
 
 ALTER TABLE [Servicio] ADD CONSTRAINT [PK_IdServicio] PRIMARY KEY CLUSTERED ([IdServicio])
+go
+
+-- Table PublicacionServicio
+
+CREATE TABLE [PublicacionServicio]
+(
+ [IdServicio] Int NOT NULL,
+ [IdPublicacion] Int NOT NULL
+)
+go
+
+-- Add keys for table PublicacionServicio
+
+ALTER TABLE [PublicacionServicio] ADD CONSTRAINT [PK_IdPublicacionServicio] PRIMARY KEY ([IdServicio],[IdPublicacion])
 go
 
 -- Table Precio
@@ -258,6 +276,7 @@ go
 ALTER TABLE [CarpetaViajera] ADD CONSTRAINT [PKCarpetaViajera] PRIMARY KEY ([IdUsuario],[IdPublicacion])
 go
 
+
 -- Create relationships section ------------------------------------------------- 
 
 ALTER TABLE [Publicacion] ADD CONSTRAINT [PK_EmpresaPublicacion] FOREIGN KEY ([IdEmpresa]) REFERENCES [Empresa] ([IdEmpresa])
@@ -278,7 +297,10 @@ go
 ALTER TABLE [Imagenes] ADD CONSTRAINT [FK_ImagenesPatrocinante] FOREIGN KEY ([IdPatrocinante]) REFERENCES [Patrocinante] ([IdPatrocinante])
 go
 
-ALTER TABLE [Servicio] ADD CONSTRAINT [FK_PublicacionServicio] FOREIGN KEY ([IdPublicacion]) REFERENCES [Publicacion] ([IdPublicacion])
+ALTER TABLE [PublicacionServicio] ADD CONSTRAINT [FK_PublicacionServicio] FOREIGN KEY ([IdPublicacion]) REFERENCES [Publicacion] ([IdPublicacion])
+go
+
+ALTER TABLE [PublicacionServicio] ADD CONSTRAINT [FK_PublicacionServicio2] FOREIGN KEY ([IdServicio]) REFERENCES [Servicio] ([IdServicio])
 go
 
 ALTER TABLE [Telefono] ADD CONSTRAINT [FK_EmpresaTelefono] FOREIGN KEY ([IdEmpresa]) REFERENCES [Empresa] ([IdEmpresa])
@@ -298,6 +320,5 @@ go
 
 ALTER TABLE [CarpetaViajera] ADD CONSTRAINT [FKCarpetaViajeraPublicacion] FOREIGN KEY ([IdPublicacion]) REFERENCES [Publicacion] ([IdPublicacion]) NOT FOR REPLICATION
 go
-
 
 

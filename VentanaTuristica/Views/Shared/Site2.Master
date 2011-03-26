@@ -1,35 +1,69 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<head runat="server">
-    <link href="<%: Url.Content("~/Content/Site.css")%>" rel="stylesheet" />
-    <link rel="SHORTCUT ICON" href="~/Content/logo.ico"/>
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link rel="SHORTCUT ICON" href="../../Content/logo.ico"/>
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mvcjqueryuiexample.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
-    <title>
-        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
-    </title>
-    <script type="text/javascript">
-        $(document).ready(initialise);
-    </script>
-    <asp:ContentPlaceHolder ID="HeaderContent" runat="server" />
+    
 </head>
+
 <body>
-    <div class="main">
-        <div class="header ui-widget-content ui-corner-bottom ui-helper-clearfix">
-            <a class="logo" href="http://localhost:1491/">
-            </a>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <a href="localhost:1491" ><img src="../../Content/logo.gif" /></a>
+            </div>
+              
+            <div id="logindisplay">
+                <% Html.RenderPartial("Services"); %>
+            </div> 
+
+            <div id="menucontainer">
+                    <ul id="nav">         
+                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%>
+                        </li>
+                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%>
+                        </li>     
+                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%>
+                        </li>
+                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%>
+                        </li>
+                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%>
+                        </li>
+                        <li><%: Html.ActionLink("Patrocinante", "Index", "Patrocinante")%>
+                        </li>
+                    </ul>
+            </div>        
         </div>
-        <div class="content ui-widget-content ui-corner-all">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <div id="main">
+            
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+
+            <div id="footer">
+            Ventana Turistica &copy;
+            </div>
         </div>
- 
     </div>
 </body>
+    
+	<!-- Load the MenuMatic Class -->
+	<script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
+	
+	<!-- Create a MenuMatic Instance -->
+	<script type="text/javascript" >
+	    window.addEvent('domready', function () {
+	        var myMenu = new MenuMatic();
+	    });		
+	</script>
+	
+	<!-- end google tracking code -->
 </html>

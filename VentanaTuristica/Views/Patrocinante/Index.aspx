@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Patrocinante>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+	Gestion de Patrocinantes
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Patrocinantes</h2>
+    <h2></h2>
     
       <% using (Html.BeginForm())
     {%>
@@ -17,7 +17,7 @@
                 <label for="Nombre">Nombre:</label>
             </div>
             <div class="editor-field">
-                <%= Html.TextBox("patrocinante",null, new { @class = "text-box" })%>
+                <%= Html.TextBox("patrocinante", null, new { @class = "text-box" })%>
             </div>
             <div class="editor-label">
                 <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Buscar"/>
@@ -29,12 +29,11 @@
         <legend>Patrocinantes</legend>
    
     <table>
-    <tr> <th>Nuevo Patrocinante</th> <th> <a title="Agregar Patrocinante" href="<%=Url.Action("Create", "Patrocinante")%>">
-     <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></th> </tr>
-        
-
-
-        </table>
+        <td> <a title="Agregar Patrocinante" href="<%=Url.Action("Create", "Patrocinante")%>">
+                <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></td>
+        <td><%: Html.ActionLink("Nuevo Patrocinante", "Create", "Patrocinante")%></td> 
+    </table>
+    <br />
         <%if (Model.Count() != 0)
           { %>
         <table>
@@ -75,10 +74,11 @@
                 </td>
                 <td>
                     <a title="Eliminar Patrocinante" href="<%=Url.Action("Delete", "Patrocinante", new {id = item.IdPatrocinante}, null)%>">
-                    <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
+                        <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
                 </td>
                 <td>
-                    <%: Html.ActionLink("Edit", "Edit", new {id=item.IdPatrocinante}) %>           
+                    <a title="Editar Categoria" href="<%=Url.Action("Edit", "Patrocinante", new {id = item.IdPatrocinante})%>">
+                        <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>           
                 </td>
       </tr>
       
@@ -93,12 +93,11 @@
           
 <%  } %>
    </fieldset>
-       <script type="text/javascript">
 
-           $(document).ready(function () {
-               $("input#patrocinante").autocomplete('<%= Url.Action("Find", "Patrocinante") %>');
-           }); 
-
-</script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input#patrocinante").autocomplete('<%= Url.Action("Find", "Patrocinante") %>');
+        }); 
+    </script>
 
 </asp:Content>

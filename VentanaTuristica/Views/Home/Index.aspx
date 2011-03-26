@@ -5,48 +5,43 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- 
-<div id="menucontainer">
-    <ul id="nav">         
-        <li><%: Html.ActionLink("Página principal", "Index", "Home")%></li>     
-        <% 
-        if (Model != null)
-        {
-            foreach (var item in Model)
-            {%>
-                <li><%:Html.ActionLink(item.Nombre, "About", "Home")%>
-                
-                <%
-                foreach (var subCategorium in item.SubCategoriums)
-                {%>
-                    <ul>
-                        <li><a href="#"><%: subCategorium.Nombre%></a></li>
-                    </ul>
-                    <%
-                }%>
-               
-                </li>
-            <%  }
-        } %>
-        
-    </ul>
+
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/jscroller2-1.61.js") %>"></script>
+
+<img src="../../Content/header-bg.jpg" style="width: 870px"/>
+
+<style>
+/* Scroller Box */
+#scroller_container1 {
+     width: 870px;
+     height: 200px;
+     overflow: hidden;
+    }
+
+    /* CSS Hack Safari */
+    #dummy {;# }
+
+    #scroller_container1 {
+    overflow: auto;
+    }
+    /* Scoller Box */
+</style>    
+
+<div id="scroller_container1">
+ <div class="jscroller2_left jscroller2_speed-50 jscroller2_ignoreleave jscroller2_mousemove jscroller2_dynamic" style="font-size:60px; line-height:60px; white-space:nowrap; margin: 0;">
+  <img src="../../Content/promo1.png" alt="">
+  <img src="../../Content/promo2.png" alt="">
+  <img src="../../Content/promo3.png" alt="">
+ </div>
+ <div class="jscroller2_left_endless" style="font-size:60px; line-height:60px; white-space:nowrap; margin: 0;">
+  <img src="../../Content/blanco.bmp" alt="">
+  <img src="../../Content/promo1.png" alt="">
+  <img src="../../Content/promo2.png" alt="">
+  <img src="../../Content/promo3.png" alt="">
+  <img src="../../Content/blanco.bmp" alt="">
+ </div>
 </div>
 
-<img src="../../Content/header-bg.jpg" style="width: 100%"/>
-
-<table style=" width:100%;">
-    <tr align="center" bottom="middle">
-        <td valign="middle">
-            <img src="../../Content/promo1.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/promo2.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/promo3.png"/>
-        </td>
-    </tr>
-</table>
 <table style=" width:100%;">
     <tr align="center" bottom="middle">
         <td valign="middle">
@@ -72,33 +67,4 @@
         </td>
     </tr>
 </table>
-
-
-    <!-- Load the Mootools Framework -->
-	<script src="http://www.google.com/jsapi"></script>
-    <script>        google.load("mootools", "1.2.1");</script>	
-	
-	<!-- Load the MenuMatic Class -->
-	<script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
-	
-	<!-- Create a MenuMatic Instance -->
-	<script type="text/javascript" >
-	    window.addEvent('domready', function () {
-	        var myMenu = new MenuMatic();
-	    });		
-	</script>
-	
-	<!-- begin google tracking code -->
-	 <script type="text/javascript">
-	     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-        var pageTracker = _gat._getTracker("UA-2180518-1");
-        pageTracker._initData();
-        pageTracker._trackPageview();
-    </script>
-	<!-- end google tracking code -->
-	
- 
 </asp:Content>

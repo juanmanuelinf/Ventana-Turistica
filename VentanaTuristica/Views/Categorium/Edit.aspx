@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Categorium>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Categorium>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Edit
+	Editar Categoria
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Edit</h2>
+    <h2></h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
-            <legend>Fields</legend>
+            <legend>Editar Categoria</legend>
             
              <div class="editor-label">
                 <%: Html.LabelFor(model => model.Nombre) %>
@@ -26,7 +26,7 @@
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
+                <%: Html.TextAreaFor(model => model.Descripcion) %>
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
@@ -46,16 +46,19 @@
                 <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
             
-            <p>
-                <input type="submit" value="Save" />
-            </p>
-        </fieldset>
+            <div>
+                <input type="submit" value="Actualizar" />
+            </div>
 
     <% } %>
 
-    <div>
-        <%: Html.ActionLink("Atras", "Index") %>
-    </div>
+    <br />
+        <table>
+            <td><a title="Categorias" href="<%=Url.Action("Index")%>">
+                <img src="<%=Url.Content("~/Content/atras.png")%>" height="25px" width="25px" /></a></td>
+            <td><%: Html.ActionLink("Categorias", "Index")%></td>
+        </table>
+    </fieldset>
 
 </asp:Content>
 

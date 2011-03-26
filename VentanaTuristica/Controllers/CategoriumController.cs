@@ -33,7 +33,7 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         } 
 
         //
@@ -106,6 +106,54 @@ namespace VentanaTuristica.Controllers
         public ActionResult Delete(int id, Categorium categorium)
         {
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Categorias()
+        {
+            IRepositorio<Categorium> repositorio = new CategoriumRepositorio();
+            IList<Categorium> todasCategorias = repositorio.GetAll();
+
+            IRepositorio<SubCategorium> repositorioS = new SubCategoriumRepositorio();
+            IList<SubCategorium> todasSubCategorias = repositorioS.GetAll();
+            IList<SubCategorium> listaSubCategorias = new List<SubCategorium>();
+
+            foreach (var categoria in todasCategorias)
+            {
+                foreach (var subCategoria in todasSubCategorias)
+                {
+                    if (subCategoria.IdCategoria == categoria.IdCategoria)
+                    {
+                        listaSubCategorias.Add(subCategoria);
+                    }
+                }
+                categoria.SubCategoriums = listaSubCategorias;
+                listaSubCategorias = new List<SubCategorium>();
+            }
+            return PartialView(todasCategorias);
+        }
+
+        public ActionResult Find(string q)
+        {
+            IRepositorio<Categorium> repoC = new CategoriumRepositorio();
+            IList<Categorium> categoriums = repoC.GetAll();
+            IList<Categorium> posiblesCategorias = new List<Categorium>();
+
+            foreach (var item in categoriums)
+            {
+                if (item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower()))
+                {
+                    posiblesCategorias.Add(item);
+                }
+            }
+            string[] emp = new string[posiblesCategorias.Count];
+            int i = 0;
+            foreach (var categoria in posiblesCategorias)
+            {
+                emp[i] = categoria.Nombre;
+                i++;
+            }
+
+            return Content(string.Join("\n", emp)); ;
         }
     }
 }

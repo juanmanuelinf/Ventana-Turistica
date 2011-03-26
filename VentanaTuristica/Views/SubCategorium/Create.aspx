@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.SubCategorium>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.SubCategorium>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Crear SubCategoria
+	Nueva SubCategoria
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Crear Nueva SubCategoria</h2>
+    <h2></h2>
 
     <% using (Html.BeginForm()) {%>
         <%: Html.ValidationSummary(true) %>
 
         <fieldset>
-            <legend>Datos</legend>
+            <legend>Nueva SubCategoria</legend>
             
              
             <div class="editor-label">
@@ -48,16 +48,19 @@
                 <%: Html.ValidationMessage("SubCategorium.Idioma", "*")%>
             </div>
            
-            <p>
-                <input type="submit" value="Crear" />
-            </p>
-        </fieldset>
+            <div>
+                <input type="submit" value="Aceptar" />
+            </div>
 
     <% } %>
 
-    <div>
-        <%: Html.ActionLink("Regresar", "Index") %>
-    </div>
+    <br />
+        <table>
+            <td><a title="SubCategorias" href="<%=Url.Action("Index")%>">
+                <img src="<%=Url.Content("~/Content/atras.png")%>" height="25px" width="25px" /></a></td>
+            <td><%: Html.ActionLink("SubCategorias", "Index")%></td>
+        </table>
+    </fieldset>
 
 </asp:Content>
 

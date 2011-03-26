@@ -133,12 +133,14 @@ input[type="password"]
 
 table 
 {
+  text-align: center;
   margin-left : auto;
   margin-right : auto;
 }
 
 table td 
 {
+  text-align: center;
   padding: 5px;   
 }
 
@@ -149,10 +151,6 @@ table th
   font-weight:bold;  
 }
 
-table td
-{
-    text-align: center;
-}
 
 /* VARIOS  
 ----------------------------------------------------------*/

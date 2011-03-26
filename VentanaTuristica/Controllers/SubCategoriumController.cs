@@ -139,5 +139,29 @@ namespace VentanaTuristica.Controllers
                 return View();
             }
         }
+
+        public ActionResult Find(string q)
+        {
+            IRepositorio<SubCategorium> repoS = new SubCategoriumRepositorio();
+            IList<SubCategorium> subCategoriums = repoS.GetAll();
+            IList<SubCategorium> posiblesCategorias = new List<SubCategorium>();
+
+            foreach (var item in subCategoriums)
+            {
+                if (item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower()))
+                {
+                    posiblesCategorias.Add(item);
+                }
+            }
+            string[] emp = new string[posiblesCategorias.Count];
+            int i = 0;
+            foreach (var categoria in posiblesCategorias)
+            {
+                emp[i] = categoria.Nombre;
+                i++;
+            }
+
+            return Content(string.Join("\n", emp)); ;
+        }
     }
 }

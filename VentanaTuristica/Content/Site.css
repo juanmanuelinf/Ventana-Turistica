@@ -97,6 +97,7 @@ ancho de página. O bien puede especificar un ancho de píxel exacto. */
     padding: 0;
     top: 0px;
     left: 0px;
+    width: 950px;
     height: 0px;
 }
 
@@ -123,7 +124,7 @@ ancho de página. O bien puede especificar un ancho de píxel exacto. */
 #footer
 {
     color: #999;
-    padding: 10px 0;
+    padding: 30px 0;
     text-align: center;
     line-height: normal;
     margin: 0;
@@ -156,6 +157,12 @@ input[type="text"]
 {
     width: 200px;
     border: 1px solid #CCC;
+}
+
+textarea
+{
+    width: 400px;
+    height: 100px;
 }
 
 input[type="password"] 
@@ -375,22 +382,22 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 
 /* Parent Sub Menu Links ---[javascript users only]*/
 .subMenuParentBtn{ 
-	background: url(../img/arrow_right.gif) right center no-repeat;  
+	background: url(../Content/arrow_right.gif) right center no-repeat;  
 }
 
 /* Parent Sub Menu Links on hover or focus ---[javascript users only]*/
 .subMenuParentBtnFocused{ 
-	background: url(../img/arrow_right_over.gif) right center no-repeat;  
+	background: url(../Content/arrow_right_over.gif) right center no-repeat;  
 }
 
 /* Parent Main Menu Links ---[javascript users only]*/
 .mainMenuParentBtn{	
-	 background: url(../img/arrow_down.gif) right center no-repeat; 
+	 background: url(../Content/arrow_down.gif) right center no-repeat; 
 }
 
 /* Parent Main Menu Links on hover or focus ---[javascript users only]*/
 .mainMenuParentBtnFocused{	
-	background: url(../img/arrow_down_over.gif) right center no-repeat; 
+	background: url(../Content/arrow_down_over.gif) right center no-repeat; 
 }
 
 /* ----[ OLs ULs, LIs, and DIVs ]----*/
@@ -444,10 +451,10 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 	display:block;
 	position: absolute;
 	list-style:none;
-	margin:100px 0 0 0;
+	margin:90px 0 0 0;
 	z-index:5;
 	top:15px;
-	right:200px;
+	right: 40px;
 	text-align: center;
 }
 

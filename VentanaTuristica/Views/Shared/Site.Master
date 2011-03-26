@@ -5,40 +5,54 @@
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link rel="SHORTCUT ICON" href="../../Content/logo.ico"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-    
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mvcjqueryuiexample.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
     <script type="text/javascript">
         $(document).ready(initialise);
     </script>
-
-
 </head>
 
 <body>
     <div class="page">
         <div id="header">
             <div id="title">
-                <img src="../../Content/logo.gif" />
+                <a href="localhost:1491" ><img src="../../Content/logo.gif" /></a>
             </div>
               
             <div id="logindisplay">
                 <% Html.RenderPartial("Services"); %>
             </div> 
+
+            <div id="menucontainer">
+                <% Html.RenderAction("Categorias","Categorium");%>
+            </div>        
         </div>
 
         <div id="main">
             
-            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
             <div id="footer">
+            Ventana Turistica &copy;
             </div>
         </div>
     </div>
 </body>
+    <!-- Load the Mootools Framework -->
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
+	
+	<!-- Load the MenuMatic Class -->
+	<script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
+	
+	<!-- Create a MenuMatic Instance -->
+	<script type="text/javascript" >
+	    window.addEvent('domready', function () {
+	        var myMenu = new MenuMatic();
+	    });		
+	</script>
 </html>

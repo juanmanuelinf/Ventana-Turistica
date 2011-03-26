@@ -1,16 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Empresa>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+	Gestion de Empresas
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Empresas</h2>
+    <h2></h2>
      
-       
-    
-      <% using (Html.BeginForm())
+    <% using (Html.BeginForm())
     {%>
         <fieldset>
         <legend>Buscar Empresa</legend>
@@ -31,13 +29,14 @@
         <legend>Empresas</legend>
    
     <table>
-    <tr> <th>Nueva Empresa</th> <th> <a title="Agregar Empresa" href="<%=Url.Action("Create", "Empresa")%>">
-     <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></th> </tr>
-        
-
-
-        </table>
-        <table>
+        <td> <a title="Agregar Empresa" href="<%=Url.Action("Create", "Empresa")%>">
+            <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></td>
+        <td><%: Html.ActionLink("Nueva Empresa", "Create", "Empresa")%></td> 
+    </table>
+    <br />
+    <%  if (Model.Count() != 0)
+        { %>
+    <table>
         <tr>
             <th>
                 Nombre
@@ -64,10 +63,8 @@
         </tr>
 
     <%foreach (var item in Model)
-      {
-          if (Model != null)
-          {%>
-     <tr>
+      { %>
+            <tr>
                 <td>
                     <%:item.Nombre%>
                 </td>
@@ -91,26 +88,28 @@
                 </td>
 
                 <td>
-                        <a title="Eliminar Cliente" href="<%=Url.Action("Delete", "Empresa", new {id = item.IdEmpresa}, null)%>">
+                    <a title="Eliminar Cliente" href="<%=Url.Action("Delete", "Empresa", new {id = item.IdEmpresa}, null)%>">
                         <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
+                </td>
+                <td>
+                    <a title="Editar Cliente" href="<%=Url.Action("Edit", "Empresa", new {id = item.IdEmpresa})%>">
+                    <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>         
                 </td>
       </tr>
       
-        <%}
-          else
-          {%> <h2>No Hay Empresas...</h2>
-          
-      <%
-          }
-      }%>
-      </table>
+        <% } %>
+      </table>   
+      <% }
+        else
+        {%> 
+            <h2>No Hay Empresas...</h2>  
+    <%  } %>
    </fieldset>
+ 
        <script type="text/javascript">
-
            $(document).ready(function () {
                $("input#empresa").autocomplete('<%= Url.Action("Find", "Empresa") %>');
            }); 
-
-</script>
+        </script>
 
 </asp:Content>
