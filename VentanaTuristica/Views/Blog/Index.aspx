@@ -89,7 +89,7 @@
    </fieldset>
    <script type="text/javascript">
        $(document).ready(function () {
-           $("input#entrada").autocomplete('<%= Url.Action("Find", "Categorium") %>');
+           $("input#entrada").autocomplete('<%= Url.Action("Find", "Blog") %>');
        }); 
     </script>
 </asp:Content>

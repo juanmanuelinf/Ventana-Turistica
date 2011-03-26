@@ -81,5 +81,29 @@ namespace VentanaTuristica.Controllers
             myRepoServicio.Delete(servicio);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Find(string q)
+        {
+            IRepositorio<Servicio> repoS = new ServicioRepositorio();
+            IList<Servicio> servicios = repoS.GetAll();
+            IList<Servicio> posiblesServicios = new List<Servicio>();
+
+            foreach (var item in servicios)
+            {
+                if (item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower()))
+                {
+                    posiblesServicios.Add(item);
+                }
+            }
+            string[] emp = new string[posiblesServicios.Count];
+            int i = 0;
+            foreach (var servicio in posiblesServicios)
+            {
+                emp[i] = servicio.Nombre;
+                i++;
+            }
+
+            return Content(string.Join("\n", emp)); ;
+        }
     }
 }
