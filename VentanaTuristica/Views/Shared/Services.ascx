@@ -5,4 +5,8 @@
 <br />
 <div style="margin-right:50px">
     <img src="<%=Url.Content("~/Content/iconos.png")%>"/>
-</div>
+    <a title="Ingles" href="<%=Url.Action("Ingles", "Home")%>">
+        <img src="<%=Url.Content("~/Content/ingles.png")%>" /></a>  
+    <a title="Español" href="<%=Url.Action("Espanol", "Home")%>">
+        <img src="<%=Url.Content("~/Content/espanol.png")%>" /></a>
+</div>,

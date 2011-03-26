@@ -155,11 +155,13 @@
     <Content Include="Content\default.css" />
     <Content Include="Content\editar.png" />
     <Content Include="Content\eliminar.png" />
+    <Content Include="Content\espanol.PNG" />
     <Content Include="Content\fondoTabla.png" />
     <Content Include="Content\fondoTitulo2Tabla.png" />
     <Content Include="Content\header-bg.jpg" />
     <Content Include="Content\iconos.PNG" />
     <Content Include="Content\indicator.gif" />
+    <Content Include="Content\ingles.PNG" />
     <Content Include="Content\logo.gif" />
     <Content Include="Content\logo.ico" />
     <Content Include="Content\logoPromo1.PNG" />
