@@ -57,6 +57,9 @@ namespace VentanaTuristica.Controllers
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoImagene = new ImageneRepositorio();
             var myRepoServicioP = new PublicacionServicioRepositorio();
+            var myRepoCat = new CategoriumRepositorio();
+            var myRepoSubCat = new SubCategoriumRepositorio();
+            var myRepoEmpresa = new EmpresaRepositorio();
             var myRepoServicio = new ServicioRepositorio();
             var myRepoIdioma = new IdiomaRepositorio();
             var p = myRepoPublicacion.GetById(id);
@@ -84,6 +87,9 @@ namespace VentanaTuristica.Controllers
                         p.Servicios.Add(myRepoServicio.GetById(servicio.IdServicio));
                     }
                 }
+                p.Empresa = myRepoEmpresa.GetById(p.IdEmpresa);
+                p.SubCategorium = myRepoSubCat.GetById(p.IdSubCategoria);
+                p.Categorium = myRepoCat.GetById(p.SubCategorium.IdCategoria);
                 return View(p);
             }
             return RedirectToAction("Index");
@@ -132,13 +138,21 @@ namespace VentanaTuristica.Controllers
         [HttpPost]
         public ActionResult Create(Publicacion p,FormCollection collection)
         {
+            //Empresa
             var nombreEmpresa =collection[0];
+            if(String.IsNullOrEmpty(nombreEmpresa))
+            {   
+                ModelState.AddModelError("NombreE","Nombre Empresa es Necesario");
+                return View(p);
+            }
             var repoEmp = new EmpresaRepositorio();
             var listaEmp = repoEmp.GetAll();
             foreach (var empresa in listaEmp.Where(empresa => empresa.Nombre == nombreEmpresa))
             {
                 p.IdEmpresa = empresa.IdEmpresa;
             }
+            //fin Empresa
+            //Sub Categoria
             var repoSub = new SubCategoriumRepositorio();
             var listaSub = repoSub.GetAll();
             var subCategorias =p.SubCategorium.Nombre.Split('-');
@@ -149,8 +163,10 @@ namespace VentanaTuristica.Controllers
             {
                 p.IdSubCategoria = subCategorium.IdSubCategoria;
             }
+            //fin Sub Categoria
             var repoPubli = new PublicacionRepositorio();
             var idPublicacion =repoPubli.Save(p);
+            //Servicios
             var misServicios = new List<Servicio>(p.Servicios);
             foreach (var misServicio in misServicios)
             {
@@ -163,7 +179,8 @@ namespace VentanaTuristica.Controllers
                 var repoPubSer = new PublicacionServicioRepositorio();
                 repoPubSer.Save(pB);
             }
-            Session["IdPublicacion"] = idPublicacion;
+            //fin Servicios
+            //Idioma 
             var repoIdioma = new IdiomaRepositorio();
             var idioma = p.Idioma[0];
             idioma.IdPublicacion = idPublicacion;
@@ -176,14 +193,18 @@ namespace VentanaTuristica.Controllers
                 idioma.Categoria = p.Idioma[1].Categoria;
                 repoIdioma.Save(idioma);
             }
+            //fin Idioma
+            //Session para las fotos
+            Session["IdPublicacion"] = idPublicacion;
+
            return RedirectToAction("Upload");
           
         }
         
         //
         // GET: /Publicacion/Edit/5
- 
-        public ActionResult Edit(int id)
+        [ChildActionOnly]
+        public ActionResult Edit()
         {
             return View();
         }

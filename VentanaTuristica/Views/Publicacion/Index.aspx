@@ -86,7 +86,7 @@
        }%>
       </table>
    </fieldset>
-       <script type="text/javascript">
+<script type="text/javascript">
 
            $(document).ready(function () {
                $("input#publicacion").autocomplete('<%= Url.Action("Find", "Publicacion") %>');
