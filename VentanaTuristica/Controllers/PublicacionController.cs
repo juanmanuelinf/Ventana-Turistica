@@ -176,7 +176,7 @@ namespace VentanaTuristica.Controllers
             //fin Sub Categoria
             var repoPubli = new PublicacionRepositorio();
             var idPublicacion =repoPubli.Save(p);
-            //Servicios
+            //Servicios 
             var misServicios = new List<Servicio>(p.Servicios);
             foreach (var misServicio in misServicios)
             {
@@ -217,6 +217,56 @@ namespace VentanaTuristica.Controllers
         [ChildActionOnly]
         public ActionResult Edit()
         {
+            return View();
+        }
+
+        public ActionResult Lista(int pagActual)
+        {
+            var myRepoPublicacion = new PublicacionRepositorio();
+            IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
+            IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
+            var nroPaginas = listaPub.Count%12;
+            
+            IList<Publicacion> listaPubAux = new List<Publicacion>();
+            var cont = 0;
+            var cont2 = 0;
+            foreach (var publicacion in listaPub)
+            {
+                var myRepoIma = new ImageneRepositorio();
+                var listaImagen = myRepoIma.GetAll();
+                foreach (var imagene in listaImagen)
+                {
+                    if(imagene.IdPublicacion==publicacion.IdPublicacion)
+                    {
+                        publicacion.Imagen = imagene;
+                        break;
+                    }
+                }
+                cont++;
+                cont2++;
+                if(cont<13)
+                {
+                    listaPubAux.Add(publicacion);
+                }
+                else
+                {
+                    listaDeLista.Add(listaPubAux);
+                    listaPubAux = new List<Publicacion>();
+                    listaPubAux.Add(publicacion);
+                    cont = 0;
+                }
+                if(cont2==listaPub.Count && cont <13)
+                {
+                    listaDeLista.Add(listaPubAux);
+                }
+            }
+            if(pagActual <= listaDeLista.Count && pagActual>0)
+            {
+                ViewData["nroPaginas"] = nroPaginas;
+                ViewData["pagActual"] = pagActual;
+                ViewData["cuenta"] = listaDeLista[pagActual-1].Count;
+                return View(listaDeLista[pagActual-1]);
+            }
             return View();
         }
 
