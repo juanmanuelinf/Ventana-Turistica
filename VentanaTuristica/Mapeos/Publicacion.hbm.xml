@@ -6,12 +6,17 @@
 		</id>
 		<property name="Efectivo" column="`Efectivo`" length="1" />
 		<property name="IdEmpresa" column="`IdEmpresa`" />
-		<property name="IdSubCategoria" column="`IdSubCategoria`" />
+    <property name="IdSubCategoria" column="`IdSubCategoria`" />
 		<property name="Latitud" column="`Latitud`" length="50" />
 		<property name="Longitud" column="`Longitud`" length="50" />
 		<property name="Reservacion" column="`Reservacion`" length="1" />
 		<property name="Tcredito" column="`TCredito`" length="1" />
 		<property name="Tdebito" column="`TDebito`" length="1" />
 		<property name="Transferencia" column="`Transferencia`" length="1" />
+    <property name="Nombre" column="`Nombre`" length="100" />
+    <property name="Pais" column="`Pais`" length="100" />
+    <property name="Estado" column="`Estado`" length="100" />
+    <property name="Ciudad" column="`Ciudad`" length="100" />
+    <property name="Direccion" column="`Direccion`" />
 	</class>
 </hibernate-mapping>
