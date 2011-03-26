@@ -491,3 +491,92 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 #nav li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
 #nav li:hover a:focus{ margin-left: 0; }
 #nav li li:hover a:focus + ul { margin-left: 10em; }
+
+
+
+/*Estilos Tabla Publicacion*/
+
+.tituloTabla
+{
+     color:#D11221;
+     font-size:20px;
+     border-style: none none solid none; 
+     font-weight: bold;
+     font-family:Arial;
+     border-width: 2px; 
+     border-color: #C0C0C0; 
+     margin-right: auto;
+     width: 400px;
+}
+.tituloTabla2
+{
+    background-position: top;
+    color: #F63D1D;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial;
+    margin-right: auto;
+    width: 448px;
+    background-image: url(fondoTitulo2Tabla.png);
+    background-repeat: no-repeat;
+}
+.contenidoTabla
+{
+    color: black;
+    font-family: Arial;
+    border-style: none none solid none;
+    border-width: 2px;
+    border-color: #C0C0C0;
+    margin-right: auto;
+    font-size: 14px;
+    font-style: italic;
+}
+    
+.tablaPubli
+{
+    background-position: right bottom;
+    background-image: url("fondoTabla.png");
+    height: 250px;
+    background-repeat: no-repeat;
+}
+
+.contenidoServiciosTabla
+{
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    margin-right: auto;
+    font-size: 12px;
+    vertical-align:top;
+    width: 448px;
+}
+
+.contenidoDescripcionTabla
+{
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+    margin-right: auto;
+    font-size: 12px;
+    width: 450px;
+    text-align: justify;
+}
+.contenidoNotasTabla
+{
+    color:black;
+    font-size:12px;
+    font-weight: bold;
+    font-family:Arial;
+    margin-right: auto;
+    width: 450px;
+    text-align: justify;
+}
+.barraPubli
+{
+    background-position: right bottom;
+    background-image: url(barraPublicacion.png);
+    width: 920px;
+    height: 45px;
+    background-repeat: no-repeat;
+}
+
