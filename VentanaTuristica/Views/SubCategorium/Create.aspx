@@ -27,7 +27,7 @@
                 <%: Html.Label("SubCategorium.Descripcion")%>
             </div>
             <div class="editor-field">
-                <%: Html.TextBox("SubCategorium.Descripcion")%>
+                <%: Html.TextArea("SubCategorium.Descripcion")%>
                 <%: Html.ValidationMessage("SubCategorium.Descripcion","*")%>
             </div>
 
@@ -49,7 +49,7 @@
             </div>
            
             <div>
-                <input type="submit" value="Aceptar" />
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Aceptar" />
             </div>
 
     <% } %>

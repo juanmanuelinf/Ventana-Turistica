@@ -15,10 +15,18 @@
             <legend>Nuevo Servicio</legend>
             
             <div class="editor-label">
+                <%: Html.LabelFor(model => model.Nombre) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBox("Servicio.Nombre")%>
+                <%: Html.ValidationMessage("Servicio.Nombre")%>
+            </div>
+            
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBox("Servicio.Descripcion") %>
+                <%: Html.TextArea("Servicio.Descripcion") %>
                 <%: Html.ValidationMessage("Servicio.Descripcion")%>
             </div>
             
@@ -29,15 +37,7 @@
                 <%= Html.DropDownList("Servicio.Idioma")%>
                 <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Nombre) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBox("Servicio.Nombre")%>
-                <%: Html.ValidationMessage("Servicio.Nombre")%>
-            </div>
-            
+
             <div class="editor-label">
                 <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Aceptar" />
             </div>

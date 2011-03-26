@@ -148,7 +148,7 @@
 
 
         <div class="editor-label">
-                    <input type="submit" value="Registrar" />
+                    <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Aceptar" />
                 </div>
             
         </fieldset>

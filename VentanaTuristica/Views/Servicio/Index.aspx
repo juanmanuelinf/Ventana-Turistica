@@ -39,13 +39,13 @@
     <table>
         <tr>
             <th>
+                Nombre
+            </th>
+            <th>
                 Descripcion
             </th>
             <th>
                 Idioma
-            </th>
-            <th>
-                Nombre
             </th>
         </tr>
 
@@ -53,13 +53,13 @@
     
         <tr>
             <td>
+                <%: item.Nombre %>
+            </td>
+            <td>
                 <%: item.Descripcion %>
             </td>
             <td>
                 <%: item.Idioma %>
-            </td>
-            <td>
-                <%: item.Nombre %>
             </td>
             <td>
                 <a title="Eliminar Servicio" href="<%=Url.Action("Delete", "Servicio", new {id = item.IdServicio}, null)%>">

@@ -39,9 +39,9 @@
             </div>
             <input type="hidden" name="FkIdSubCategoria" value="<%: Model.FkIdCategoria %>" />
             <input type="hidden" name="IdCategoria" value="<%: Model.IdCategoria %>" />
-            
+            <input type="hidden" name="Idioma" value="<%: Model.Idioma %>" />
             <div>
-                <input type="submit" value="Actualizar" />
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Actualizar" />
             </div>
 
     <% } %>

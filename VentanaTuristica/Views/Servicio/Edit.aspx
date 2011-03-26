@@ -15,10 +15,17 @@
             <legend>Editar Servicio</legend>
             
             <div class="editor-label">
+                <%: Html.LabelFor(model => model.Nombre) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.Nombre) %>
+                <%: Html.ValidationMessageFor(model => model.Nombre) %>
+            </div>
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
+                <%: Html.TextAreaFor(model => model.Descripcion) %>
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
@@ -29,17 +36,9 @@
                 <%: Html.DisplayFor(model => model.Idioma)%>
                 <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Nombre) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Nombre) %>
-                <%: Html.ValidationMessageFor(model => model.Nombre) %>
-            </div>
             <input type="hidden" name="FkIdServicio" value="<%: Model.FkIdServicio %>" />
             <input type="hidden" name="IdServicio" value="<%: Model.IdServicio %>" />
-            
+            <input type="hidden" name="Idioma" value="<%: Model.Idioma %>" />
             <div>
                 <input type="submit" value="Actualizar" />
             </div>

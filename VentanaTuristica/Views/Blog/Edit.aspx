@@ -22,14 +22,7 @@
                 <%: Html.TextBoxFor(model => model.Titulo) %>
                 <%: Html.ValidationMessageFor(model => model.Titulo) %>
             </div>
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Descripcion) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
-                <%: Html.ValidationMessageFor(model => model.Descripcion) %>
-            </div>
-            
+
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Fecha) %>
             </div>
@@ -37,17 +30,18 @@
                 <%: Html.TextBoxFor(model => model.Fecha, String.Format("{0:g}", Model.Fecha)) %>
                 <%: Html.ValidationMessageFor(model => model.Fecha) %>
             </div>
-            
+
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.IdBlog) %>
+                <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.IdBlog) %>
-                <%: Html.ValidationMessageFor(model => model.IdBlog) %>
+                <%: Html.TextAreaFor(model => model.Descripcion) %>
+                <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
+            <input type="hidden" name="IdBlog" value="<%: Model.IdBlog %>" />
             <div>
-                <input type="submit" value="Actualizar" />
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Actualizar" />
             </div>
 
     <% } %>

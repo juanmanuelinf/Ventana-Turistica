@@ -42,6 +42,8 @@ namespace VentanaTuristica.Controllers
                 myRepoServicio.Save(servicio);
                 return RedirectToAction("Index");
             }
+            IEnumerable<string> items = new string[] { "Ingles", "Español" };
+            ViewData["Servicio.Idioma"] = new SelectList(items);
             return View(servicio);
         }
         
@@ -63,7 +65,7 @@ namespace VentanaTuristica.Controllers
             if (ModelState.IsValid)
             {
                 IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();
-                myRepoServicio.Save(servicio);
+                myRepoServicio.Update(servicio);
                 return RedirectToAction("Index");
             }
             return View(servicio);
@@ -74,25 +76,10 @@ namespace VentanaTuristica.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        //
-        // POST: /Servicio/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();
+            var servicio = myRepoServicio.GetById(id);
+            myRepoServicio.Delete(servicio);
+            return RedirectToAction("Index");
         }
     }
 }

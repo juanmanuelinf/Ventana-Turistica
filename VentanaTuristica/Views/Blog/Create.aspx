@@ -31,6 +31,14 @@
             </div>
 
             <div class="editor-label">
+                <%: Html.LabelFor(model => model.Fecha) %>
+            </div>
+            <div class="editor-field">
+                <%: Html.TextBoxFor(model => model.Fecha,new { @class = "text-box" }) %>
+                <%: Html.ValidationMessageFor(model => model.Fecha) %>
+            </div>
+            
+            <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
           
@@ -39,16 +47,8 @@
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Fecha) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Fecha,new { @class = "text-box" }) %>
-                <%: Html.ValidationMessageFor(model => model.Fecha) %>
-            </div>
-            
             <div>
-                <input type="submit" value="Aceptar" />
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Aceptar" />
             </div>
 
     <% } %>

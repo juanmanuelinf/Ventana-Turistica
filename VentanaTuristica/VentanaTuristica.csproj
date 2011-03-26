@@ -97,10 +97,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CategoriumController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatrocinanteController.cs" />
     <Compile Include="Controllers\PublicacionController.cs" />
+    <Compile Include="Controllers\ServicioController.cs" />
     <Compile Include="Controllers\SubCategoriumController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -122,8 +125,8 @@
     <Compile Include="Model\Telefono.cs" />
     <Compile Include="Model\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\CategoriumRepositorio.cs" />
     <Compile Include="Repositorios\ContactoRepositorio.cs" />
-    <Compile Include="Repositorios\CategoriaRepositorio.cs" />
     <Compile Include="Repositorios\CarpetaRepositorio.cs" />
     <Compile Include="Repositorios\BlogRepositorio.cs" />
     <Compile Include="Repositorios\PublicacionServicioRepositorio.cs" />
@@ -141,13 +144,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\agregar.png" />
+    <Content Include="Content\arrow_down.gif" />
+    <Content Include="Content\arrow_down_over.gif" />
+    <Content Include="Content\arrow_right.gif" />
+    <Content Include="Content\arrow_right_over.gif" />
+    <Content Include="Content\atras.png" />
+    <Content Include="Content\barraPublicacion.png" />
+    <Content Include="Content\blanco.bmp" />
     <Content Include="Content\buscar.png" />
     <Content Include="Content\default.css" />
+    <Content Include="Content\editar.png" />
     <Content Include="Content\eliminar.png" />
+    <Content Include="Content\fondoTabla.png" />
+    <Content Include="Content\fondoTitulo2Tabla.png" />
     <Content Include="Content\header-bg.jpg" />
     <Content Include="Content\iconos.PNG" />
     <Content Include="Content\indicator.gif" />
     <Content Include="Content\logo.gif" />
+    <Content Include="Content\logo.ico" />
+    <Content Include="Content\logoPromo1.PNG" />
+    <Content Include="Content\logoPromo2.PNG" />
+    <Content Include="Content\logoPromo3.PNG" />
+    <Content Include="Content\logoPromo4.PNG" />
+    <Content Include="Content\logoPromo5.PNG" />
+    <Content Include="Content\logoPromo6.PNG" />
+    <Content Include="Content\logoPromo7.PNG" />
     <Content Include="Content\promo1.png" />
     <Content Include="Content\promo2.png" />
     <Content Include="Content\promo3.png" />
@@ -182,15 +203,26 @@
     <Content Include="Scripts\jquery.ui.datepicker-es.js" />
     <Content Include="Scripts\jquery.ui.datepicker.js" />
     <Content Include="Scripts\mvcjqueryuiexample.js" />
+    <Content Include="Views\Blog\Create.aspx" />
+    <Content Include="Views\Blog\Edit.aspx" />
+    <Content Include="Views\Blog\Index.aspx" />
+    <Content Include="Views\Categorium\Categorias.aspx" />
     <Content Include="Views\Categorium\Create.aspx" />
     <Content Include="Views\Categorium\Edit.aspx" />
     <Content Include="Views\Categorium\Index.aspx" />
     <Content Include="Views\Empresa\Create.aspx" />
     <Content Include="Views\Empresa\Index.aspx" />
+    <Content Include="Views\Patrocinante\Create.aspx" />
+    <Content Include="Views\Patrocinante\Edit.aspx" />
+    <Content Include="Views\Patrocinante\Index.aspx" />
     <Content Include="Views\Publicacion\Create.aspx" />
     <Content Include="Views\Publicacion\Details.aspx" />
+    <Content Include="Views\Publicacion\Edit.aspx" />
     <Content Include="Views\Publicacion\Index.aspx" />
     <Content Include="Views\Publicacion\Upload.aspx" />
+    <Content Include="Views\Servicio\Create.aspx" />
+    <Content Include="Views\Servicio\Edit.aspx" />
+    <Content Include="Views\Servicio\Index.aspx" />
     <Content Include="Views\SubCategorium\Create.aspx" />
     <Content Include="Views\SubCategorium\Edit.aspx" />
     <Content Include="Views\SubCategorium\Index.aspx" />

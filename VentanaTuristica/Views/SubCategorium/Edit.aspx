@@ -26,7 +26,7 @@
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
+                <%: Html.TextAreaFor(model => model.Descripcion) %>
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             
@@ -40,9 +40,10 @@
             <input type="hidden" name="FkIdSubCategoria" value="<%: Model.FkIdSubCategoria %>" />
             <input type="hidden" name="IdCategoria" value="<%: Model.IdCategoria %>" />
             <input type="hidden" name="IdSubCategoria" value="<%: Model.IdSubCategoria %>" />
-            
+            <input type="hidden" name="Idioma" value="<%: Model.Idioma %>" />
+
             <div>
-                <input type="submit" value="Actualizar" />
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Actualizar" />
             </div>
 
     <% } %>
