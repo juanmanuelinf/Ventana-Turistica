@@ -1,10 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Categorium>>" %>
+<%@ Import Namespace="Resources" %>
+  
+  <script runat="server">
+      protected override void InitializeCulture()
+      {
+          base.InitializeCulture();
+          if (Session["culture"] != null)
+          {
+              Culture = Session["culture"].ToString();
+              UICulture = Session["culture"].ToString();
+          }
+      }
+   
+</script>
 
     <ul id="nav">         
         <li><%: Html.ActionLink("Bio", "Index", "Home")%>
         <ul>
-        <li><%: Html.ActionLink("Quienes somos?", "Index", "Home")%></li>
-        <li><%: Html.ActionLink("Contactenos...", "Index", "Home")%></li>
+        <li><%: Html.ActionLink(ResourceEmpresa.BioUs, "Index", "Home")%></li>
+        <li><%: Html.ActionLink(ResourceEmpresa.BioContac, "Index", "Home")%></li>
         </ul>
         </li>     
         <% 

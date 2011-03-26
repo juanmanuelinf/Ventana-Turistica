@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using VentanaTuristica.Model;
 using VentanaTuristica.Repositorios;
 
@@ -10,8 +11,9 @@ namespace VentanaTuristica.Controllers
 {
     public class CategoriumController : Controller
     {
-        //
-        // GET: /Categorium/
+
+      //
+      // GET: /Categorium/
 
         public ActionResult Index()
         {
@@ -111,26 +113,33 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Categorias()
         {
+
+            if (Session["culture"] == null)
+                Session["culture"] = "es-MX";
             IRepositorio<Categorium> repositorio = new CategoriumRepositorio();
             IList<Categorium> todasCategorias = repositorio.GetAll();
-
+            IList<Categorium> todasCategoriasVistas = new List<Categorium>();
             IRepositorio<SubCategorium> repositorioS = new SubCategoriumRepositorio();
             IList<SubCategorium> todasSubCategorias = repositorioS.GetAll();
             IList<SubCategorium> listaSubCategorias = new List<SubCategorium>();
 
             foreach (var categoria in todasCategorias)
             {
-                foreach (var subCategoria in todasSubCategorias)
+                if (categoria.Idioma == Session["culture"].ToString())
                 {
-                    if (subCategoria.IdCategoria == categoria.IdCategoria)
+                    foreach (var subCategoria in todasSubCategorias)
                     {
-                        listaSubCategorias.Add(subCategoria);
+                        if (subCategoria.IdCategoria == categoria.IdCategoria)
+                        {
+                            listaSubCategorias.Add(subCategoria);
+                        }
                     }
+                    categoria.SubCategoriums = listaSubCategorias;
+                    listaSubCategorias = new List<SubCategorium>();
+                    todasCategoriasVistas.Add(categoria);
                 }
-                categoria.SubCategoriums = listaSubCategorias;
-                listaSubCategorias = new List<SubCategorium>();
             }
-            return PartialView(todasCategorias);
+            return PartialView(todasCategoriasVistas);
         }
 
         public ActionResult Find(string q)

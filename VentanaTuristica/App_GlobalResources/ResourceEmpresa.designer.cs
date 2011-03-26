@@ -61,7 +61,25 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search.
+        ///   Busca una cadena traducida similar a Contactanos.
+        /// </summary>
+        internal static string BioContac {
+            get {
+                return ResourceManager.GetString("BioContac", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Quienes somos?.
+        /// </summary>
+        internal static string BioUs {
+            get {
+                return ResourceManager.GetString("BioUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Buscar.
         /// </summary>
         internal static string ButtonSearch {
             get {
@@ -70,7 +88,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Companies.
+        ///   Busca una cadena traducida similar a Empresas.
         /// </summary>
         internal static string Companies {
             get {
@@ -79,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Name.
+        ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
         internal static string Name {
             get {
@@ -88,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a New Company.
+        ///   Busca una cadena traducida similar a Nueva Empresa.
         /// </summary>
         internal static string NewCompanie {
             get {
@@ -97,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Search company.
+        ///   Busca una cadena traducida similar a Buscar empresa.
         /// </summary>
         internal static string Search {
             get {
@@ -106,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Company.
+        ///   Busca una cadena traducida similar a Empresa.
         /// </summary>
         internal static string Title {
             get {
