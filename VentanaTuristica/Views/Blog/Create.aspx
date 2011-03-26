@@ -40,7 +40,7 @@
             </div>
           
             <div class="editor-field" Height="110px" Width="275px">
-                <%: Html.TextBoxFor(model => model.Descripcion) %>
+                <%: Html.TextAreaFor(model => model.Descripcion) %>
                 <%: Html.ValidationMessageFor(model => model.Descripcion) %>
             </div>
             

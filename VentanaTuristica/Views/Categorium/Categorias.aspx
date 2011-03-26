@@ -8,16 +8,27 @@
             foreach (var item in Model)
             {%>
                 <li><%:Html.ActionLink(item.Nombre, "Index", "Home")%>
-                
+                    
                 <%
+                if (item.SubCategoriums.Count != 0)
+                {
+                    %>
+                    <ul>
+                    <%
+                }
                 foreach (var subCategorium in item.SubCategoriums)
                 {%>
-                    <ul>
+                    
                         <li><%:Html.ActionLink(subCategorium.Nombre, "Index", "Home")%></li>
+                    
+                    <%
+                }
+                if (item.SubCategoriums.Count != 0)
+                {
+                    %>
                     </ul>
                     <%
                 }%>
-               
                 </li>
             <%  }
         } %>
