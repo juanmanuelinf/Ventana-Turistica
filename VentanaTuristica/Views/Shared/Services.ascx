@@ -9,4 +9,4 @@
         <img src="<%=Url.Content("~/Content/ingles.png")%>" /></a>  
     <a title="Español" href="<%=Url.Action("Espanol", "Home")%>">
         <img src="<%=Url.Content("~/Content/espanol.png")%>" /></a>
-</div>,
+</div>
