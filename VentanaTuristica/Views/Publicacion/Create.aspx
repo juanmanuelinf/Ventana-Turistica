@@ -7,6 +7,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+ <h2></h2>
   <% using (Html.BeginForm()) {%>
         <%= Html.ValidationSummary(true,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
 
@@ -24,11 +25,51 @@
             </div>
          </fieldset>
 
+         <fieldset>
+        <legend>Datos de la Publicacion:</legend>
+         <label for="Nombre"> Nombre de la Publicacion:</label>
+         <input  type="text" id= "Text2" name="Nombre"/>
 
         <div class="editor-label">
-            <label for="Servicios"> Servicios:</label>
+        <label for="Descripcion"> Descripcion:</label>
+        </div>
+        <div class="editor-field">
+        <textarea name="Idioma[0].Descripcion" rows="3" cols="45" ></textarea>
         </div>
 
+        <div class="editor-label">
+        <label for="Direccion"> Direccion:</label>
+        </div>
+        <div class="editor-field">
+        <textarea name="Direccion" rows="3" cols="45" ></textarea>
+        </div>
+         </fieldset>
+
+        <fieldset>
+            <legend>Categorias:</legend>
+            <div class="editor-field">
+            <%= Html.DropDownList("SubCategorium.Nombre") %>
+            <%= Html.ValidationMessage("SubCategorium.Nombre", "*")%>
+        </div>
+        </fieldset>
+       
+        
+
+
+        <fieldset>
+        <legend>Categoria:</legend>
+         <div class="editor-field">
+            <%= Html.DropDownList("Idioma[0].Categoria") %>
+            <%= Html.ValidationMessage("Idioma[0].Categoria", "*")%>
+         </div>
+
+        <label for="Otra"> Otra:</label>
+        <input  type="text" id= "Text1" name="Idioma[1].Categoria"/>
+        </fieldset>
+
+
+        <fieldset>
+        <legend>Servicios:</legend>
          <div class="editor-label">
         <%for (int i = 0; i < Model.Count(); i++)
         {%>
@@ -37,10 +78,11 @@
       <input  type="hidden"  name="Servicios[<%=i%>].Nombre" value="<%=Model[i].Nombre %>" />
      <%}%>
        </div>
-        
-        <div class="editor-label">
-            <label for="Servicios"> Metodos de Pago:</label>
-        </div>
+        </fieldset>
+
+        <fieldset>
+        <legend>Metodos de Pago:</legend>
+       
         <div class="editor-field">
         <label name="Efectivo" id="Efectivo1">Efectivo</label>
         <input  type="checkbox" id= "Efectivo" name="Efectivo" value="S" />
@@ -57,32 +99,22 @@
         <label name="Reservacion" id="Reservacion">Reservacion</label>
         <input  type="checkbox" id= "Reservacion1" name="Reservacion" value="S" />
          </div>
+         </fieldset>
 
-         <div class="editor-label">
-            <label for="Coordenadas"> Coordenadas:</label>
-        </div>
 
+         <fieldset>
+        <legend>Coordenadas:</legend>
         <div class="editor-field">
         <label for="Latitud"> Latitud:</label>
          <input  type="text" id= "Latitud" name="Latitud"/>
          <label for="Longitud"> Longitud:</label>
          <input  type="text" id= "Longitud" name="Longitud"/>
         </div>
+          </fieldset>
         
-        <div class="editor-label">
-            <label for="SubCategorium.Nombre"> Categorias:</label>
-        </div>
-        <div class="editor-field">
-            <%= Html.DropDownList("SubCategorium.Nombre") %>
-            <%= Html.ValidationMessage("SubCategorium.Nombre", "*")%>
-        </div>
-
-
-        <div class="editor-label">
-            <label for="Coordenadas"> Precios:</label>
-        </div>
-
-        <div class="editor-field">
+        <fieldset>
+        <legend>Precios:</legend>
+         <div class="editor-field">
         <label for="TBaja"> Temporada Baja:</label>
         <label for="PrecioMinTb"> Min:</label>
         <input  type="text" id= "Precio[0].PrecioMin" name="Precio[0].PrecioMin"/>
@@ -97,28 +129,7 @@
         <label for="PrecioMaxTa"> Max:</label>
         <input  type="text" id= "Precio[1].PrecioMax" name="Precio[1].PrecioMax"/>
         </div>
-
-        <div class="editor-field">
-       
-
-       <div class="editor-label">
-            <label for="Coordenadas"> Categoria:</label>
-        </div>
-        <div class="editor-field">
-            <%= Html.DropDownList("Idioma[0].Categoria") %>
-            <%= Html.ValidationMessage("Idioma[0].Categoria", "*")%>
-        </div>
-
-        <label for="Otra"> Otra:</label>
-        <input  type="text" id= "Text1" name="Idioma[1].Categoria"/>
-        </div>
-
-        <div class="editor-label">
-            <label for="Coordenadas"> Descripcion:</label>
-        </div>
-        <div class="editor-field">
-        <textarea name="Idioma[0].Descripcion" rows="5" cols="45" ></textarea>
-        </div>
+        </fieldset>
 
         <div class="editor-label">
             <label for="Coordenadas"> Notas:</label>
@@ -153,5 +164,3 @@
 </script>
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="HeaderContent" runat="server">
-</asp:Content>
