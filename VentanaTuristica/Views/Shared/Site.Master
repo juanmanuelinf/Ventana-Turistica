@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
@@ -30,19 +30,10 @@
             <div id="logindisplay">
                 <% Html.RenderPartial("Services"); %>
             </div> 
-            
-            <div id="menucontainer">
-                <ul id="menu">              
-                    <li><%: Html.ActionLink("Página principal", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("Acerca de", "About", "Home")%></li>
-                </ul>
-            
-            </div>
         </div>
 
         <div id="main">
             
-            <img src="../../Content/header-bg.jpg" style="width: 100%"/>
             <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
             <div id="footer">
