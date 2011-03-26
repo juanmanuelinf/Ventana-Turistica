@@ -1,13 +1,42 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Blog>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Blog>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Index
+	Entradas del blog
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Index</h2>
+    <h2></h2>
 
+    <% using (Html.BeginForm())
+    {%>
+        <fieldset>
+        <legend>Buscar Entrada blog</legend>
+            
+            <div class="editor-label">
+                <label for="Nombre">Nombre:</label>
+            </div>
+            <div class="editor-field">
+                <%= Html.TextBox("entrada",null, new { @class = "text-box" })%>
+            </div>
+            <div class="editor-label">
+                <input type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only ui-state-hover" value="Buscar"/>
+            </div>
+         </fieldset>
+     <%
+    }%>
+
+    <fieldset>
+    <legend>Entradas del blog</legend>
+
+    <table>
+        <td> <a title="Agregar entrada" href="<%=Url.Action("Create", "Blog")%>">
+            <img src="<%=Url.Content("~/Content/agregar.png")%>" height="25px" width="25px" /></a></td>
+        <td><%: Html.ActionLink("Nueva Entrada al Blog", "Create", "Blog")%></td> 
+    </table>
+    <br />
+    <%  if (Model.Count() != 0)
+        { %>
     <table>
         <tr>
             <th>
@@ -40,20 +69,27 @@
                 <%: item.IdBlog %>
             </td>
              <td>
-                        <a title="Eliminar Entrada" href="<%=Url.Action("Delete", "Blog", new {id = item.IdBlog})%>">
-                        <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
+                <a title="Eliminar Entrada" href="<%=Url.Action("Delete", "Blog", new {id = item.IdBlog})%>">
+                <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
             </td>
              <td>
-                <%: Html.ActionLink("Edit", "Edit", new {  id=item.IdBlog}) %>           
+                <a title="Editar Entrada" href="<%=Url.Action("Edit", "Blog", new {id = item.IdBlog})%>">
+                <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>             
             </td>
         </tr>
     
     <% } %>
 
     </table>
-
-    <p>
-        <%: Html.ActionLink("Crear nueva entrada", "Create") %>
-    </p>
-
+    <% }
+    else
+    {%> 
+        <h2>No Hay Entradas al Blog...</h2>  
+<%  } %>
+   </fieldset>
+   <script type="text/javascript">
+       $(document).ready(function () {
+           $("input#entrada").autocomplete('<%= Url.Action("Find", "Categorium") %>');
+       }); 
+    </script>
 </asp:Content>

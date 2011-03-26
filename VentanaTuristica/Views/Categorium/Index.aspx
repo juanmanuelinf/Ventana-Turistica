@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
+    
     <h2></h2>
 
     <% using (Html.BeginForm())
@@ -46,9 +46,6 @@
                     Descripcion
                 </th>
                 <th>
-                    FkIdCategoria
-                </th>
-                <th>
                     Idioma
                 </th>
             </tr>
@@ -62,9 +59,6 @@
                 </td>
                 <td>
                     <%: item.Descripcion %>
-                </td>
-                <td>
-                    <%: item.FkIdCategoria %>
                 </td>
                 <td>
                     <%: item.Idioma %>

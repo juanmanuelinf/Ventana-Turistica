@@ -7,6 +7,7 @@
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link rel="SHORTCUT ICON" href="../../Content/logo.ico"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../../Scripts/jquery.galleryview-3.0.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
@@ -31,18 +32,13 @@
 
             <div id="menucontainer">
                     <ul id="nav">         
-                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%>
-                        </li>
-                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%>
-                        </li>     
-                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%>
-                        </li>
-                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%>
-                        </li>
-                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%>
-                        </li>
-                        <li><%: Html.ActionLink("Patrocinante", "Index", "Patrocinante")%>
-                        </li>
+                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
+                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
+                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%></li>
+                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%></li>
+                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%></li>
+                        <li><%: Html.ActionLink("Patrocinante", "Index", "Patrocinante")%></li>
+                        <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
                     </ul>
             </div>        
         </div>

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Blog>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Servicio>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Editar entrada al blog
+	Editar Servicio
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -12,16 +12,8 @@
         <%: Html.ValidationSummary(true) %>
         
         <fieldset>
-            <legend>Editar entrada al blog</legend>
+            <legend>Editar Servicio</legend>
             
-             
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.Titulo) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Titulo) %>
-                <%: Html.ValidationMessageFor(model => model.Titulo) %>
-            </div>
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
@@ -31,34 +23,34 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.Fecha) %>
+                <%: Html.LabelFor(model => model.Idioma) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Fecha, String.Format("{0:g}", Model.Fecha)) %>
-                <%: Html.ValidationMessageFor(model => model.Fecha) %>
+                <%: Html.DisplayFor(model => model.Idioma)%>
+                <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.IdBlog) %>
+                <%: Html.LabelFor(model => model.Nombre) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.IdBlog) %>
-                <%: Html.ValidationMessageFor(model => model.IdBlog) %>
+                <%: Html.TextBoxFor(model => model.Nombre) %>
+                <%: Html.ValidationMessageFor(model => model.Nombre) %>
             </div>
+            <input type="hidden" name="FkIdServicio" value="<%: Model.FkIdServicio %>" />
+            <input type="hidden" name="IdServicio" value="<%: Model.IdServicio %>" />
             
             <div>
                 <input type="submit" value="Actualizar" />
             </div>
 
     <% } %>
-
     <br />
         <table>
-            <td><a title="Entradas del Blog" href="<%=Url.Action("Index")%>">
+            <td><a title="Servicios" href="<%=Url.Action("Index")%>">
                 <img src="<%=Url.Content("~/Content/atras.png")%>" height="25px" width="25px" /></a></td>
-            <td><%: Html.ActionLink("Entradas del blog", "Index")%></td>
+            <td><%: Html.ActionLink("Servicios", "Index")%></td>
         </table>
     </fieldset>
-
 </asp:Content>
 

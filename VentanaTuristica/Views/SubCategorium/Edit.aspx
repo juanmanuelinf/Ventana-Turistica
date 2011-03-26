@@ -31,20 +31,15 @@
             </div>
             
             <div class="editor-label">
-                <%: Html.LabelFor(model => model.FkIdSubCategoria) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FkIdSubCategoria) %>
-                <%: Html.ValidationMessageFor(model => model.FkIdSubCategoria) %>
-            </div>
-            
-            <div class="editor-label">
                 <%: Html.LabelFor(model => model.Idioma) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Idioma) %>
+                <%: Html.DisplayFor(model => model.Idioma)%>
                 <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
+            <input type="hidden" name="FkIdSubCategoria" value="<%: Model.FkIdSubCategoria %>" />
+            <input type="hidden" name="IdCategoria" value="<%: Model.IdCategoria %>" />
+            <input type="hidden" name="IdSubCategoria" value="<%: Model.IdSubCategoria %>" />
             
             <div>
                 <input type="submit" value="Actualizar" />

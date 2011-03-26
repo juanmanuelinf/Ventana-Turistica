@@ -75,7 +75,7 @@
                     <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
             </td>
             <td>
-                <a title="Editar Categoria" href="<%=Url.Action("Edit", "SubCategorium", new {  id=item.IdSubCategoria, idCat=item.Categorium.IdCategoria})%>">
+                <a title="Editar SubCategoria" href="<%=Url.Action("Edit", "SubCategorium", new {  id=item.IdSubCategoria, idCat=item.Categorium.IdCategoria})%>">
                     <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>  
             </td>
         </tr> 

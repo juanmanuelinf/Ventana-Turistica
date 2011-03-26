@@ -12,7 +12,7 @@
         <%= Html.ValidationSummary(true,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
 
         <fieldset>
-            <legend>Registro de Patrocinante:</legend>
+            <legend>Nuevo Patrocinante</legend>
            
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Nombre) %>

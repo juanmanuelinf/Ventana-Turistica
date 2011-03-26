@@ -8,7 +8,7 @@
 
     <h2></h2>
     
-      <% using (Html.BeginForm())
+    <% using (Html.BeginForm())
     {%>
         <fieldset>
         <legend>Buscar Patrocinante</legend>

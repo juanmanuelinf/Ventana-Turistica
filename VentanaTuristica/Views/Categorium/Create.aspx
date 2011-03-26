@@ -18,30 +18,22 @@
                 <%: Html.LabelFor(model => model.Nombre) %>
             </div>
              <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Nombre) %>
-                <%: Html.ValidationMessageFor(model => model.Nombre) %>
+                <%: Html.TextBox("Categorium.Nombre")%>
+                <%: Html.ValidationMessage("Categorium.Nombre")%>
             </div>
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextAreaFor(model => model.Descripcion) %>
-                <%: Html.ValidationMessageFor(model => model.Descripcion) %>
-            </div>
-            
-            <div class="editor-label">
-                <%: Html.LabelFor(model => model.FkIdCategoria) %>
-            </div>
-            <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.FkIdCategoria) %>
-                <%: Html.ValidationMessageFor(model => model.FkIdCategoria) %>
+                <%: Html.TextArea("Categorium.Descripcion")%>
+                <%: Html.ValidationMessage("Categorium.Descripcion")%>
             </div>
             
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Idioma) %>
             </div>
             <div class="editor-field">
-                <%: Html.TextBoxFor(model => model.Idioma) %>
+                <%= Html.DropDownList("Categorium.Idioma")%>
                 <%: Html.ValidationMessageFor(model => model.Idioma) %>
             </div>
             

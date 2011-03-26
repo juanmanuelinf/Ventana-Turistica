@@ -33,7 +33,9 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Create()
         {
-            return PartialView();
+            IEnumerable<string> items = new string[] { "Ingles", "Español" };
+            ViewData["Categorium.Idioma"] = new SelectList(items);
+            return View();
         } 
 
         //
@@ -42,16 +44,15 @@ namespace VentanaTuristica.Controllers
         [HttpPost]
         public ActionResult Create(Categorium categorium)
         {
-            try
+            if (ModelState.IsValid)
             {
                 IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
-                 myRepoCategorium.Save(categorium);
+                myRepoCategorium.Save(categorium);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            IEnumerable<string> items = new string[] { "Ingles", "Español" };
+            ViewData["Categorium.Idioma"] = new SelectList(items);
+            return View(categorium);
         }
         
         //
