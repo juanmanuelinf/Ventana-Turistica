@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-
+<h2></h2>
 <table class="tablaPubli">
     <tr>
         <td rowspan="10">
@@ -36,6 +36,23 @@
     </tr>
     <tr>
         <td valign=top class="contenidoTabla">
+            <b>Categoria:</b> <%if (Model.Idioma[0].Categoria == "0")
+                                {%>
+            <%=Model.Idioma[Model.Idioma.Count - 1].Categoria%>
+            <%
+                                } %>
+            <%else
+            {%>
+                <%for (int i = 0; i < Convert.ToInt32(Model.Idioma[0].Categoria); i++)
+                {%>
+                &#9733;
+                <%} %>
+            <%}%>
+                             
+        </td>
+    </tr>
+    <tr>
+        <td valign=top class="contenidoTabla">
             <b>Ubicacion:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%>
                              
         </td>
@@ -60,27 +77,26 @@
     </tr>
     <tr>
         <td valign=top class="contenidoTabla">
-          <b>Coordenadas:</b>
+          <b>Coordenadas:</b><br />
           Latitud - <%=Html.Encode(Model.Latitud)%> /
           Longitud - <%=Html.Encode(Model.Longitud)%>
                              
         </td>
     </tr>
     <tr>
-        <td valign=top>
-            
+        <td valign=top class="contenidoTabla">
+         <b>Por Reservacion:</b> <%=Html.Encode(Model.Reservacion)%>  
                              
         </td>
     </tr>
     <tr>
-        <td valign=top>
-            
-                             
-        </td>
-    </tr>
-    <tr>
-        <td valign=top>
-            
+        <td valign=top class="contenidoTablaUltimo">
+            <b>Precio:</b><br />
+             <%foreach (var precio in Model.Precios)
+{%>
+<%=precio.Tipo %> : <%=precio.PrecioMin %> - <%=precio.PrecioMax %> <%=precio.Moneda %><br />
+  
+<%}%> 
                              
         </td>
     </tr>
@@ -122,7 +138,7 @@
     $(document).ready(function () {
         $('#myGallery').galleryView({
             show_captions: false,
-            show_overlays: true,
+            show_overlays: false,
             panel_width: 500,
             panel_height: 300,
             frame_width: 50,
@@ -134,13 +150,3 @@
 </script>
 
 </asp:Content>
-<asp:Content ID="Content3" runat="server" contentplaceholderid="HeaderContent">
-    <style type="text/css">
-        .style3
-        {
-            height: 18px;
-            width: 347px;
-        }
-     </style>
-</asp:Content>
-

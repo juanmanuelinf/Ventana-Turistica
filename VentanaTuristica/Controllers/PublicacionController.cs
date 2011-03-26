@@ -62,6 +62,7 @@ namespace VentanaTuristica.Controllers
             var myRepoEmpresa = new EmpresaRepositorio();
             var myRepoServicio = new ServicioRepositorio();
             var myRepoIdioma = new IdiomaRepositorio();
+            var myRepoPrecio = new PrecioRepositorio();
             var p = myRepoPublicacion.GetById(id);
             if (p != null)
             {
@@ -90,6 +91,15 @@ namespace VentanaTuristica.Controllers
                 p.Empresa = myRepoEmpresa.GetById(p.IdEmpresa);
                 p.SubCategorium = myRepoSubCat.GetById(p.IdSubCategoria);
                 p.Categorium = myRepoCat.GetById(p.SubCategorium.IdCategoria);
+                var listaPrecios = myRepoPrecio.GetAll();
+                p.Precios = listaPrecios.Where(listaPrecio => listaPrecio.IdPublicacion == id).ToList();
+                p.Reservacion = p.Reservacion == "S" ? "Si" : "No";
+                if (p.Idioma[0].Categoria != "1" && p.Idioma[0].Categoria != "2" && p.Idioma[0].Categoria != "3" && p.Idioma[0].Categoria != "4" && p.Idioma[0].Categoria != "5")
+                {
+                    p.Idioma.Add(new Idioma { Categoria = p.Idioma[0].Categoria });
+                    p.Idioma[0].Categoria = "0";
+                }
+                    
                 return View(p);
             }
             return RedirectToAction("Index");
@@ -186,6 +196,7 @@ namespace VentanaTuristica.Controllers
             idioma.IdPublicacion = idPublicacion;
             if(p.Idioma[0].Categoria != "Otra")
             {
+                p.Idioma[0].Categoria.Substring(0, 1);
                repoIdioma.Save(idioma);
             } 
             else

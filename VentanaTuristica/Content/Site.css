@@ -510,7 +510,7 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 }
 .tituloTabla2
 {
-    background-position: top;
+    background-position: right bottom;
     color: #F63D1D;
     font-size: 20px;
     font-weight: bold;
@@ -573,10 +573,21 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 }
 .barraPubli
 {
-    background-position: right bottom;
+    background-position: left bottom;
     background-image: url(barraPublicacion.png);
     width: 920px;
     height: 45px;
     background-repeat: no-repeat;
 }
+.contenidoTablaUltimo
+{
+    color: black;
+    font-family: Arial;
+    border-style: none none none none;
+    border-width: 2px;
+    border-color: #C0C0C0;
+    margin-right: auto;
+    font-size: 14px;
+    font-style: italic;
+    }
 

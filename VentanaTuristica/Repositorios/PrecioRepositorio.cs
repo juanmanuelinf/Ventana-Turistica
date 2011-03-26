@@ -48,7 +48,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        IList<Precio> IRepositorio<Precio>.GetAll()
+        public IList<Precio> GetAll()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
