@@ -20,40 +20,65 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<script type="text/javascript" src="<%:Url.Content("~/Scripts/jscroller2-1.61.js") %>"></script>
+<img src="../../Content/header-bg.jpg" style="width: 100%"/>
 
-<img src="../../Content/header-bg.jpg" style="width: 870px"/>
+<style type="text/css" media="screen">
 
-<style>
-/* Scroller Box */
-#scroller_container1 {
-     width: 870px;
-     height: 200px;
-     overflow: hidden;
-    }
+/*
+	root element for the scrollable.
+	when scrolling occurs this element stays still.
+*/
+.scrollable {
+	position:relative;
+	overflow:hidden;
+	width: 100%;
+	height:150px;
+}
 
-    /* CSS Hack Safari */
-    #dummy {;# }
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accomodate scrollable items.
+	it's enough that you set the width and height for the root element and
+	not for this element.
+*/
+.scrollable .items {
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+	clear:both;
+}
 
-    #scroller_container1 {
-    overflow: auto;
-    }
-    /* Scoller Box */
-</style>    
+.items div {
+	float:left;
+	width:900px;
+}
 
-<div id="scroller_container1">
- <div class="jscroller2_left jscroller2_speed-50 jscroller2_ignoreleave jscroller2_mousemove jscroller2_dynamic" style="font-size:60px; line-height:60px; white-space:nowrap; margin: 0;">
-  <img src="../../Content/promo1.png" alt="">
-  <img src="../../Content/promo2.png" alt="">
-  <img src="../../Content/promo3.png" alt="">
- </div>
- <div class="jscroller2_left_endless" style="font-size:60px; line-height:60px; white-space:nowrap; margin: 0;">
-  <img src="../../Content/blanco.bmp" alt="">
-  <img src="../../Content/promo1.png" alt="">
-  <img src="../../Content/promo2.png" alt="">
-  <img src="../../Content/promo3.png" alt="">
-  <img src="../../Content/blanco.bmp" alt="">
- </div>
+/* single scrollable item */
+.scrollable img {
+	float:left;
+	margin:0px 5px 0px 5px;
+	background-color:#fff;
+	padding:2px;
+	border:1px solid #fff;
+	
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+</style>  
+
+
+<!-- root element for scrollable -->
+<div class="scrollable" id="scroller">   
+   
+   <!-- root element for the items -->
+   <div class="items" style="left: -2040px; ">
+      <div>
+         <img src="../../Content/promo1.png" width="195px">
+         <img src="../../Content/promo2.png" width="195px">
+         <img src="../../Content/promo3.png" width="195px">
+         <img src="../../Content/promo3.png" width="195px">
+      </div>
+   </div>   
 </div>
 
 <table style=" width:100%;">
@@ -81,4 +106,14 @@
         </td>
     </tr>
 </table>
+
+<!-- javascript coding -->
+<script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(document).ready(function() {
+    var root = jQuery("#scroller").scrollable({circular: true}).autoscroll({ autoplay: true });
+    window.api = root.data("scrollable");
+    });
+</script>
+
 </asp:Content>
