@@ -43,7 +43,7 @@ namespace VentanaTuristica.Controllers
             IList<Categorium> listaCategoriums = myRepoCategorium.GetAll();
             IList<String> nombresCat = listaCategoriums.Select(listaCategorium => listaCategorium.Nombre).ToList();
             ViewData["SubCategorium.Categorium.Nombre"] = new SelectList(nombresCat);
-            IEnumerable<string> items = new string[] {"Ingles", "Español"};
+            IEnumerable<string> items = new string[] { "en-US", "es-MX" };
             ViewData["SubCategorium.Idioma"] = new SelectList(items);
             return View();
         }
@@ -53,10 +53,11 @@ namespace VentanaTuristica.Controllers
 
         [HttpPost]
         public ActionResult Create(SubCategorium subCategorium)
-        {
+        {IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
+            
             try
             {
-                IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
+                
                 IList<Categorium> listaCategoriums = myRepoCategorium.GetAll();
                 foreach (var listaCategorium in listaCategoriums)
                 {
@@ -72,6 +73,11 @@ namespace VentanaTuristica.Controllers
             }
             catch
             {
+                IList<Categorium> listaCategoriums = myRepoCategorium.GetAll();
+            IList<String> nombresCat = listaCategoriums.Select(listaCategorium => listaCategorium.Nombre).ToList();
+            ViewData["SubCategorium.Categorium.Nombre"] = new SelectList(nombresCat);
+            IEnumerable<string> items = new string[] { "en-US", "es-MX" };
+            ViewData["SubCategorium.Idioma"] = new SelectList(items);
                 return View(subCategorium);
             }
         }
