@@ -25,7 +25,7 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Create()
         {
-            IEnumerable<string> items = new string[] { "Ingles", "Español" };
+            IEnumerable<string> items = new string[] { "en-US", "es-MX" };
             ViewData["Servicio.Idioma"] = new SelectList(items);
             return View();
         } 
@@ -42,7 +42,7 @@ namespace VentanaTuristica.Controllers
                 myRepoServicio.Save(servicio);
                 return RedirectToAction("Index");
             }
-            IEnumerable<string> items = new string[] { "Ingles", "Español" };
+            IEnumerable<string> items = new string[] { "en-US", "es-MX" };
             ViewData["Servicio.Idioma"] = new SelectList(items);
             return View(servicio);
         }

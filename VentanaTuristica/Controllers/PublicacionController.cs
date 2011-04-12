@@ -175,7 +175,10 @@ namespace VentanaTuristica.Controllers
             }
             //fin Sub Categoria
             var repoPubli = new PublicacionRepositorio();
+            IList<Idioma> myIdiomas = p.Idioma;
+            p.Idioma = null;
             var idPublicacion =repoPubli.Save(p);
+            p.Idioma = myIdiomas;
             //Servicios 
             var misServicios = new List<Servicio>(p.Servicios);
             foreach (var misServicio in misServicios)
@@ -225,7 +228,7 @@ namespace VentanaTuristica.Controllers
             var myRepoPublicacion = new PublicacionRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
-            var nroPaginas = listaPub.Count%12;
+            int nroPaginas = listaPub.Count/12;
             
             IList<Publicacion> listaPubAux = new List<Publicacion>();
             var cont = 0;
