@@ -72,40 +72,11 @@
    
    <!-- root element for the items -->
    <div class="items" style="left: -2040px; ">
-      <div>
-         <img src="../../Content/promo1.png" width="195px">
-         <img src="../../Content/promo2.png" width="195px">
-         <img src="../../Content/promo3.png" width="195px">
-         <img src="../../Content/promo3.png" width="195px">
-      </div>
+        <% Html.RenderAction("Sponsors","Patrocinante");%>
    </div>   
 </div>
 
-<table style=" width:100%;">
-    <tr align="center" bottom="middle">
-        <td valign="middle">
-            <img src="../../Content/LogoPromo1.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo2.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo3.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo4.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo5.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo6.png"/>
-        </td>
-        <td valign="middle">
-            <img src="../../Content/LogoPromo7.png"/>
-        </td>
-    </tr>
-</table>
+    <% Html.RenderAction("Logos","Patrocinante");%>
 
 <!-- javascript coding -->
 <script type="text/javascript">
