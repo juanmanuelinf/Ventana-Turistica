@@ -12,24 +12,21 @@
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
-    <script type="text/javascript">
-        $(document).ready(initialise);
-    </script>
-   
-
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.tools.min.js") %>"></script>
 </head>
 
 <body>
     <div class="page">
         <div id="header">
             <div id="title">
-                <a href="localhost:1491" ><img src="../../Content/logo.gif" /></a>
+                <a href="localhost:1491" ><img src="../../Content/logo.gif" 
+                    style="width: 229px" /></a>
             </div>
               
             <div id="logindisplay">
                 <% Html.RenderPartial("Services"); %>
             </div> 
-
+            
             <div id="menucontainer">
                 <% Html.RenderAction("Categorias","Categorium");%>
             </div>        
