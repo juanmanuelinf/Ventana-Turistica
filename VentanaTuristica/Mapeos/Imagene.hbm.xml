@@ -10,5 +10,6 @@
 		<property name="IdPatrocinante" column="`IdPatrocinante`" />
 		<property name="IdPublicacion" column="`IdPublicacion`" />
 		<property name="Tipo" column="`Tipo`" length="1" />
+    <property name="Link" column="`Link`" />
 	</class>
 </hibernate-mapping>

@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2></h2>
+
 <table class="tablaPubli">
     <tr>
         <td rowspan="10">

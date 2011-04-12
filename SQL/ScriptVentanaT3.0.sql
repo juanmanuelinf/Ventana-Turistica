@@ -106,9 +106,9 @@ CREATE TABLE [Publicacion]
  [IdPublicacion] Int IDENTITY(1,1),
  [Nombre] Varchar(100) NOT NULL,
  [Direccion] Varchar(max) NOT NULL,
- [Pais] Varchar(100) NOT NULL,
- [Estado] Varchar(100) NOT NULL,
- [Ciudad] Varchar(100) NOT NULL,
+ [Pais] Varchar(100) NULL,
+ [Estado] Varchar(100) NULL,
+ [Ciudad] Varchar(100) NULL,
  [TCredito] Varchar(1) NULL,
  [TDebito] Varchar(1) NULL,
  [Transferencia] Varchar(1) NULL,
@@ -184,6 +184,7 @@ CREATE TABLE [Imagenes]
  [DatosTrans] Varbinary(max) NOT NULL,
  [Tipo] Char(1) NOT NULL,
  [Descripcion] Varchar(max) NULL,
+ [Link] Varchar(max) NULL,
  [IdPublicacion] Int NULL,
  [IdPatrocinante] Int NULL
 )
@@ -231,7 +232,7 @@ CREATE TABLE [Contacto]
 (
  [IdContacto] Int IDENTITY(1,1),
  [Nombre] Varchar(100) NOT NULL,
- [Tipo] Varchar(20) NOT NULL,
+ [Tipo] Varchar(1) NOT NULL,
  [Cargo] Varchar(50) NULL,
  [Mail] Varchar(50) NULL,
  [IdEmpresa] Int NULL,

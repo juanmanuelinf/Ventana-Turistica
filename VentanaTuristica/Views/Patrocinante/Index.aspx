@@ -5,9 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-    <h2></h2>
-    
     <% using (Html.BeginForm())
     {%>
         <fieldset>
@@ -39,6 +36,13 @@
         <table>
         <tr>
             <th>
+                    <a title="Ver Sponsors" href="<%=Url.Action("Index", "Patrocinante", new {tipo = "S"}, null)%>">
+                        Sponsor</a>
+                        
+                    <a title="Ver Logos" href="<%=Url.Action("Index", "Patrocinante", new {tipo = "L"}, null)%>">
+                        Logo</a>
+            </th>
+            <th>
                 Nombre
             </th>
             <th>
@@ -59,6 +63,9 @@
         {
 %>
      <tr>
+                <td align="center"">
+                    <a href="<%:item.Imagene.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.Imagene.IdImagen})%>' width="50px"/></a>
+                </td>
                 <td>
                     <%:item.Nombre%>
                 </td>
