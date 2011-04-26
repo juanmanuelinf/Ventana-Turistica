@@ -127,13 +127,23 @@ namespace VentanaTuristica.Controllers
             var itemsCategoria = new List<string>
                                                {
                                                    "1 Estrella",
-                                                   "2 Estrella",
-                                                   "3 Estrella",
-                                                   "4 Estrella",
-                                                   "5 Estrella",
+                                                   "2 Estrellas",
+                                                   "3 Estrellas",
+                                                   "4 Estrellas",
+                                                   "5 Estrellas",
                                                    "Otra"
                                                };
             ViewData["Idioma[0].Categoria"] = new SelectList(itemsCategoria);
+            var itemsPrecio = new List<string>
+                                               {
+                                                   "Bs.",
+                                                   "$",
+                                                   "€",
+                                                   "£",
+                                                   "¥"
+                                               };
+            ViewData["Precios[0].Moneda"] = new SelectList(itemsPrecio);
+            ViewData["Precios[1].Moneda"] = new SelectList(itemsPrecio);
             //Lista de Servicios Para la Publiacion
             var repoServ = new ServicioRepositorio();
             var miListaServ = repoServ.GetAll();
@@ -178,6 +188,17 @@ namespace VentanaTuristica.Controllers
             IList<Idioma> myIdiomas = p.Idioma;
             p.Idioma = null;
             var idPublicacion =repoPubli.Save(p);
+
+            //Precios
+            IList<Precio> listaPrecios = p.Precios;
+            var repoPrecios = new PrecioRepositorio();
+            foreach (var precio in listaPrecios)
+            {
+                precio.IdPublicacion = idPublicacion;
+                repoPrecios.Save(precio);
+            }
+
+            //fin Precios
             p.Idioma = myIdiomas;
             //Servicios 
             var misServicios = new List<Servicio>(p.Servicios);
@@ -223,11 +244,25 @@ namespace VentanaTuristica.Controllers
             return View();
         }
 
-        public ActionResult Lista(int pagActual)
+        public ActionResult Lista(int pagActual, int orden)
         {
             var myRepoPublicacion = new PublicacionRepositorio();
+            var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
+            foreach (var publicacion in listaPub)
+            {
+                publicacion.Precios = new List<Precio>();
+                IList<Precio> lPrecio =myRepoPrecio.GetAll();
+                foreach (var precio in lPrecio)
+                {
+                    if (precio.IdPublicacion == publicacion.IdPublicacion)
+                    {
+                        publicacion.Precios.Add(precio);
+                    }
+                }
+            }
+
             int nroPaginas = listaPub.Count/12;
             
             IList<Publicacion> listaPubAux = new List<Publicacion>();
