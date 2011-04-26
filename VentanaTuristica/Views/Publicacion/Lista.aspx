@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h2></h2>
+
 <style>
 .tablaFondo{
 	display: table;
@@ -21,8 +21,6 @@
 .tabla{
 	display: table;
 	width: 1011px;
-	
-	
 }
 .cuadriculaAbajo{
 	float: left;
@@ -116,11 +114,12 @@
 .clear {font-size: 1px; height: 1px}
 
 </style>
+<br />
 <div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
-
-</div></div></div></div>
+ <%=Html.ActionLink("Menor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 0})%>
+ <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1})%>
 <div class="clear">&nbsp;</div>
-    
+<br />
 <%if (Model != null)
   {%>
   <%var cuenta = Convert.ToInt32(ViewData["cuenta"]);%>
@@ -136,6 +135,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerecha"><%
@@ -148,6 +150,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerechaInferior"><%
@@ -160,6 +165,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
     </div>
@@ -175,6 +183,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerecha"><%
@@ -187,6 +198,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaInferiorCentro">
@@ -200,6 +214,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
     </div>
@@ -214,6 +231,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerecha"><%
@@ -226,6 +246,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaInferiorCentroDerecha">
@@ -239,6 +262,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
     </div>
@@ -253,6 +279,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerechaSuperior"><%
@@ -265,6 +294,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
         <div class="cuadriculaDerechaInferior"><%
@@ -277,6 +309,9 @@
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
+            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
+            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
+            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
     </div>
@@ -305,10 +340,10 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit
                 %>
                 <%if (i == pagina - 4)
                 {%>
-                     <%=Html.ActionLink("...", "Lista", new {pagActual = i})%>
+                     <%=Html.ActionLink("...", "Lista", new { pagActual = i, orden = 2 })%>
                      
                 <%}else{%>
-                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i }, new { disabled = "disabled" })%>
+                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i, orden = 2 }, new { disabled = "disabled" })%>
                 <%}%>
            <%}%>
           <%=Html.Label(Convert.ToString(pagina)) %>  
@@ -318,7 +353,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit
             for (int i = 1; i < pagina ; i++)
             {%>
                 
-                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new {pagActual = i})%>
+                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i, orden = 2 })%>
               
            <%}%>
            <%=Html.Label(Convert.ToString(pagina)) %>
@@ -337,10 +372,10 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit
                 %>
                 <%if (i == pagina + 4)
                 {%>
-                     <%=Html.ActionLink("...", "Lista", new {pagActual = i})%>
+                     <%=Html.ActionLink("...", "Lista", new { pagActual = i, orden = 2 })%>
                      
                 <%}else{%>
-                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i }, new { disabled = "disabled" })%>
+                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i, orden = 2 }, new { disabled = "disabled" })%>
                 <%}%>
            <%}%>
           
@@ -350,7 +385,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit
             for (int i = pagina+1; i < nro+1 ; i++)
             {%>
                 
-                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new {pagActual = i})%>
+                     <%=Html.ActionLink(Convert.ToString(i), "Lista", new { pagActual = i, orden = 2 })%>
               
            <%}%>
          

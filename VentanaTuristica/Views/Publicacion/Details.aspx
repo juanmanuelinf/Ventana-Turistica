@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
-<table class="tablaPubli">
+<table  class="tablaPubli">
     <tr>
         <td rowspan="10">
         <ul id="myGallery">

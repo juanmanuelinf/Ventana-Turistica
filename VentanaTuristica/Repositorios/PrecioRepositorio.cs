@@ -10,7 +10,7 @@ namespace VentanaTuristica.Repositorios
     {
         #region IRepositorio<Precio> Members
 
-        int IRepositorio<Precio>.Save(Precio entity)
+        public int Save(Precio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
