@@ -117,17 +117,21 @@
          <div class="editor-field">
         <label for="TBaja"> Temporada Baja:</label>
         <label for="PrecioMinTb"> Min:</label>
-        <input  type="text" id= "Precio[0].PrecioMin" name="Precio[0].PrecioMin"/>
+        <input  type="text" id= "Precios[0].PrecioMin" name="Precios[0].PrecioMin"/>
         <label for="PrecioMaxTb"> Max:</label>
-        <input  type="text" id= "Precio[0].PrecioMax" name="Precio[0].PrecioMax"/>
+        <input  type="text" id= "Precios[0].PrecioMax" name="Precios[0].PrecioMax"/>
+        <%= Html.DropDownList("Precios[0].Moneda") %>
+        <input type="hidden" id="Precios[0].Tipo" name="Precios[0].Tipo" value="TB" />
         </div>
 
         <div class="editor-field">
         <label for="TBaja"> Temporada  Alta:</label>
         <label for="PrecioMinTa"> Min:</label>
-        <input  type="text" id= "Precio[1].PrecioMin" name="Precio[1].PrecioMin"/>
+        <input  type="text" id= "Precios[1].PrecioMin" name="Precios[1].PrecioMin"/>
         <label for="PrecioMaxTa"> Max:</label>
-        <input  type="text" id= "Precio[1].PrecioMax" name="Precio[1].PrecioMax"/>
+        <input  type="text" id= "Precios[1].PrecioMax" name="Precios[1].PrecioMax"/>
+        <%= Html.DropDownList("Precios[1].Moneda") %>
+        <input type="hidden" id="Precios[1].Tipo" name="Precios[1].Tipo" value="TA" />
         </div>
         </fieldset>
 
