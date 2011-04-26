@@ -113,7 +113,46 @@
 .tr {background: url(../../Content/tr.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
 .clear {font-size: 1px; height: 1px}
 
+
+    /* use a semi-transparent image for the overlay */
+	#overlay {
+		background-image:url(../../Content/transparent.png);
+		color:#efefef;
+		height:830px;
+	}
+	
+	/* container for external content. uses vertical scrollbar, if needed */
+	div.contentWrap {
+		height:821px;
+		overflow-y:auto;
+	}
+	/* the overlayed element */
+    .apple_overlay {
+	
+	    /* initially overlay is hidden */
+	    display:none;
+	
+	    /* 
+		    width after the growing animation finishes
+		    height is automatically calculated
+	    */
+	    width:910px;		
+	
+	    /* some padding to layout nested elements nicely  */
+	    padding:45px;
+    }
+
+    /* default close button positioned on upper right corner */
+    .apple_overlay .close {
+	    background-image:url(../../Content/close.png);
+	    position:absolute; right:20px; top:15px;
+	    cursor:pointer;
+	    height:35px;
+	    width:35px;
+    }
 </style>
+
+<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script> 
 <br />
 <div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
  <%=Html.ActionLink("Menor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 0})%>
@@ -131,14 +170,25 @@
       {
           int valor = 0;%>
          <br />
-         <b><%= Model.ElementAt(valor).Nombre%></b><br />
+        
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" rel="#overlay" style="text-decoration:none">
+            <b><%= Model.ElementAt(valor).Nombre%></b><br />
            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
             <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
             <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>
+            <%}%>        
+        </a>
+
+        <!-- overlayed element -->
+        <div class="apple_overlay" id="overlay"><a class="close"></a>
+
+	        <!-- the external content is loaded inside this tag -->
+	        <div class="contentWrap"></div>
+
+        </div>
        <%}%></div>
         <div class="cuadriculaDerecha"><%
       externo = 2;
@@ -398,4 +448,28 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit
 
 </div></div></div></div>
 <div class="clear">&nbsp;</div>
+<!-- make all links with the 'rel' attribute open overlays -->
+    <script>
+
+        $(function () {
+
+            // if the function argument is given to overlay,
+            // it is assumed to be the onBeforeLoad event listener
+            $("a[rel]").overlay({
+
+                mask: 'darkgray',
+                effect: 'apple',
+
+                onBeforeLoad: function () {
+
+                    // grab wrapper element inside content
+                    var wrap = this.getOverlay().find(".contentWrap");
+
+                    // load the page specified in the trigger
+                    wrap.load(this.getTrigger().attr("href"));
+                }
+
+            });
+        });
+    </script>
 </asp:Content>

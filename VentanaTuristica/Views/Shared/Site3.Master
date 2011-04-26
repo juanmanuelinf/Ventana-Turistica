@@ -22,36 +22,11 @@
 
 <body>
     <div class="page">
-        <div id="header">
-            <div id="title">
-                <a href="localhost:1491" ><img src="../../Content/logo.gif" 
-                    style="width: 229px" /></a>
-            </div>
-              
-            <div id="logindisplay">
-                <% Html.RenderPartial("Services"); %>
-            </div> 
-
-            <div id="menucontainer">
-                    <ul id="nav">         
-                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
-                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
-                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%></li>
-                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%></li>
-                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%></li>
-                        <li><%: Html.ActionLink("Patrocinante", "Index", "Patrocinante")%></li>
-                        <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
-                    </ul>
-            </div>        
-        </div>
-
+        
         <div id="main">
             
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-            <div id="footer">
-            Ventana Turistica &copy;
-            </div>
         </div>
     </div>
 </body>
