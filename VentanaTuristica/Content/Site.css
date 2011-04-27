@@ -160,8 +160,8 @@ input[type="text"]
 
 textarea
 {
-    width: 400px;
-    height: 100px;
+    width: 800px;
+    height: 300px;
 }
 
 input[type="password"] 
