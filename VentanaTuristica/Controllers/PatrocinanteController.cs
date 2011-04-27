@@ -134,8 +134,8 @@ namespace VentanaTuristica.Controllers
                     myImagene.Tipo = "L";
                 }
 
-                if (ModelState.IsValid)
-                {
+              //  if (ModelState.IsValid)
+              //  {
                     IRepositorio<Patrocinante> repoPatrocinante = new PatrocinanteRepositorio();
                     repoPatrocinante.Save(patrocinante);
 
@@ -151,7 +151,7 @@ namespace VentanaTuristica.Controllers
                     repoImagen.Save(myImagene);
 
                     return RedirectToAction("Index");
-                }
+              //  }
             }
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(patrocinante);

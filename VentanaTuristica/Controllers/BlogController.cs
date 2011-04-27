@@ -12,7 +12,7 @@ namespace VentanaTuristica.Controllers
     {
         //
         // GET: /Blog/
-
+        [ValidateInput(false)]
         public ActionResult Index()
         {
             IRepositorio<Blog> myRepoBlog = new BlogRepositorio();
@@ -22,7 +22,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Blog/Create
-
+        [ValidateInput(false)]
         public ActionResult Create()
         {
             return View();
@@ -31,8 +31,8 @@ namespace VentanaTuristica.Controllers
         //
         // POST: /Blog/Create
 
-        [HttpPost]
-        public ActionResult Create(Blog blog)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Create(Blog blog, FormCollection collection)
         {
             try
             {
@@ -48,7 +48,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Blog/Edit/5
- 
+        [ValidateInput(false)]
         public ActionResult Edit(int id)
         {
             IRepositorio<Blog> myRepoBlog = new BlogRepositorio();
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Controllers
         //
         // POST: /Blog/Edit/5
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Edit(Blog blog,int id, FormCollection collection)
         {
             try
@@ -76,7 +76,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Blog/Delete/5
- 
+        [ValidateInput(false)]
         public ActionResult Delete(int id)
         {
             try
@@ -93,8 +93,8 @@ namespace VentanaTuristica.Controllers
 
         //
         // POST: /Blog/Delete/5
-
-        [HttpPost]
+         
+        [HttpPost, ValidateInput(false)]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
@@ -108,7 +108,8 @@ namespace VentanaTuristica.Controllers
                 return View();
             }
         }
-
+       
+        [ValidateInput(false)]
         public ActionResult Find(string q)
         {
             IRepositorio<Blog> repoC = new BlogRepositorio();

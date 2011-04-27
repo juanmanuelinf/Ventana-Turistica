@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Blog>>" %>
+﻿<%@ Page Title="" Language="C#" ValidateRequest="false" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Blog>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Entradas del blog
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content2" ValidateRequest="false" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2></h2>
 
@@ -14,7 +14,7 @@
         <legend>Buscar Entrada blog</legend>
             
             <div class="editor-label">
-                <label for="Nombre">Nombre:</label>
+                <label for="Nombre">Nombre: </label>
             </div>
             <div class="editor-field">
                 <%= Html.TextBox("entrada",null, new { @class = "text-box" })%>
@@ -60,7 +60,7 @@
                 <%: item.Titulo %>
             </td>
             <td>
-                <%: item.Descripcion %>
+                <%= item.Descripcion %>
             </td>
             <td>
                 <%: String.Format("{0:g}", item.Fecha) %>
