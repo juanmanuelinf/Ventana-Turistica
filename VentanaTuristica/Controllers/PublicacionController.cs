@@ -244,12 +244,20 @@ namespace VentanaTuristica.Controllers
             return View();
         }
 
-        public ActionResult Lista(int pagActual, int orden)
+        public ActionResult Lista(int pagActual, int orden, string filtros)
         {
+
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
+
+            foreach (var publicacion in listaPub)
+            {
+                if (publicacion.SubCategorium.Nombre != filtros)
+                    listaPub.Remove(publicacion);
+            }
+
             foreach (var publicacion in listaPub)
             {
                 publicacion.Precios = new List<Precio>();
