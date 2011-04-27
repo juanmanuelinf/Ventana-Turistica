@@ -41,8 +41,8 @@
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Descripcion) %>
             </div>
-            <div class="editor-field" ValidateRequest="false" height="1500px" width="1500px">
-                <%: Html.TextAreaFor(model => model.Descripcion)%>
+            <div class="editor-field" ValidateRequest="false">
+                <%: Html.TextAreaFor(model => model.Descripcion, new { @style = "width:800px; height:300px" })%>
             </div>
             
             <div>
