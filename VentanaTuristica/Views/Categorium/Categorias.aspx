@@ -38,7 +38,7 @@
                 foreach (var subCategorium in item.SubCategoriums)
                 {%>
                     
-                        <li><%:Html.ActionLink(subCategorium.Nombre, "Index", "Home")%></li>
+                        <li><%:Html.ActionLink(subCategorium.Nombre, "Lista", "Publicacion", new {pagActual = 1, orden = 1, filtros = subCategorium.Nombre},null)%></li>
                     
                     <%
                 }
