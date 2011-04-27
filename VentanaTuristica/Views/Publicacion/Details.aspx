@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Publicacion>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site3.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Publicacion>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	
@@ -130,10 +130,6 @@
 </table>
 <div class="barraPubli"></div>        
 
-   
-    <p>
-        <%=Html.ActionLink("Volver a la lista", "Index")%>
-    </p>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#myGallery').galleryView({
