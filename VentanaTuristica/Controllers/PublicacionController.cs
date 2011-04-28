@@ -248,20 +248,25 @@ namespace VentanaTuristica.Controllers
         {
 
             var myRepoPublicacion = new PublicacionRepositorio();
+            var myRepoSubCat = new SubCategoriumRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
 
             foreach (var publicacion in listaPub)
             {
+                publicacion.SubCategorium = myRepoSubCat.GetById(publicacion.IdSubCategoria);
                 if (publicacion.SubCategorium.Nombre != filtros)
                     listaPub.Remove(publicacion);
             }
-
+            if (listaPub.Count() == 0)
+            {
+                return View();
+            }
             foreach (var publicacion in listaPub)
             {
                 publicacion.Precios = new List<Precio>();
-                IList<Precio> lPrecio =myRepoPrecio.GetAll();
+                IList<Precio> lPrecio = myRepoPrecio.GetAll();
                 foreach (var precio in lPrecio)
                 {
                     if (precio.IdPublicacion == publicacion.IdPublicacion)
@@ -272,7 +277,7 @@ namespace VentanaTuristica.Controllers
             }
 
             int nroPaginas = listaPub.Count/12;
-            
+
             IList<Publicacion> listaPubAux = new List<Publicacion>();
             var cont = 0;
             var cont2 = 0;
@@ -282,7 +287,7 @@ namespace VentanaTuristica.Controllers
                 var listaImagen = myRepoIma.GetAll();
                 foreach (var imagene in listaImagen)
                 {
-                    if(imagene.IdPublicacion==publicacion.IdPublicacion)
+                    if (imagene.IdPublicacion == publicacion.IdPublicacion)
                     {
                         publicacion.Imagen = imagene;
                         break;
@@ -290,7 +295,7 @@ namespace VentanaTuristica.Controllers
                 }
                 cont++;
                 cont2++;
-                if(cont<13)
+                if (cont < 13)
                 {
                     listaPubAux.Add(publicacion);
                 }
@@ -301,20 +306,22 @@ namespace VentanaTuristica.Controllers
                     listaPubAux.Add(publicacion);
                     cont = 0;
                 }
-                if(cont2==listaPub.Count && cont <13)
+                if (cont2 == listaPub.Count && cont < 13)
                 {
                     listaDeLista.Add(listaPubAux);
                 }
             }
-            if(pagActual <= listaDeLista.Count && pagActual>0)
+            if (pagActual <= listaDeLista.Count && pagActual > 0)
             {
                 ViewData["nroPaginas"] = nroPaginas;
                 ViewData["pagActual"] = pagActual;
-                ViewData["cuenta"] = listaDeLista[pagActual-1].Count;
-                return View(listaDeLista[pagActual-1]);
+                ViewData["cuenta"] = listaDeLista[pagActual - 1].Count;
+                return View(listaDeLista[pagActual - 1]);
             }
+
             return View();
-        }
+        
+    }
 
         //
         // POST: /Publicacion/Edit/5
