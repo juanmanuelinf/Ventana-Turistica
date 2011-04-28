@@ -11,7 +11,7 @@
                     <div>
                     <%
                 }%>
-                    <a href="<%:item.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.IdImagen})%>' width="195px"/></a>
+                    <a href="<%=item.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.IdImagen})%>' width="195px"/></a>
                 <% if (contador == 4)
                 { %>
                     </div>

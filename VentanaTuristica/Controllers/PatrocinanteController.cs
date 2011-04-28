@@ -119,7 +119,7 @@ namespace VentanaTuristica.Controllers
                 var myImagene = new Imagene();
                 myImagene.DatosOriginal = ConvertFile(patrocinante.File);
                 myImagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
-                myImagene.Link = patrocinante.Link;
+                myImagene.Link = patrocinante.Imagene.Link;
                 patrocinante.Contacto[0].Tipo = "P";
                 patrocinante.Contacto[0].Telefono[0].Tipo = "P";
                 patrocinante.Contacto[0].IdEmpresa = null;

@@ -63,8 +63,8 @@
         {
 %>
      <tr>
-                <td align="center"">
-                    <a href="<%:item.Imagene.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.Imagene.IdImagen})%>' width="50px"/></a>
+                <td align="center">
+                    <a href="<%=item.Imagene.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.Imagene.IdImagen})%>' width="50px"/></a>
                 </td>
                 <td>
                     <%:item.Nombre%>
