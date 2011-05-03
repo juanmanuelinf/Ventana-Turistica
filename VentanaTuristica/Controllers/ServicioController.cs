@@ -12,7 +12,7 @@ namespace VentanaTuristica.Controllers
     {
         //
         // GET: /Servicio/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();
@@ -22,7 +22,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Servicio/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
             IEnumerable<string> items = new string[] { "en-US", "es-MX" };
@@ -34,6 +34,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Servicio/Create
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Servicio servicio)
         {
             if (ModelState.IsValid)
@@ -49,7 +50,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Servicio/Edit/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();
@@ -60,6 +61,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Servicio/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(Servicio servicio)
         {
             if (ModelState.IsValid)
@@ -73,7 +75,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Servicio/Delete/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             IRepositorio<Servicio> myRepoServicio = new ServicioRepositorio();

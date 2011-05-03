@@ -12,7 +12,7 @@ namespace VentanaTuristica.Controllers
     {
         //
         // GET: /Empresa/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             IRepositorio<Empresa> myRepoEmpresa = new EmpresaRepositorio();
@@ -22,7 +22,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Details/5
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Details(int id)
         {
             return View();
@@ -30,7 +30,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
            return View();
@@ -40,6 +40,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Empresa/Create
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Empresa E)
         {
             if (ModelState.IsValid)
@@ -55,7 +56,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Empresa/Edit/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             return View();
@@ -65,6 +66,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Empresa/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -81,7 +83,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Delete/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             IRepositorio<Empresa> repo = new EmpresaRepositorio();

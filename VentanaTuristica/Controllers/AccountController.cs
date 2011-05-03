@@ -86,6 +86,7 @@ namespace VentanaTuristica.Controllers
             {
                 // Intento de registrar al usuario
                 MembershipCreateStatus createStatus = MembershipService.CreateUser(model.UserName, model.Password, model.Email);
+                
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {

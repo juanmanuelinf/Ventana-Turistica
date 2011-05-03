@@ -12,7 +12,7 @@ namespace VentanaTuristica.Controllers
     {
         //
         // GET: /SubCategorium/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             IRepositorio<SubCategorium> myRepoSubCategorium = new SubCategoriumRepositorio();
@@ -28,7 +28,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /SubCategorium/Details/5
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Details(int id)
         {
             return View();
@@ -36,7 +36,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /SubCategorium/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
             IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
@@ -52,6 +52,7 @@ namespace VentanaTuristica.Controllers
         // POST: /SubCategorium/Create
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(SubCategorium subCategorium)
         {IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
             
@@ -84,7 +85,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /SubCategorium/Edit/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             IRepositorio<SubCategorium> myRepoSubCategorium = new SubCategoriumRepositorio();
@@ -95,6 +96,7 @@ namespace VentanaTuristica.Controllers
         // POST: /SubCategorium/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id,int idCat, SubCategorium subCategorium)
         {
             try
@@ -113,7 +115,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /SubCategorium/Delete/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             try
@@ -132,6 +134,7 @@ namespace VentanaTuristica.Controllers
         // POST: /SubCategorium/Delete/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

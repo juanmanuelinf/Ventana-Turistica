@@ -14,6 +14,7 @@ using System.Drawing.Imaging;
 
 namespace VentanaTuristica.Controllers
 {
+    
     public class PatrocinanteController : Controller
     {
 
@@ -27,7 +28,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index(String tipo)
         {
             IRepositorio<Patrocinante> repoPatrocinante = new PatrocinanteRepositorio();
@@ -92,7 +93,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Details/5
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Details(int id)
         {
             return View();
@@ -100,7 +101,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
            return View();
@@ -108,7 +109,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // POST: /Empresa/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         [HttpPost]
         public ActionResult Create(Patrocinante patrocinante)
         {
@@ -159,7 +160,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Empresa/Edit/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             IRepositorio<Patrocinante> repoPatrocinante = new PatrocinanteRepositorio();
@@ -208,6 +209,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Empresa/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(Patrocinante patrocinante)
         {
             patrocinante.Contacto[0].Tipo = "P";
@@ -269,7 +271,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Empresa/Delete/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             IRepositorio<Patrocinante> repo = new PatrocinanteRepositorio();
@@ -277,7 +279,7 @@ namespace VentanaTuristica.Controllers
             return RedirectToAction("Index");
         }
 
-       
+        
         public ActionResult Find(string q)
         {
             IRepositorio<Patrocinante> repoP = new PatrocinanteRepositorio();
@@ -363,6 +365,7 @@ namespace VentanaTuristica.Controllers
         }
     
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
         {
             var repoImagen = new ImageneRepositorio();

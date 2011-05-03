@@ -14,7 +14,7 @@ namespace VentanaTuristica.Controllers
 
       //
       // GET: /Categorium/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
@@ -24,7 +24,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Categorium/Details/5
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Details(int id)
         {
             return View();
@@ -32,7 +32,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Categorium/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
             IEnumerable<string> items = new string[] { "en-US", "es-MX" };
@@ -44,6 +44,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Categorium/Create
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Categorium categorium)
         {
             if (ModelState.IsValid)
@@ -59,7 +60,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Categorium/Edit/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             IRepositorio<Categorium> myRepoCategorium = new CategoriumRepositorio();
@@ -70,6 +71,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Categorium/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(Categorium categorium, int id, FormCollection collection)
         {
             try
@@ -87,7 +89,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Categorium/Delete/5
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             try
@@ -106,6 +108,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Categorium/Delete/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id, Categorium categorium)
         {
             return RedirectToAction("Index");

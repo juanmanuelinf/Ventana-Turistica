@@ -17,7 +17,7 @@ namespace VentanaTuristica.Controllers
     {
         //
         // GET: /Publicacion/
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             var myRepoPublicacion = new PublicacionRepositorio();
@@ -108,7 +108,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Publicacion/Create
-
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
             var repoSubCat = new SubCategoriumRepositorio();
@@ -156,6 +156,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Publicacion/Create
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Publicacion p,FormCollection collection)
         {
             //Empresa
@@ -239,6 +240,7 @@ namespace VentanaTuristica.Controllers
         //
         // GET: /Publicacion/Edit/5
         [ChildActionOnly]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit()
         {
             return View();
@@ -327,6 +329,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Publicacion/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -343,7 +346,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Publicacion/Delete/5
- 
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             return View();
@@ -353,6 +356,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Publicacion/Delete/5
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
@@ -373,6 +377,7 @@ namespace VentanaTuristica.Controllers
          }
 
         [HttpPost]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
         {
             var repoImagen = new ImageneRepositorio();

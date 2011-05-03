@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Publicacion>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Publicacion>>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Index
@@ -153,11 +153,13 @@
 </style>
 
 <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script> 
+<script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
+
 <br />
-<div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
+<!-- <div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
  <%=Html.ActionLink("Menor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 0})%>
  <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1})%>
-<div class="clear">&nbsp;</div>
+<div class="clear">&nbsp;</div> -->
 <br />
 <%if (Model != null)
   {%>
@@ -371,7 +373,23 @@
 <%}%> 
 <div class="menuIzquierda">
 <div class="bl"><div class="br"><div class="tl"><div class="tr">
-Lorem ipsum dolor sit amet consectetur adipisicing elit
+<form name="form1" action=""> 
+<table style="width:590px;"><tbody><tr> 
+<td style="width:100px;">Country</td> 
+<td><select name="cboCountry" style="width:auto;clear:none;" onchange="Fill_States();"> 
+<option selected="selected">12345678901234567890</option> 
+<option>temp</option></select></td> 
+</tr><tr> 
+ 
+<td class="td100">State<br />Province</td> 
+<td title="Enable javascript to fill the lists."><select name="cboState" style="width:auto;" onchange="Update_Globals();"> 
+<option selected="selected">12345678901234567890</option> 
+<option>temp</option></select></td></tr></tbody></table><br /> 
+ 
+ 
+
+
+</form> 
 </div></div></div></div>
 <div class="clear">&nbsp;</div>
 </div>
