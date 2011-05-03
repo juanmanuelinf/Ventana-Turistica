@@ -1,9 +1,13 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
-
 <div style="margin-right:30px">
-    <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:ResourceEmpresa,ButtonSearch%>" /> <input type="text" id="buscar" name="buscar" />
-     <img src="<%=Url.Content("~/Content/buscar.png")%>" height="15px" width="15px" />
-</div>
+    <% using (Html.BeginForm())
+       {%>
+    
+        <input onblur="if(this.value=='') this.value='Buscar';" value="Buscar" class="mainFormInput" onfocus="if(this.value=='Buscar') this.value='';" type="text" />
+        <input id="btnsearch" alt="search" name="search" class="mainFormSubmit" type="submit" />
+    <%
+       }%>
+</div> 
 <br />
 <div style="margin-right:50px">
     <img src="<%=Url.Content("~/Content/iconos.png")%>"/>
