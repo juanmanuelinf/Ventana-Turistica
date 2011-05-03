@@ -13,6 +13,7 @@ namespace VentanaTuristica.Controllers
         //
         // GET: /Blog/
         [ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             IRepositorio<Blog> myRepoBlog = new BlogRepositorio();
@@ -23,15 +24,27 @@ namespace VentanaTuristica.Controllers
         //
         // GET: /Blog/Create
         [ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
             return View();
-        } 
+        }
+
+        //
+        // GET: /Blog/
+        [ValidateInput(false)]
+        public ActionResult Principal()
+        {
+            IRepositorio<Blog> myRepoBlog = new BlogRepositorio();
+            IList<Blog> listaBlog = myRepoBlog.GetAll();
+            return View(listaBlog);
+        }
 
         //
         // POST: /Blog/Create
 
         [HttpPost, ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Blog blog, FormCollection collection)
         {
             try
@@ -49,6 +62,7 @@ namespace VentanaTuristica.Controllers
         //
         // GET: /Blog/Edit/5
         [ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             IRepositorio<Blog> myRepoBlog = new BlogRepositorio();
@@ -59,6 +73,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Blog/Edit/5
 
         [HttpPost, ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(Blog blog,int id, FormCollection collection)
         {
             try
@@ -77,6 +92,7 @@ namespace VentanaTuristica.Controllers
         //
         // GET: /Blog/Delete/5
         [ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             try
@@ -95,6 +111,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Blog/Delete/5
          
         [HttpPost, ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
@@ -110,6 +127,7 @@ namespace VentanaTuristica.Controllers
         }
        
         [ValidateInput(false)]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Find(string q)
         {
             IRepositorio<Blog> repoC = new BlogRepositorio();
