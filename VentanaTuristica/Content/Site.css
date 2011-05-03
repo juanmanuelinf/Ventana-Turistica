@@ -155,7 +155,6 @@ legend
 input[type="text"] 
 {
     width: 200px;
-    border: 1px solid #CCC;
 }
 
 textarea
@@ -862,8 +861,7 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
 
 
-/* Misc visuals
-----------------------------------*/
+/* Misc visuals */
 
 /* Corner radius */
 .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; }
@@ -878,8 +876,9 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 
 /* Overlays */
 .ui-widget-overlay { background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
-.ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }/* Resizable
-----------------------------------*/
+.ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+/* Resizable */
 .ui-resizable { position: relative;}
 .ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
 .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
@@ -890,8 +889,10 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 .ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
 .ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
 .ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
-.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}/* Accordion
-----------------------------------*/
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+
+/* Accordion*/
+
 .ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; }
 .ui-accordion .ui-accordion-li-fix { display: inline; }
 .ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
@@ -899,16 +900,17 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 .ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
 .ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
 .ui-accordion .ui-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
-.ui-accordion .ui-accordion-content-active { display: block; }/* Autocomplete
-----------------------------------*/
+.ui-accordion .ui-accordion-content-active { display: block; }
+
+/* Autocomplete */
 .ui-autocomplete { position: absolute; cursor: default; }	
 .ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
 
 /* workarounds */
 * html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
 
-/* Menu
-----------------------------------*/
+
+/* Menu */
 .ui-menu {
 	list-style:none;
 	padding: 2px;
@@ -934,8 +936,8 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 .ui-menu .ui-menu-item a.ui-state-active {
 	margin: -1px;
 }
-/* Button
-----------------------------------*/
+
+/* Button*/
 
 .ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
 .ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
@@ -978,8 +980,9 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-dialog .ui-dialog-buttonpane button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em .6em .3em .6em; line-height: 1.4em; width:auto; overflow:visible; }
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
-/* Slider
-----------------------------------*/
+
+
+/* Slider */
 .ui-slider { position: relative; text-align: left; }
 .ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
 .ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
@@ -994,8 +997,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
 .ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
 .ui-slider-vertical .ui-slider-range-min { bottom: 0; }
-.ui-slider-vertical .ui-slider-range-max { top: 0; }/* Tabs
-----------------------------------*/
+.ui-slider-vertical .ui-slider-range-max { top: 0; }
+
+/* Tabs*/
+
 .ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0; }
 .ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
@@ -1005,8 +1010,9 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel { display: block; border: 0; padding: 1em 1.4em; background: none; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
-/* Datepicker
-----------------------------------*/
+
+/* Datepicker*/
+
 .ui-datepicker { width: 17em; padding: .2em .2em 0; }
 .ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
@@ -1073,8 +1079,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 
 
 
-/*---------------------------------------------------
--------------Estilo para la tabla que tiene los logos*/
+/*Estilo para la tabla que tiene los logos*/
 
 div.cell {
 	display: table-cell;	
@@ -1095,4 +1100,38 @@ div#layout
 div.hgroup 
 {
     display: table-row;
+}
+
+/*Estilo para el field de buscar*/
+
+.mainFormInput {
+color: #999;
+font-family: Arial,Helvetica,sans-serif;
+font-size: 10px;
+border: none;
+padding: 8px 10px 7px 10px;
+line-height: 1.3em;
+width: 154px;
+background: url("../../Content/header-search-field.gif") no-repeat 0 0;
+vertical-align: middle;
+margin-right: -5px;
+}
+.mainFormSubmit {
+border: none;
+outline: none;
+text-decoration: none;
+overflow: hidden;
+cursor: pointer;
+border-collapse: collapse;
+white-space: nowrap;
+background: url("../../Content/header-search-field.gif") no-repeat -225px 0;
+width: 25px;
+height: 28px;
+text-indent: 500px;
+vertical-align: middle;
+}
+.mainFormSubmit:hover, .mainFormSubmit:focus {
+background-position: 100% 0;
+}
+#dvGearOptionInner, .wrapperJP #footer, .wrapperJP #footer ul li, .wrapperJP #footer a, .wrapperJP #footer p, .wrapperJP .mainFormInput { font-family: "MS PGothic","Osaka",Arial,Helvetica,sans-serif;
 }
