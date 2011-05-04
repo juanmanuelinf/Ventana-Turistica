@@ -113,46 +113,9 @@
 .tr {background: url(../../Content/tr.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
 .clear {font-size: 1px; height: 1px}
 
-
-    /* use a semi-transparent image for the overlay */
-	#overlay {
-		background-image:url(../../Content/transparent.png);
-		color:#efefef;
-		height:830px;
-	}
-	
-	/* container for external content. uses vertical scrollbar, if needed */
-	div.contentWrap {
-		height:821px;
-		overflow-y:auto;
-	}
-	/* the overlayed element */
-    .apple_overlay {
-	
-	    /* initially overlay is hidden */
-	    display:none;
-	
-	    /* 
-		    width after the growing animation finishes
-		    height is automatically calculated
-	    */
-	    width:910px;		
-	
-	    /* some padding to layout nested elements nicely  */
-	    padding:45px;
-    }
-
-    /* default close button positioned on upper right corner */
-    .apple_overlay .close {
-	    background-image:url(../../Content/close.png);
-	    position:absolute; right:20px; top:15px;
-	    cursor:pointer;
-	    height:35px;
-	    width:35px;
-    }
 </style>
-
-<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script> 
+<link href="../../Content/floatbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/floatbox.js") %>"></script> 
 <script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
 
 <br />
@@ -173,24 +136,17 @@
           int valor = 0;%>
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" rel="#overlay" style="text-decoration:none">
-            <b><%= Model.ElementAt(valor).Nombre%></b><br />
-           <%if (Model.ElementAt(valor).Imagen != null)
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" rel="floatbox" rev="width:425 height:344 scrolling:no caption:`INFORMACIÓN`">
+           <b><%= Model.ElementAt(valor).Nombre%></b><br />
+            <%if (Model.ElementAt(valor).Imagen != null)
             {%> 
             <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
             <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
             <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>        
+            <%}%>   
         </a>
 
-        <!-- overlayed element -->
-        <div class="apple_overlay" id="overlay"><a class="close"></a>
-
-	        <!-- the external content is loaded inside this tag -->
-	        <div class="contentWrap"></div>
-
-        </div>
        <%}%></div>
         <div class="cuadriculaDerecha"><%
       externo = 2;
