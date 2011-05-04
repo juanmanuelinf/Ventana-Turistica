@@ -43,13 +43,7 @@
                 Titulo
             </th>
             <th>
-                Descripcion
-            </th>
-            <th>
                 Fecha
-            </th>
-            <th>
-                IdBlog
             </th>
         </tr>
 
@@ -60,13 +54,7 @@
                 <%: item.Titulo %>
             </td>
             <td>
-                <%= item.Descripcion %>
-            </td>
-            <td>
                 <%: String.Format("{0:g}", item.Fecha) %>
-            </td>
-            <td>
-                <%: item.IdBlog %>
             </td>
              <td>
                 <a title="Eliminar Entrada" href="<%=Url.Action("Delete", "Blog", new {id = item.IdBlog})%>">
