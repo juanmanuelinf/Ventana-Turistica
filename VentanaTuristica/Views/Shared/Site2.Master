@@ -17,18 +17,16 @@
 </head>
 
 <body>
-    <div class="page">
         <div id="header">
             <div id="title">
-                <a href="localhost:1491" ><img src="../../Content/logo.gif" 
-                    style="width: 229px" /></a>
+                <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
             </div>
               
             <div id="logindisplay">
                  <% Html.RenderPartial("LogOnUserControl"); %>
-            </div> 
+            </div>
 
-            <div id="menucontainer">
+            <div id="menucontainer" style=" margin-top:75px">
                     <ul id="nav">         
                         <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
                         <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
@@ -40,15 +38,20 @@
                     </ul>
             </div>        
         </div>
-
-        <div id="main">
+        <div class="page">
+            <div id="main">
             
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-            <div id="footer">
-            Ventana Turistica &copy;
             </div>
         </div>
-    </div>
+        <div id="footer">
+        <div id="footerMountain">
+                <img src="../../Content/footerMountain.png" />
+            </div>
+            <br /><br />
+            Ventana Turistica &copy;
+        </div>
+
 </body>
 </html>
