@@ -10,13 +10,10 @@
 .tablaFondo{
 	display: table;
 	width: 1160px;
-	height:990px;
-	background-image:url('../../Content/prueba.png');
-	background-repeat:no-repeat;
-	background-position:left top;
+	height:900px;
 	padding-left: 150px;
 	padding-top:160px;
-	position: absolute; top: 200px; left: 50px
+	position: absolute; top: 200px;
 }
 .tabla{
 	display: table;
@@ -27,73 +24,22 @@
 	width: 225px;
 	
 }
-.cuadriculaDerecha{
+.cuadriculaDerecha
+{
+    padding-top:10px;
+    padding-left:37px;
 	float: left;
 	width: 225px;
-	height:210px;
-	color:#DC7B1C;
-	text-align:center;
-	font-family: 'Book Antiqua';
-	font-style: italic;
+	height:250px;
+	color:Black;
+	text-align:left;
+	font-family:Century Gothic;
 	font-weight: normal;
 	font-size:14px;
-	text-transform: uppercase;
-	border-right: 1px dashed #CCC;
-	border-bottom:  1px dashed #CCC;
+	background: url(../../Content/fondoPubli.png);
+	background-repeat: no-repeat; 
+	background-position: center center;
 	
-}
-.cuadriculaDerechaSuperior{
-	float: left;
-	width: 225px;
-	height:210px;
-	color:#DC7B1C;
-	text-align:center;
-	font-family: 'Book Antiqua';
-	font-style: italic;
-	font-weight: normal;
-	font-size:14px;
-	text-transform: uppercase;
-	border-bottom:  1px dashed #CCC;
-	
-}
-.cuadriculaDerechaInferior{
-	float: left;
-	width: 225px;
-	height:210px;
-	color:#DC7B1C;
-	text-align:center;
-	font-size:14px;
-	font-family: 'Book Antiqua';
-	font-style: italic;
-	font-weight: normal;
-	text-transform: uppercase;
-}
-.cuadriculaInferiorCentro{
-	float: left;
-	width: 225px;
-	height:210px;
-	color:#DC7B1C;
-	border-right: 1px dashed #CCC;
-	border-left: 1px dashed #CCC;
-	font-family: 'Book Antiqua';
-	font-size:14px;
-	font-style: italic;
-	font-weight: normal;
-	text-transform: uppercase;
-	text-align:center;
-}
-.cuadriculaInferiorCentroDerecha{
-	float: left;
-	width: 225px;
-	height:210px;
-	color:#DC7B1C;
-	border-right: 1px dashed #CCC;
-	font-family: 'Book Antiqua';
-	font-size:14px;
-	font-style: italic;
-	font-weight: normal;
-	text-transform: uppercase;
-	text-align:center;
 }
 .menuIzquierda{
 	position:absolute;
@@ -137,16 +83,15 @@
          <br />
         
         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" rel="floatbox" rev="width:425 height:344 scrolling:no caption:`INFORMACIÓN`">
-           <b><%= Model.ElementAt(valor).Nombre%></b><br />
+           
             <%if (Model.ElementAt(valor).Imagen != null)
-            {%> 
-            <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
-            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
-            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
-            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
+            {%>
+            <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
+            <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
+            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
             <%}%>   
-        </a>
-
+        
+        
        <%}%></div>
         <div class="cuadriculaDerecha"><%
       externo = 2;
@@ -163,7 +108,10 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
-        <div class="cuadriculaDerechaInferior"><%
+        
+    </div>
+    <div class="cuadriculaAbajo">
+    <div class="cuadriculaDerecha"><%
       externo = 3;
       if (cuenta >= externo)
       {
@@ -178,8 +126,6 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
-    </div>
-    <div class="cuadriculaAbajo">
         <div class="cuadriculaDerecha">
         <%
       externo = 4;
@@ -196,6 +142,8 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
+    </div>
+    <div class="cuadriculaAbajo">
         <div class="cuadriculaDerecha"><%
       externo = 5;
       if (cuenta >= externo)
@@ -211,7 +159,7 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
-        <div class="cuadriculaInferiorCentro">
+        <div class="cuadriculaDerecha">
         <%
       externo = 6;
       if (cuenta >= externo)
@@ -227,6 +175,8 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
+        
+        
     </div>
     <div class="cuadriculaAbajo">
         <div class="cuadriculaDerecha"><%
@@ -259,98 +209,13 @@
             <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
             <%}%>
        <%}%></div>
-        <div class="cuadriculaInferiorCentroDerecha">
-        <%
-      externo = 9;
-      if (cuenta >= externo)
-      {
-          int valor = 8;%>
-         <br />
-         <b><%= Model.ElementAt(valor).Nombre%></b><br />
-           <%if (Model.ElementAt(valor).Imagen != null)
-            {%> 
-            <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
-            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
-            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
-            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>
-       <%}%></div>
-    </div>
-    <div class="cuadriculaAbajo">
-        <div class="cuadriculaDerechaSuperior"><%
-      externo = 10;
-      if (cuenta >= externo)
-      {
-          int valor = 9;%>
-         <br />
-         <b><%= Model.ElementAt(valor).Nombre%></b><br />
-           <%if (Model.ElementAt(valor).Imagen != null)
-            {%> 
-            <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
-            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
-            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
-            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>
-       <%}%></div>
-        <div class="cuadriculaDerechaSuperior"><%
-      externo = 11;
-      if (cuenta >= externo)
-      {
-          int valor = 10;%>
-         <br />
-         <b><%= Model.ElementAt(valor).Nombre%></b><br />
-           <%if (Model.ElementAt(valor).Imagen != null)
-            {%> 
-            <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
-            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
-            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
-            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>
-       <%}%></div>
-        <div class="cuadriculaDerechaInferior"><%
-      externo = 12;
-      if (cuenta >= externo)
-      {
-          int valor = 11;%>
-         <br />
-         <b><%= Model.ElementAt(valor).Nombre%></b><br />
-           <%if (Model.ElementAt(valor).Imagen != null)
-            {%> 
-            <img  height="150px" width="150px" src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>' />
-            <br /><b><%=Model.ElementAt(valor).Precios[0].Moneda%>
-            <%=Model.ElementAt(valor).Precios[0].PrecioMin%> -
-            <%=Model.ElementAt(valor).Precios[0].PrecioMax%></b>
-            <%}%>
-       <%}%></div>
     </div>
 </div>
 
 
 <%}%> 
-<div class="menuIzquierda">
-<div class="bl"><div class="br"><div class="tl"><div class="tr">
-<form name="form1" action=""> 
-<table style="width:590px;"><tbody><tr> 
-<td style="width:100px;">Country</td> 
-<td><select name="cboCountry" style="width:auto;clear:none;" onchange="Fill_States();"> 
-<option selected="selected">12345678901234567890</option> 
-<option>temp</option></select></td> 
-</tr><tr> 
- 
-<td class="td100">State<br />Province</td> 
-<td title="Enable javascript to fill the lists."><select name="cboState" style="width:auto;" onchange="Update_Globals();"> 
-<option selected="selected">12345678901234567890</option> 
-<option>temp</option></select></td></tr></tbody></table><br /> 
- 
- 
 
-
-</form> 
-</div></div></div></div>
-<div class="clear">&nbsp;</div>
-</div>
-
-<div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
+<div>
 <%
   int nro = Convert.ToInt32(ViewData["nroPaginas"]);
   int pagina = Convert.ToInt32(ViewData["pagActual"]);
@@ -417,10 +282,9 @@
         
     }
 %>
-   
-   
+</div>
 
-</div></div></div></div>
+
 <div class="clear">&nbsp;</div>
 <!-- make all links with the 'rel' attribute open overlays -->
     <script>
