@@ -14,7 +14,7 @@
         <%
             foreach (var imagene in Model.Imagenes)
             {%>
-         <li ><img src='<%=Url.Action("Show", "Publicacion", new {id = imagene.IdImagen})%>' />
+         <li ><img src='<%=Url.Action("Show", "Publicacion", new {id = imagene.IdImagen})%>' width="400px" />
              <div class="gv-panel-overlay">
                     <p><%=imagene.Descripcion%></p>
 	            </div>
@@ -102,7 +102,7 @@
     </tr>
 </table>
 
-<table style="border: 2px none #C0C0C0;">
+<table style="border: 2px none #C0C0C0;width:750px;">
 <tr>
 <td class="tituloTabla2">Descripcion</td>
 <td class="tituloTabla2">Servicios y Actividades</td>
@@ -127,15 +127,14 @@
 <td class="contenidoNotasTabla">
     <%= Model.Idioma[0].Notas %></td>
 </tr>
-</table>
-<div class="barraPubli"></div>        
+</table>   
 
 <script type="text/javascript">
     $(document).ready(function () {
         $('#myGallery').galleryView({
             show_captions: false,
             show_overlays: false,
-            panel_width: 500,
+            panel_width: 400,
             panel_height: 300,
             frame_width: 50,
             frame_height: 35
