@@ -7,7 +7,7 @@
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Iniciar sesión</h2>
     <p>
-        Especifique su nombre de usuario y contraseña. <%: Html.ActionLink("Registrarse", "Register") %> si no tiene una cuenta.
+        Especifique su nombre de usuario y contraseña.
     </p>
 
     <% using (Html.BeginForm()) { %>

@@ -6,7 +6,7 @@
             <% foreach (var item in Model)
             { %>
                 <div class="cell">
-                    <a href="<%:item.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.IdImagen})%>'/></a>
+                    <a target="_blank"  href="<%:item.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.IdImagen})%>'/></a>
                 </div>
             <%} %>
             </div>

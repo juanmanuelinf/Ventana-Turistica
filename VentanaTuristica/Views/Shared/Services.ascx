@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl" %>
-<div style="margin-right:30px">
+<div>
     <% using (Html.BeginForm())
        {%>
     
@@ -9,10 +9,13 @@
        }%>
 </div> 
 <br />
-<div style="margin-right:50px">
-    <img src="<%=Url.Content("~/Content/iconos.png")%>"/>
+<div>
+    <a title="FaceBook" target="_blank" href="http://www.facebook.com/pages/Ventana-Turisticacom/113756445350700">
+        <img src="<%=Url.Content("~/Content/facebook.png")%>" width="25px" /></a>
+    <a title="Twitter" target="_blank" href="#">
+        <img src="<%=Url.Content("~/Content/twitter.gif")%>" width="25px" /></a>
     <a title="Ingles" href="<%=Url.Action("Ingles", "Home")%>">
-        <img src="<%=Url.Content("~/Content/ingles.png")%>" /></a>  
+        <img src="<%=Url.Content("~/Content/english.png")%>" width="24px" /></a>  
     <a title="Español" href="<%=Url.Action("Espanol", "Home")%>">
-        <img src="<%=Url.Content("~/Content/espanol.png")%>" /></a>
+        <img src="<%=Url.Content("~/Content/spanish.png")%>" width="24px" /></a>
 </div>
