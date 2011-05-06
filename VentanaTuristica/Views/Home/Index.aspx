@@ -20,7 +20,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<img src="../../Content/header-bg.jpg" style="width: 100%"/>
-
+<% Html.RenderAction("Imagenes","Imagene");%>
 
 </asp:Content>

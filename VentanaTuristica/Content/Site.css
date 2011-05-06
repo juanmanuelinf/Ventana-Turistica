@@ -236,6 +236,12 @@ div#title
     margin-left: 200px;
 }
 
+div#title2
+{   
+    float: left;
+    margin-left: 100px;
+}
+
 #logindisplay
 {
     margin-top:10px;

@@ -13,6 +13,8 @@
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.tools.min.js") %>"></script>
+    <link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%:Url.Content("~/Content/floatbox/floatbox.js") %>"></script>
     <style>
     .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:100%}
     .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:25px; margin-top:5px; margin-bottom:5px}

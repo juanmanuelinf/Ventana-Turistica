@@ -18,7 +18,7 @@
 
 <body>
         <div id="header">
-            <div id="title">
+            <div id="title2">
                 <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
             </div>
               
@@ -33,7 +33,8 @@
                         <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%></li>
                         <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%></li>
                         <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%></li>
-                        <li><%: Html.ActionLink("Patrocinante", "Index", "Patrocinante")%></li>
+                        <li><%: Html.ActionLink("Patrocinantes", "Index", "Patrocinante")%></li>
+                        <li><%: Html.ActionLink("Imagenes", "Index", "Imagene")%></li>
                         <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
                     </ul>
             </div>        
