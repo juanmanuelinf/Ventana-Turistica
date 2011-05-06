@@ -188,6 +188,7 @@ namespace VentanaTuristica.Controllers
             var repoPubli = new PublicacionRepositorio();
             IList<Idioma> myIdiomas = p.Idioma;
             p.Idioma = null;
+
             var idPublicacion =repoPubli.Save(p);
 
             //Precios
@@ -248,6 +249,8 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Lista(int pagActual, int orden, string filtros)
         {
+            IList<string> listaFiltros = filtros.Split(',');
+
 
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoSubCat = new SubCategoriumRepositorio();
