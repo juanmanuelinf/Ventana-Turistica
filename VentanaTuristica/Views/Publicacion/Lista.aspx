@@ -60,8 +60,6 @@
 .clear {font-size: 1px; height: 1px}
 
 </style>
-<link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%:Url.Content("~/Scripts/floatbox/floatbox.js") %>"></script> 
 <script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
 
 <br />
@@ -82,15 +80,14 @@
           int valor = 0;%>
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:80% height:90%">
-           
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:80% height:90%">   
+   
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
             <%}%>   
-        
         
        <%}%></div>
         <div class="cuadriculaDerecha"><%
