@@ -60,8 +60,8 @@
 .clear {font-size: 1px; height: 1px}
 
 </style>
-<link href="../../Content/floatbox.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<%:Url.Content("~/Scripts/floatbox.js") %>"></script> 
+<link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/floatbox/floatbox.js") %>"></script> 
 <script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
 
 <br />
@@ -82,7 +82,7 @@
           int valor = 0;%>
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" rel="floatbox" rev="width:425 height:344 scrolling:no caption:`INFORMACIÓN`">
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:80% height:90%">
            
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>

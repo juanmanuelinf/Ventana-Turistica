@@ -251,6 +251,7 @@ namespace VentanaTuristica.Controllers
         {
             IList<string> listaFiltros = filtros.Split(',');
 
+
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoSubCat = new SubCategoriumRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
