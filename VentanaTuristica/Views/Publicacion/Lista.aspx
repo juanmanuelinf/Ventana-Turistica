@@ -68,9 +68,12 @@
  <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1})%>
 <div class="clear">&nbsp;</div> -->
 <br />
-<%if (Model != null)
+
+
+<%if (Model.Count() != 0)
   {%>
   <%var cuenta = Convert.ToInt32(ViewData["cuenta"]);%>
+
     <div class="tabla">
     <div class="cuadriculaAbajo">
         <div class="cuadriculaDerecha"><%
@@ -80,7 +83,7 @@
           int valor = 0;%>
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:80% height:90%">   
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -210,7 +213,10 @@
 </div>
 
 
-<%}%> 
+<%}else
+  {%>
+       <h2>No hay resultados para esta busqueda...</h2>
+  <%}%> 
 
 <div>
 <%
@@ -283,28 +289,4 @@
 
 
 <div class="clear">&nbsp;</div>
-<!-- make all links with the 'rel' attribute open overlays -->
-    <script>
-
-        $(function () {
-
-            // if the function argument is given to overlay,
-            // it is assumed to be the onBeforeLoad event listener
-            $("a[rel]").overlay({
-
-                mask: 'darkgray',
-                effect: 'apple',
-
-                onBeforeLoad: function () {
-
-                    // grab wrapper element inside content
-                    var wrap = this.getOverlay().find(".contentWrap");
-
-                    // load the page specified in the trigger
-                    wrap.load(this.getTrigger().attr("href"));
-                }
-
-            });
-        });
-    </script>
 </asp:Content>

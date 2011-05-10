@@ -39,7 +39,7 @@
 #loading-image {
 	background-color:White;
 	width: 910px;
-	height: 420px;
+	height: 450px;
 	position:absolute;
 	z-index: 1;
 	-moz-border-radius: 10px;

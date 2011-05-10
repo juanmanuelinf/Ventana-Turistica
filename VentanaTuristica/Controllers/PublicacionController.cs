@@ -257,16 +257,19 @@ namespace VentanaTuristica.Controllers
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
-
-            foreach (var publicacion in listaPub)
+            IList<Publicacion> listaPub2 = myRepoPublicacion.GetAll();
+            foreach (var publicacion in listaPub2)
             {
                 publicacion.SubCategorium = myRepoSubCat.GetById(publicacion.IdSubCategoria);
                 if (publicacion.SubCategorium.Nombre != filtros)
-                    listaPub.Remove(publicacion);
+                    listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
             }
             if (listaPub.Count() == 0)
             {
-                return View();
+                ViewData["nroPaginas"] = 1;
+                ViewData["pagActual"] = 1;
+                ViewData["cuenta"] = 0;
+                return View(new List<Publicacion>());
             }
             foreach (var publicacion in listaPub)
             {
@@ -281,7 +284,7 @@ namespace VentanaTuristica.Controllers
                 }
             }
 
-            int nroPaginas = listaPub.Count/12;
+            int nroPaginas = listaPub.Count/8;
 
             IList<Publicacion> listaPubAux = new List<Publicacion>();
             var cont = 0;
@@ -300,7 +303,7 @@ namespace VentanaTuristica.Controllers
                 }
                 cont++;
                 cont2++;
-                if (cont < 13)
+                if (cont < 9)
                 {
                     listaPubAux.Add(publicacion);
                 }
@@ -311,7 +314,7 @@ namespace VentanaTuristica.Controllers
                     listaPubAux.Add(publicacion);
                     cont = 0;
                 }
-                if (cont2 == listaPub.Count && cont < 13)
+                if (cont2 == listaPub.Count && cont < 9)
                 {
                     listaDeLista.Add(listaPubAux);
                 }

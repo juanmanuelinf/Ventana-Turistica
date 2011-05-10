@@ -83,6 +83,31 @@
             var root = jQuery("#scroller").scrollable({ circular: true }).autoscroll({ autoplay: true });
             window.api = root.data("scrollable");
         });
+
+        function fillWindow(nameDiv) {
+
+            var mapDiv = document.getElementById(nameDiv);
+            try {
+                if (window.innerHeight) { //if browser supports window.innerWidth
+                    // mapDiv.style.height = window.innerHeight + 'px';
+                    var ancho = eval(window.innerWidth) - 17;
+                    mapDiv.style.width =  ancho + 'px';
+                   
+                }
+                else {	//MSIE
+                    document.body.scroll = "no";
+                    //  mapDiv.style.height = document.body.clientHeight + 'px';
+                    var ancho2 = eval(document.body.clientWidth);
+                    mapDiv.style.width = ancho2 + 'px';
+            
+                }
+            }
+            catch (ex) {
+            }
+
+        }
+        fillWindow("header");
+        fillWindow("footer");
     </script>
 
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
