@@ -12,7 +12,7 @@
         <fieldset>
 
             <%= Html.ValidationSummary(true,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
-        
+            
             <legend>Nuevo Patrocinante</legend>
            
             <div class="editor-label">
@@ -104,6 +104,8 @@
                 <div class="editor-field">
                     <input type="file" name="File" id="File" />
                 </div>
+                
+                    <%: Html.ValidationMessageFor(model => model.File) %>
             </fieldset>
 
             <div class="editor-label">
