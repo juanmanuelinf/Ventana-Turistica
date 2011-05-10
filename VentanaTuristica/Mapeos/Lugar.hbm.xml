@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
+	<class name="Lugar" lazy="true" table="`Lugar`" schema="`dbo`">
+		<id name="IdLugar" access="property" column="`IdLugar`">
+			<generator class="native" />
+		</id>
+		<property name="Nombre" column="`Nombre`" />
+		<property name="Tipo" column="`Tipo`" />
+		<property name="FkLugar" column="`FkLugar`" length="100" />
+	</class>
+</hibernate-mapping>
