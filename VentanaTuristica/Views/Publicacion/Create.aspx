@@ -12,12 +12,12 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
-        jQuery("#Foranea").cascade("#Lugar", {
+        jQuery("#Estado").cascade("#Pais", {
             ajax: { url: 'GetForaneas' },
             template: commonTemplate,
             match: commonMatch
         });
-        jQuery("#Foranea2").cascade("#Foranea", {
+        jQuery("#Ciudad").cascade("#Estado", {
             ajax: { url: 'GetForaneas' },
             template: commonTemplate,
             match: commonMatch
@@ -68,18 +68,18 @@
         </div>
            <div class="editor-field">
                  <label> Pais:</label>    
-                <%= Html.DropDownList("Lugar")%>
+                <%= Html.DropDownList("Pais")%>
               
             </div>
             
           <div class="editor-label">
                 <label> Estado:</label>
-                 <%= Html.DropDownList("Foranea")%>    
+                 <%= Html.DropDownList("Estado")%>    
             </div>
 
              <div class="editor-label">
                 <label> Localidad:</label>
-                 <%= Html.DropDownList("Foranea2")%>    
+                 <%= Html.DropDownList("Ciudad")%>    
             </div>
         <div class="editor-field">
         <textarea name="Direccion" rows="3" cols="45" ></textarea>

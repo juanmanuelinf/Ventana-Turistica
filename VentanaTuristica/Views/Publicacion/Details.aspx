@@ -94,10 +94,10 @@
 </table>   
 
 <style>
-.bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:770px}
-.br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:370px; margin-top:5px; margin-bottom:5px}
-.tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
-.tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px 10px 10px 20px; text-align:left}
+.bl3 {background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x; width:770px}
+.br3 {height:370px; margin-top:5px; margin-bottom:5px}
+.tl3 {}
+.tr3 {padding:10px 10px 10px 20px; text-align:left}
 .contenidoIzq{
 	float:left;
 	width:400px;

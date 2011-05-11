@@ -163,11 +163,11 @@ namespace VentanaTuristica.Controllers
                 }
                
             }
-            ViewData["Lugar"] = new SelectList(items3);
+            ViewData["Pais"] = new SelectList(items3);
             IEnumerable<string> items2 = new string[] { "--Seleccione--" };
-            ViewData["Foranea"] = new SelectList(items2);
+            ViewData["Estado"] = new SelectList(items2);
             IEnumerable<string> items4 = new string[] { "--Seleccione--" };
-            ViewData["Foranea2"] = new SelectList(items4);
+            ViewData["Ciudad"] = new SelectList(items4);
             var repoSubCat = new SubCategoriumRepositorio();
             var repoCat = new CategoriumRepositorio();
             //Lista de Subcategoria para las publicaciones
@@ -218,6 +218,9 @@ namespace VentanaTuristica.Controllers
         {
             //Empresa
             var nombreEmpresa =collection[0];
+            var repoLugar = new LugarRepositorio();
+            p.Estado = repoLugar.GetById(Convert.ToInt32(p.Estado)).Nombre;
+            p.Ciudad = repoLugar.GetById(Convert.ToInt32(p.Ciudad)).Nombre;
             if(String.IsNullOrEmpty(nombreEmpresa))
             {   
                 ModelState.AddModelError("NombreE","Nombre Empresa es Necesario");
@@ -304,13 +307,12 @@ namespace VentanaTuristica.Controllers
             return View();
         }
 
-        public ActionResult Lista(int pagActual, int orden, string filtros)
+        public ActionResult Lista(int pagActual, int orden, string cat, string sub, string lug)
         {
-            IList<string> listaFiltros = filtros.Split(',');
-
 
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoSubCat = new SubCategoriumRepositorio();
+            var myRepoCat = new CategoriumRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
             IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
@@ -318,8 +320,68 @@ namespace VentanaTuristica.Controllers
             foreach (var publicacion in listaPub2)
             {
                 publicacion.SubCategorium = myRepoSubCat.GetById(publicacion.IdSubCategoria);
-                if (publicacion.SubCategorium.Nombre != filtros)
-                    listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                if(lug!=null && sub!=null && cat!=null)
+                {
+                    publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                    if (publicacion.SubCategorium.Nombre != sub || publicacion.Categorium.Nombre != cat || publicacion.Estado !=lug)
+                        listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                }
+                else
+                {
+                    if (sub != null && cat != null)
+                    {
+                        publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                        if (publicacion.SubCategorium.Nombre != sub || publicacion.Categorium.Nombre != cat)
+                            listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                    }else
+                    {
+                        if (sub != null && lug != null)
+                        {
+                           
+                            if (publicacion.SubCategorium.Nombre != sub || publicacion.Estado != lug)
+                                listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                        }else
+                        {
+                            if (cat != null && lug != null)
+                            {
+                                publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                                if (publicacion.Categorium.Nombre != sub || publicacion.Estado != lug)
+                                    listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                            }else
+                            {
+                                if (sub != null)
+                                {
+
+                                    if (publicacion.SubCategorium.Nombre != sub)
+                                        listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                }
+                                else
+                                {
+                                    if (cat != null)
+                                    {
+                                        publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                                        if (publicacion.Categorium.Nombre != cat)
+                                            listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                    }
+                                    else
+                                    {
+                                        if (lug != null)
+                                        {
+
+                                            if (publicacion.Estado != lug)
+                                                listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                
+               
+
+                
             }
             if (listaPub.Count() == 0)
             {
