@@ -319,7 +319,7 @@ namespace VentanaTuristica.Controllers
             var myRepoCat = new CategoriumRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
-            IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
+            IList<Publicacion> listaPub = new List<Publicacion>();
             IList<Publicacion> listaPub2 = myRepoPublicacion.GetAll();
             foreach (var publicacion in listaPub2)
             {
@@ -327,53 +327,51 @@ namespace VentanaTuristica.Controllers
                 if(lug!=null && sub!=null && cat!=null)
                 {
                     publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
-                    if (publicacion.SubCategorium.Nombre != sub || publicacion.Categorium.Nombre != cat || publicacion.Estado !=lug)
-                        listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                    if (publicacion.SubCategorium.Nombre == sub && publicacion.Categorium.Nombre == cat && publicacion.Estado ==lug)
+                        listaPub.Add(publicacion);
                 }
                 else
                 {
                     if (sub != null && cat != null)
                     {
                         publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
-                        if (publicacion.SubCategorium.Nombre != sub || publicacion.Categorium.Nombre != cat)
-                            listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                        if (publicacion.SubCategorium.Nombre == sub && publicacion.Categorium.Nombre == cat)
+                            listaPub.Add(publicacion);
                     }else
                     {
                         if (sub != null && lug != null)
                         {
-                           
-                            if (publicacion.SubCategorium.Nombre != sub || publicacion.Estado != lug)
-                                listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
-                        }else
+                            if (publicacion.SubCategorium.Nombre == sub && publicacion.Estado == lug)
+                            listaPub.Add(publicacion);
+                        }
+                        else
                         {
                             if (cat != null && lug != null)
                             {
                                 publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
-                                if (publicacion.Categorium.Nombre != sub || publicacion.Estado != lug)
-                                    listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                if (publicacion.Categorium.Nombre == sub && publicacion.Estado == lug)
+                                listaPub.Add(publicacion);
                             }else
                             {
                                 if (sub != null)
                                 {
-
-                                    if (publicacion.SubCategorium.Nombre != sub)
-                                        listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                    if (publicacion.SubCategorium.Nombre == sub)
+                                    listaPub.Add(publicacion);
                                 }
                                 else
                                 {
                                     if (cat != null)
                                     {
                                         publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
-                                        if (publicacion.Categorium.Nombre != cat)
-                                            listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                        if (publicacion.Categorium.Nombre == cat)
+                                        listaPub.Add(publicacion);
                                     }
                                     else
                                     {
                                         if (lug != null)
                                         {
-
-                                            if (publicacion.Estado != lug)
-                                                listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                                            if (publicacion.Estado == lug)
+                                            listaPub.Add(publicacion);
                                         }
                                     }
                                 }
@@ -566,6 +564,29 @@ namespace VentanaTuristica.Controllers
             bmPhoto.Dispose();
             grPhoto.Dispose();
             return mm.GetBuffer();
+        }
+        public ActionResult Find(string q)
+        {
+            IRepositorio<Empresa> repoP = new EmpresaRepositorio();
+            IList<Empresa> empresas = repoP.GetAll();
+            IList<Empresa> posiblesEmpresas = new List<Empresa>();
+
+            foreach (var item in empresas)
+            {
+                if (item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower()))
+                {
+                    posiblesEmpresas.Add(item);
+                }
+            }
+            string[] emp = new string[posiblesEmpresas.Count];
+            int i = 0;
+            foreach (var empresa in posiblesEmpresas)
+            {
+                emp[i] = empresa.Nombre;
+                i++;
+            }
+
+            return Content(string.Join("\n", emp)); ;
         }
        
     }

@@ -62,13 +62,10 @@
 </style>
 <script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
 
-<br />
 <!-- <div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
  <%=Html.ActionLink("Menor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 0})%>
  <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1})%>
 <div class="clear">&nbsp;</div> -->
-<br />
-
 
 <%if (Model.Count() != 0)
   {%>
