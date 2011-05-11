@@ -39,7 +39,47 @@ namespace VentanaTuristica.Controllers
             return View(listaPublicacion);
         }
 
-        
+        [HttpGet]
+        public ActionResult GetForaneas()
+        {
+
+            IRepositorio<Lugar> repoMotor = new LugarRepositorio();
+            IList<Lugar> query2 = repoMotor.GetAll();
+            IRepositorio<Lugar> repoMarca = new LugarRepositorio();
+            IList<Lugar> query = repoMarca.GetAll();
+            IRepositorio<Lugar> repoMarca2 = new LugarRepositorio();
+            IList<Lugar> query3 = repoMarca.GetAll();
+            List<JsonSelectObject> citiesList = new List<JsonSelectObject>();
+
+            foreach (var pais in query)
+            {
+                foreach (var estado in query2)
+                {
+                    if (pais.IdLugar == estado.FkLugar)
+                    {
+                        citiesList.Add(new JsonSelectObject
+                                           {
+                                               When = pais.Nombre,
+                                               Value = estado.IdLugar.ToString(),
+                                               Text = estado.Nombre
+                                           });
+                        foreach (var localidad in query3)
+                        {
+                            if (estado.IdLugar == localidad.FkLugar)
+                                citiesList.Add(new JsonSelectObject
+                                                   {
+                                                       When = estado.IdLugar.ToString(),
+                                                       Value = localidad.IdLugar.ToString(),
+                                                       Text = localidad.Nombre
+                                                   });
+                        }
+                    }
+                }
+
+            }
+            return Json(citiesList, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Show(int id)
         {
             //renderizar las imagenes en la vista
@@ -111,6 +151,23 @@ namespace VentanaTuristica.Controllers
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
+            var items3 = new List<string>();
+            IRepositorio<Lugar> repoMarca = new LugarRepositorio();
+            IList<Lugar> query = repoMarca.GetAll();
+            items3.Add("--Seleccione--");
+            foreach (var lugar in query)
+            {
+                if (lugar.Tipo=="Pais")
+                {
+                    items3.Add(lugar.Nombre);
+                }
+               
+            }
+            ViewData["Lugar"] = new SelectList(items3);
+            IEnumerable<string> items2 = new string[] { "--Seleccione--" };
+            ViewData["Foranea"] = new SelectList(items2);
+            IEnumerable<string> items4 = new string[] { "--Seleccione--" };
+            ViewData["Foranea2"] = new SelectList(items4);
             var repoSubCat = new SubCategoriumRepositorio();
             var repoCat = new CategoriumRepositorio();
             //Lista de Subcategoria para las publicaciones

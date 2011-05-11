@@ -119,13 +119,15 @@ namespace VentanaTuristica.Controllers
 
             if (Session["culture"] == null)
                 Session["culture"] = "es-MX";
-            IRepositorio<Categorium> repositorio = new CategoriumRepositorio();
-            IList<Categorium> todasCategorias = repositorio.GetAll();
+            IRepositorio<Categorium> repositorioCategoria = new CategoriumRepositorio();
+            IList<Categorium> todasCategorias = repositorioCategoria.GetAll();
             IList<Categorium> todasCategoriasVistas = new List<Categorium>();
-            IRepositorio<SubCategorium> repositorioS = new SubCategoriumRepositorio();
-            IList<SubCategorium> todasSubCategorias = repositorioS.GetAll();
+            IRepositorio<SubCategorium> repositorioSubcategoria = new SubCategoriumRepositorio();
+            IList<SubCategorium> todasSubCategorias = repositorioSubcategoria.GetAll();
             IList<SubCategorium> listaSubCategorias = new List<SubCategorium>();
-
+            IRepositorio<Publicacion> repositorioPublicacion = new PublicacionRepositorio();
+            IList<Publicacion> listaPublicaciones = repositorioPublicacion.GetAll();
+            IList<string> listaLugares = new List<string>();
             foreach (var categoria in todasCategorias)
             {
                 if (categoria.Idioma == Session["culture"].ToString())
@@ -134,6 +136,15 @@ namespace VentanaTuristica.Controllers
                     {
                         if (subCategoria.IdCategoria == categoria.IdCategoria)
                         {
+                            foreach (var publicacion in listaPublicaciones)
+                            {
+                                if (publicacion.IdSubCategoria == subCategoria.IdSubCategoria)
+                                {
+                                    listaLugares.Add(publicacion.Estado);
+                                }
+                            }
+                            subCategoria.Lugares = listaLugares;
+                            listaLugares = new List<string>();
                             listaSubCategorias.Add(subCategoria);
                         }
                     }
