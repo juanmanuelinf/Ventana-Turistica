@@ -578,7 +578,7 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 {
     color: black;
     font-family: Arial;
-    font-weight: bold;
+
     margin-right: auto;
     font-size: 12px;
     vertical-align:top;
@@ -589,7 +589,7 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 {
     color: black;
     font-family: Arial;
-    font-weight: bold;
+
     margin-right: auto;
     font-size: 12px;
     width: 450px;
@@ -599,7 +599,7 @@ a:hover, a:focus{ color: #FF9814;	text-decoration:none; }
 {
     color:black;
     font-size:12px;
-    font-weight: bold;
+
     font-family:Arial;
     margin-right: auto;
     width: 450px;

@@ -27,7 +27,7 @@
         <div id="publiNombre"> <%=Html.Encode(Model.Nombre)%></div>
         <div id="publiTipo" class="descripcionContDere"><b>Tipo:</b> <%=Html.Encode(Model.Categorium.Nombre)%> - <%=Html.Encode(Model.SubCategorium.Nombre)%></div>
         <div id="publiCat" class="descripcionContDere">
-            <b>Categoria:</b> <%if (Model.Idioma[0].Categoria == "0")
+            <b>Categoria:</b> <%if (Model.Idioma[0].Categoria.CompareTo("0")==0)
                                     {%>
                 <%=Model.Idioma[Model.Idioma.Count - 1].Categoria%>
                 <%
@@ -72,9 +72,9 @@
 <td class="tituloTabla2">Servicios y Actividades</td>
 </tr>
 <tr>
-<td class="contenidoDescripcionTabla">
+<td class="contenidoDescripcionTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
 &nbsp;<%=Model.Idioma[0].Descripcion%></td>
-<td class="contenidoServiciosTabla" rowspan="3">
+<td class="contenidoServiciosTabla" rowspan="3"  style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
 <%foreach (var servicio in Model.Servicios)
   {%>
   
@@ -88,13 +88,13 @@
 <td class="tituloTabla2">Notas </td>
 </tr>
 <tr>
-<td class="contenidoNotasTabla">
+<td class="contenidoNotasTabla"  style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
     <%= Model.Idioma[0].Notas %></td>
 </tr>
 </table>   
 
 <style>
-.bl3 {background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x; width:770px}
+.bl3 {background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y; width:770px}
 .br3 {height:370px; margin-top:5px; margin-bottom:5px}
 .tl3 {}
 .tr3 {padding:10px 10px 10px 20px; text-align:left}
