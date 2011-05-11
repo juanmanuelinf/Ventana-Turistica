@@ -66,23 +66,24 @@ namespace VentanaTuristica.Controllers
                 patrocinante.Contacto = contactos;
                 foreach (var imagene in imagenes)
                 {
-                    if (imagene.IdPatrocinante == patrocinante.IdPatrocinante)
-                    {
-                        patrocinante.Imagene = imagene;
-                        if (tipo != null)
+                    if (imagene.IdPatrocinante != null)
+                        if (imagene.IdPatrocinante == patrocinante.IdPatrocinante)
                         {
-                            if (tipo == "S")
+                            patrocinante.Imagene = imagene;
+                            if (tipo != null)
                             {
-                                if (imagene.Tipo == "S")
-                                    patrocinantesAux.Add(patrocinante);
-                            }
-                            else
-                            {
-                                if (imagene.Tipo == "L")
-                                    patrocinantesAux.Add(patrocinante);
+                                if (tipo == "S")
+                                {
+                                    if (imagene.Tipo == "S")
+                                        patrocinantesAux.Add(patrocinante);
+                                }
+                                else
+                                {
+                                    if (imagene.Tipo == "L")
+                                        patrocinantesAux.Add(patrocinante);
+                                }
                             }
                         }
-                    }
                 }
             }
             if (tipo != null)
@@ -135,8 +136,8 @@ namespace VentanaTuristica.Controllers
                     myImagene.Tipo = "L";
                 }
 
-              //  if (ModelState.IsValid)
-              //  {
+              if (ModelState.IsValid)
+              {
                     IRepositorio<Patrocinante> repoPatrocinante = new PatrocinanteRepositorio();
                     repoPatrocinante.Save(patrocinante);
 
@@ -152,7 +153,7 @@ namespace VentanaTuristica.Controllers
                     repoImagen.Save(myImagene);
 
                     return RedirectToAction("Index");
-              //  }
+               }
             }
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(patrocinante);

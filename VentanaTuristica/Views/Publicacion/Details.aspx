@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<table><tr><td align=center>
+<table><tr><td>
 
 <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
 	<div class="contenidoIzq">
@@ -92,18 +92,20 @@
     <%= Model.Idioma[0].Notas %></td>
 </tr>
 </table>   
+
 <style>
-.bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:800px}
+.bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:770px}
 .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:370px; margin-top:5px; margin-bottom:5px}
 .tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
 .tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
 .contenidoIzq{
 	float:left;
-	width:400px
+	width:400px;
 	}
 .contenidoDer{
 	float:left;
-	width:380px
+	width:350px;
+	font-size:12px;	
 	}
 
 </style>
