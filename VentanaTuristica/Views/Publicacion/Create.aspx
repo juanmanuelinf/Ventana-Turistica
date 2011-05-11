@@ -1,12 +1,38 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<IList<VentanaTuristica.Model.Servicio>>" %>
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Create
+	Crear Empresa
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.cascade.js") %>"></script>
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.cascade.ext.js") %>"></script>
+<script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.templating.js") %>"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery("#Foranea").cascade("#Lugar", {
+            ajax: { url: 'GetForaneas' },
+            template: commonTemplate,
+            match: commonMatch
+        });
+        jQuery("#Foranea2").cascade("#Foranea", {
+            ajax: { url: 'GetForaneas' },
+            template: commonTemplate,
+            match: commonMatch
+        });
+    });
+    function commonTemplate(item) {
+        return "<option value='" + item.Value + "'>" + item.Text + "</option>";
+    };
+
+    function commonMatch(selectedValue) {
+        return this.When == selectedValue;
+    };
+
+
+	</script>
  <h2></h2>
   <% using (Html.BeginForm()) {%>
         <%= Html.ValidationSummary(true,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
@@ -40,6 +66,21 @@
         <div class="editor-label">
         <label for="Direccion"> Direccion:</label>
         </div>
+           <div class="editor-field">
+                 <label> Pais:</label>    
+                <%= Html.DropDownList("Lugar")%>
+              
+            </div>
+            
+          <div class="editor-label">
+                <label> Estado:</label>
+                 <%= Html.DropDownList("Foranea")%>    
+            </div>
+
+             <div class="editor-label">
+                <label> Localidad:</label>
+                 <%= Html.DropDownList("Foranea2")%>    
+            </div>
         <div class="editor-field">
         <textarea name="Direccion" rows="3" cols="45" ></textarea>
         </div>
@@ -52,8 +93,6 @@
             <%= Html.ValidationMessage("SubCategorium.Nombre", "*")%>
         </div>
         </fieldset>
-       
-        
 
 
         <fieldset>
