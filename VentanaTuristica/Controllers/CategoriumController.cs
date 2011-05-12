@@ -140,7 +140,8 @@ namespace VentanaTuristica.Controllers
                             {
                                 if (publicacion.IdSubCategoria == subCategoria.IdSubCategoria)
                                 {
-                                    listaLugares.Add(publicacion.Estado);
+                                    if (!listaLugares.Contains(publicacion.Estado))
+                                        listaLugares.Add(publicacion.Estado);
                                 }
                             }
                             subCategoria.Lugares = listaLugares;
