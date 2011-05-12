@@ -35,7 +35,7 @@ P, UL
 	margin-bottom: 20px;
 	line-height: 1.6em;
 }
-/*TÃTULOS
+/*TÃƒÆ’Ã‚ÂTULOS
 ----------------------------------------------------------*/
 H1, H2, H3, H4, H5, H6
 {
@@ -71,10 +71,10 @@ primer elemento secundario de las columnas de tabla izquierda y derecha*/
 {
 	margin-top: 0;
 }
-/*ELEMENTOS DE DISEÃ‘O PRIMARIO
+/*ELEMENTOS DE DISEÃƒÆ’Ã¢â‚¬ËœO PRIMARIO
 ----------------------------------------------------------
 puede especificar un porcentaje mayor o menor para el
-ancho de pÃ¡gina. O bien puede especificar un ancho de pÃ­xel exacto.*/
+ancho de pÃƒÆ’Ã‚Â¡gina. O bien puede especificar un ancho de pÃƒÆ’Ã‚Â­xel exacto.*/
 .page
 {
 	width: 970px;
@@ -90,7 +90,7 @@ ancho de pÃ¡gina. O bien puede especificar un ancho de pÃ­xel exacto.*/
 #header
 {
 	width: 1270px;
-	height: 155px;
+	height: 175px;
 	background: url(header.png) repeat-x 0 0;
 }
 #header H1
@@ -106,18 +106,25 @@ ancho de pÃ¡gina. O bien puede especificar un ancho de pÃ­xel exacto.*/
 }
 #main
 {
-	padding: 30px 30px 15px;
+	padding: 30px;
 	background-color: #FFF;
 	margin-bottom: 30px;
 	_height: 1px;
-/*solo IE6 aplica las propiedades de CSS con un carÃ¡cter de subrayado inicial*/
+/*solo IE6 aplica las propiedades de CSS con un carÃƒÆ’Ã‚Â¡cter de subrayado inicial*/
+}
+#main3
+{
+	background-color: #FFF;
+	margin-bottom: 30px;
+	_height: 1px;
+/*solo IE6 aplica las propiedades de CSS con un carÃƒÆ’Ã‚Â¡cter de subrayado inicial*/
 }
 #main2
 {
 	background-color: #FFF;
 	margin-bottom: 30px;
 	_height: 1px;
-/*solo IE6 aplica las propiedades de CSS con un carÃ¡cter de subrayado inicial*/
+/*solo IE6 aplica las propiedades de CSS con un carÃƒÆ’Ã‚Â¡cter de subrayado inicial*/
 }
 #footer
 {
@@ -151,7 +158,7 @@ A IMG
 	border: 0;
 	outline: 0;
 }
-/*ELEMENTOS DE DISEÃ‘O DE FORMULARIOS
+/*ELEMENTOS DE DISEÃƒÆ’Ã¢â‚¬ËœO DE FORMULARIOS
 ----------------------------------------------------------*/
 FIELDSET
 {
@@ -219,7 +226,7 @@ TABLE TH
 DIV#title
 {
 	float: left;
-	margin-left: 200px;
+	margin-left: 14%;
 }
 DIV#title2
 {
@@ -229,7 +236,7 @@ DIV#title2
 #logindisplay
 {
 	margin-top: 10px;
-	margin-right: 200px;
+	margin-right: 15%;
 	float: right;
 	font-size: 1.1em;
 	text-align: right;
@@ -246,7 +253,7 @@ DIV#title2
 {
 	text-decoration: none;
 }
-/*Estilos para aplicaciones auxiliares de validaciÃ³n
+/*Estilos para aplicaciones auxiliares de validaciÃƒÆ’Ã‚Â³n
 -----------------------------------------------------------*/
 .field-validation-error
 {
@@ -270,7 +277,7 @@ DIV#title2
 {
 	display: none;
 }
-/*Estilos para aplicaciones auxiliares de editor y visualizaciÃ³n
+/*Estilos para aplicaciones auxiliares de editor y visualizaciÃƒÆ’Ã‚Â³n
 ----------------------------------------------------------*/
 .display-label, .editor-label, .display-field, .editor-field
 {
@@ -2430,7 +2437,7 @@ SCROLLER DE SPONSORS.
 {
 	position: relative;
 	overflow: hidden;
-	width: 100%;
+	width: 900px;
 	height: 160px;
 }
 /*
@@ -2455,7 +2462,7 @@ not for this element.
 .scrollable IMG
 {
 	float: left;
-	margin: 0px 5px;
+	margin: 0px 4px;
 	background-color: #FFF;
 	padding: 2px;
 	border: 1px solid #FFF;
@@ -2465,15 +2472,25 @@ not for this element.
 /*
 MARCO PRINCICPAL
 */
+.marco
+{
+	z-index: -1;
+}
 .marcoIzquierdo
 {
 	float: left;
-	z-index: -1;
-	margin-left: -190px;
 }
 .marcoDerecho
 {
 	float: right;
-	z-index: -1;
-	margin-right: -20px;
+}
+.page3
+{
+	width: 970px;
+	margin-top: -22px;
+	position: absolute;
+	/*nos posicionamos en el centro del navegador*/
+	left:50%;
+	/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+	margin-left:-485px;
 }

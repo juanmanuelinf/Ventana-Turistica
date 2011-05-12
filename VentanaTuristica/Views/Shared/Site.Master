@@ -16,7 +16,7 @@
     <link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%:Url.Content("~/Content/floatbox/floatbox.js") %>"></script>
     <style>
-    .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:100%}
+    .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:910px}
     .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:25px; margin-top:5px; margin-bottom:5px}
     .tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
     .tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
@@ -26,6 +26,7 @@
 
 <body>
     
+
         <div id="header">
             <div id="title">
                 <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
@@ -39,13 +40,20 @@
                 <% Html.RenderAction("Categorias","Categorium");%>
             </div>        
         </div>
-        <div class="page">
+        
+        <div id="main3">
+        <div class="page3">
+            <div class="marco">
                 <div class="marcoIzquierdo"><img src="../../Content/marcoPrincipal2.jpg" /></div>
                 <div class="marcoDerecho"><img src="../../Content/marcoPrincipal.jpg" /></div>
-            <div id="main">
+            </div>
+        </div>
+        </div>
+        <div class="page">
             
+            <div id="main">
+                  
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-                <div style="  padding-left:32px">
                 <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
                 </div></div></div></div>
 
@@ -64,7 +72,6 @@
                 <% Html.RenderAction("Logos","Patrocinante");%>
                 </div>
             </div>
-        </div>
 
         
         <div id="footer">
