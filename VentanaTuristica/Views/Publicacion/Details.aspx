@@ -68,8 +68,31 @@
                     }%>
             <%}%>   
         </div>
-        <div id="publiMet" class="descripcionContDere">
+        <div id="publiMet" class="descripcionContDere2">
+        <%if (Model.Tcredito != null)
+          {%>
 
+          <img src="<%=Url.Content("~/Content/credit_cards.png")%>" width="40px" height="40px" title="Tarjeta de Credito" alt="Tarjeta de Credito" />
+        <%
+          }%>
+          <%if (Model.Tdebito != null)
+          {%>
+
+          <img src="<%=Url.Content("~/Content/maestro-icon.png")%>" width="40px" height="40px" title="Tarjeta de Debito" alt="Tarjeta de Debito" />
+        <%
+          }%>
+          <%if (Model.Efectivo != null)
+          {%>
+
+          <img src="<%=Url.Content("~/Content/cash.png")%>" width="40px" height="40px" title="Efectivo" alt="Efectivo"/>
+        <%
+          }%>
+          <%if (Model.Transferencia != null)
+          {%>
+
+          <img src="<%=Url.Content("~/Content/wire_transfer.png")%>" width="40px" height="40px"  title="Transferencia Electronica"  alt="Transferencia Electronica"/>
+        <%
+          }%>
         </div>
     </div>
 </div></div></div></div>
@@ -136,6 +159,13 @@
     border-style: none none solid none;
     border-width: 2px;
     border-color: #C0C0C0;
+    font-size: 14px;
+    font-style: italic;
+}
+.descripcionContDere2
+{
+    color: black;
+    font-family: Arial;
     font-size: 14px;
     font-style: italic;
 }
