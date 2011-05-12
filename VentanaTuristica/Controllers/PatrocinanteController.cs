@@ -118,10 +118,10 @@ namespace VentanaTuristica.Controllers
             {
                 HttpFileCollectionBase files = ControllerContext.HttpContext.Request.Files;
                 var repoImagen = new ImageneRepositorio();
-                var myImagene = new Imagene();
-                myImagene.DatosOriginal = ConvertFile(patrocinante.File);
-                myImagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
-                myImagene.Link = patrocinante.Imagene.Link;
+                patrocinante.Imagene = new Imagene();
+                patrocinante.Imagene.DatosOriginal = ConvertFile(patrocinante.File);
+                patrocinante.Imagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
+                patrocinante.Imagene.Link = patrocinante.Link;
                 patrocinante.Contacto[0].Tipo = "P";
                 patrocinante.Contacto[0].Telefono[0].Tipo = "P";
                 patrocinante.Contacto[0].IdEmpresa = null;
@@ -129,11 +129,11 @@ namespace VentanaTuristica.Controllers
                 var tipo = Request["Logo"] as string;
                 if (tipo == "Sponsor")
                 {
-                    myImagene.Tipo = "S";
+                    patrocinante.Imagene.Tipo = "S";
                 }
                 else
                 {
-                    myImagene.Tipo = "L";
+                    patrocinante.Imagene.Tipo = "L";
                 }
 
               if (ModelState.IsValid)
@@ -149,8 +149,8 @@ namespace VentanaTuristica.Controllers
                     patrocinante.Contacto[0].Telefono[0].IdContacto = patrocinante.Contacto[0].IdContacto;
                     repoTelefono.Save(patrocinante.Contacto[0].Telefono[0]);
 
-                    myImagene.IdPatrocinante = patrocinante.IdPatrocinante;
-                    repoImagen.Save(myImagene);
+                    patrocinante.Imagene.IdPatrocinante = patrocinante.IdPatrocinante;
+                    repoImagen.Save(patrocinante.Imagene);
 
                     return RedirectToAction("Index");
                }
@@ -276,7 +276,31 @@ namespace VentanaTuristica.Controllers
         public ActionResult Delete(int id)
         {
             IRepositorio<Patrocinante> repo = new PatrocinanteRepositorio();
-            repo.Delete(repo.GetById(id));
+
+            IRepositorio<Contacto> repoContacto = new ContactoRepositorio();
+            IList<Contacto> contactos = repoContacto.GetAll();
+            Contacto contactoBuscado = null;
+            foreach (var contacto in contactos)
+            {
+                if (contacto.IdPatrocinante == id)
+                {
+                    contactoBuscado = contacto;
+                    break;
+                }
+            }
+
+            IRepositorio<Telefono> repoTelefono = new TelefonoRepositorio();
+            IList<Telefono> telefonos = repoTelefono.GetAll();
+            Patrocinante patrocinante = repo.GetById(id);
+            foreach (var telefono in telefonos)
+            {
+                if (telefono.IdContacto == contactoBuscado.IdContacto)
+                {
+                    repoTelefono.Delete(telefono);
+                    break;
+                }
+            }
+            repo.Delete(patrocinante);
             return RedirectToAction("Index");
         }
 
