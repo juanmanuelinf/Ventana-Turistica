@@ -44,21 +44,32 @@
         <div id="publiUbi" class="descripcionContDere"> <b>Ubicacion:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
         <div id="publiDir" class="descripcionContDere"><b>Dirección:</b> <%=Html.Encode(Model.Direccion)%></div>
         <div id="publiMail" class="descripcionContDere"><b>Mail:</b> <%=Html.Encode(Model.Empresa.Mail)%></div>
-        <div id="publiWeb" class="descripcionContDere"> <b>Website:</b> <%=Html.Encode(Model.Empresa.Website)%>  </div>
+        <div id="publiWeb" class="descripcionContDere"> <b>Website:</b> <%=Html.Encode(Model.Empresa.Website)%></div>
         <div id="publiCoor" class="descripcionContDere"> 
             <b>Coordenadas:</b><br />
-              Latitud - <%=Html.Encode(Model.Latitud)%> /
+              Latitud - <%=Html.Encode(Model.Latitud)%> <br />
               Longitud - <%=Html.Encode(Model.Longitud)%>
         </div>
 
         <div id="publiRes" class="descripcionContDere"><b>Por Reservacion:</b> <%=Html.Encode(Model.Reservacion)%>  </div>
         <div id="publiPre" class="descripcionContDere">
-        <b>Precio:</b><br />
+        <b>Precio:</b>
             <%foreach (var precio in Model.Precios)
-            {%>
-                <%=precio.Tipo %> : <%=precio.PrecioMin %> - <%=precio.PrecioMax %> <%=precio.Moneda %><br />
-  
+            {%><br />
+                <%if (precio.Tipo.CompareTo("TA") == 0)
+                  {%>
+                Temporada Alta: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
+                <%
+                    }
+                  else
+                    {%>
+                    Temporada Baja: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
+                    <%
+                    }%>
             <%}%>   
+        </div>
+        <div id="publiMet" class="descripcionContDere">
+
         </div>
     </div>
 </div></div></div></div>

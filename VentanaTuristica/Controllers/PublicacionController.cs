@@ -134,7 +134,7 @@ namespace VentanaTuristica.Controllers
                 var listaPrecios = myRepoPrecio.GetAll();
                 p.Precios = listaPrecios.Where(listaPrecio => listaPrecio.IdPublicacion == id).ToList();
                 p.Reservacion = p.Reservacion == "S" ? "Si" : "No";
-                if (p.Idioma[0].Categoria == "1 Estrella" || p.Idioma[0].Categoria == "2 Estrellas" || p.Idioma[0].Categoria == "3 Estrellas" || p.Idioma[0].Categoria == "4 Estrellas" || p.Idioma[0].Categoria == "5  Estrellas")
+                if (p.Idioma[0].Categoria.CompareTo("1 Estrella") == 0 || p.Idioma[0].Categoria.CompareTo("2 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("3 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("4 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("5 Estrellas") == 0)
                 {
                     p.Idioma[0].Categoria = p.Idioma[0].Categoria.Substring(0, 1);
 
@@ -567,26 +567,19 @@ namespace VentanaTuristica.Controllers
         }
         public ActionResult Find(string q)
         {
-            IRepositorio<Empresa> repoP = new EmpresaRepositorio();
-            IList<Empresa> empresas = repoP.GetAll();
-            IList<Empresa> posiblesEmpresas = new List<Empresa>();
+            IRepositorio<Publicacion> repoP = new PublicacionRepositorio();
+            IList<Publicacion> Publicacions = repoP.GetAll();
+            IList<Publicacion> posiblesPublicacions = Publicacions.Where(item => item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower())).ToList();
 
-            foreach (var item in empresas)
-            {
-                if (item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower()))
-                {
-                    posiblesEmpresas.Add(item);
-                }
-            }
-            string[] emp = new string[posiblesEmpresas.Count];
+            string[] pub = new string[posiblesPublicacions.Count];
             int i = 0;
-            foreach (var empresa in posiblesEmpresas)
+            foreach (var publicacion in posiblesPublicacions)
             {
-                emp[i] = empresa.Nombre;
+                pub[i] = publicacion.Nombre;
                 i++;
             }
 
-            return Content(string.Join("\n", emp)); ;
+            return Content(string.Join("\n", pub)); ;
         }
        
     }
