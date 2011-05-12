@@ -45,6 +45,7 @@
             <div id="main">
             
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                <div style="  padding-left:32px">
                 <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
                 </div></div></div></div>
 
@@ -61,7 +62,7 @@
                 <div class="hr"></div>
 
                 <% Html.RenderAction("Logos","Patrocinante");%>
-
+                </div>
             </div>
         </div>
 

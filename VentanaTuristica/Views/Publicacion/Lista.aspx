@@ -292,5 +292,4 @@
        <h2>No hay resultados para esta busqueda...</h2>
   <%}%> 
 
-<div class="clear">&nbsp;</div>
 </asp:Content>
