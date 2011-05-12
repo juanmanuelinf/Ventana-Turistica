@@ -91,11 +91,11 @@
                 </div>
 
                 <div class="editor-label">
-                    <%: Html.LabelFor(model => model.Imagene.Link) %>
+                    <%: Html.LabelFor(model => model.Link) %>
                 </div>
                 <div class="editor-field">
-                    <%: Html.TextBoxFor(model => model.Imagene.Link)%>
-                    <%: Html.ValidationMessageFor(model => model.Imagene.Link)%>
+                    <%: Html.TextBoxFor(model => model.Link)%>
+                    <%: Html.ValidationMessageFor(model => model.Link)%>
                 </div>
 
                 <div class="editor-label">

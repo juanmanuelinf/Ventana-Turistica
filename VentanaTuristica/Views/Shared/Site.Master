@@ -40,10 +40,11 @@
             </div>        
         </div>
         <div class="page">
+                <div class="marcoIzquierdo"><img src="../../Content/marcoPrincipal2.jpg" /></div>
+                <div class="marcoDerecho"><img src="../../Content/marcoPrincipal.jpg" /></div>
             <div id="main">
             
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-
                 <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
                 </div></div></div></div>
 
