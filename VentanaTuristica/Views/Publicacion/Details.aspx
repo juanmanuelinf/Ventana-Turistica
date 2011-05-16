@@ -26,9 +26,9 @@
     </div>
     <div class="contenidoDer">
         <div id="publiNombre"> <%=Html.Encode(Model.Nombre)%></div>
-        <div id="publiTipo" class="descripcionContDere"><b>Tipo:</b> <%=Html.Encode(Model.Categorium.Nombre)%> - <%=Html.Encode(Model.SubCategorium.Nombre)%></div>
+        <div id="publiTipo" class="descripcionContDere"><b><%=ResourceEmpresa.Type%>:</b> <%=Html.Encode(Model.Categorium.Nombre)%> - <%=Html.Encode(Model.SubCategorium.Nombre)%></div>
         <div id="publiCat" class="descripcionContDere">
-            <b>Categoria:</b> <%if (Model.Idioma[0].Categoria.CompareTo("0")==0)
+            <b><%=ResourceEmpresa.Category%>:</b> <%if (Model.Idioma[0].Categoria.CompareTo("0")==0)
                                     {%>
                 <%=Model.Idioma[Model.Idioma.Count - 1].Categoria%>
                 <%
@@ -42,8 +42,8 @@
                 <%}%>
         </div>
 
-        <div id="publiUbi" class="descripcionContDere"> <b><%ResourceEmpresa.Location%>:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
-        <div id="publiDir" class="descripcionContDere"><b><%ResourceEmpresa.Address%>:</b> <%=Html.Encode(Model.Direccion)%></div>
+        <div id="publiUbi" class="descripcionContDere"> <b><%=ResourceEmpresa.Location%>:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
+        <div id="publiDir" class="descripcionContDere"><b><%=ResourceEmpresa.Address%>:</b> <%=Html.Encode(Model.Direccion)%></div>
         <%if (Html.Encode(Model.Empresa.Mail).CompareTo("") != 0)
           {%>
         <div id="publiMail" class="descripcionContDere"><b>Mail:</b> <%=Html.Encode(Model.Empresa.Mail)%></div>
@@ -56,25 +56,31 @@
         <% if (Html.Encode(Model.Latitud).CompareTo("") != 0)
            {%>
         <div id="publiCoor" class="descripcionContDere"> 
-            <b>Coordenadas:</b><br />
-              Latitud - <%=Html.Encode(Model.Latitud)%> <br />
-              Longitud - <%=Html.Encode(Model.Longitud)%>
+            <b><%=ResourceEmpresa.Coordenates%>:</b><br />
+              <%=ResourceEmpresa.Latitude%> - <%=Html.Encode(Model.Latitud)%> <br />
+              <%=ResourceEmpresa.Longitude%> - <%=Html.Encode(Model.Longitud)%>
         </div>
         <%
            }%>
-        <div id="publiRes" class="descripcionContDere"><b><%ResourceEmpresa.Reservation%>:</b> <%=Html.Encode(Model.Reservacion)%>  </div>
+        <div id="publiRes" class="descripcionContDere"><b><%=ResourceEmpresa.Reservation%>:</b> <%if(Model.Reservacion!=null)
+                                                                                                  {%>
+                                                                                                      <%=ResourceEmpresa.Yes%>
+                                                                                                  <%}else
+                                                                                                  {%>
+                                                                                                      <%=ResourceEmpresa.No%>
+                                                                                                   <%}%>  </div>
         <div id="publiPre" class="descripcionContDere">
-        <b><%ResourceEmpresa.Price%>:</b>
+        <b><%=ResourceEmpresa.Price%>:</b>
             <%foreach (var precio in Model.Precios)
             {%><br />
                 <%if (precio.Tipo.CompareTo("TA") == 0)
                   {%>
-                Temporada Alta: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
+                <%=ResourceEmpresa.SeasonHigh%>: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
                 <%
                     }
                   else
                     {%>
-                    Temporada Baja: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
+                   <%=ResourceEmpresa.SeasonLow%>: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
                     <%
                     }%>
             <%}%>   
@@ -83,25 +89,25 @@
         <%if (Model.Tcredito != null)
           {%>
 
-          <img src="<%=Url.Content("~/Content/credit_cards.png")%>" width="40px" height="40px" title="Tarjeta de Credito" alt="Tarjeta de Credito" />
+          <img src="<%=Url.Content("~/Content/credit_cards.png")%>" width="40px" height="40px" title="<%=ResourceEmpresa.CreditCard%>" alt="Tarjeta de Credito" />
         <%
           }%>
           <%if (Model.Tdebito != null)
           {%>
 
-          <img src="<%=Url.Content("~/Content/maestro-icon.png")%>" width="40px" height="40px" title="Tarjeta de Debito" alt="Tarjeta de Debito" />
+          <img src="<%=Url.Content("~/Content/maestro-icon.png")%>" width="40px" height="40px" title="<%=ResourceEmpresa.DebitCard%>" alt="Tarjeta de Debito" />
         <%
           }%>
           <%if (Model.Efectivo != null)
           {%>
 
-          <img src="<%=Url.Content("~/Content/cash.png")%>" width="40px" height="40px" title="Efectivo" alt="Efectivo"/>
+          <img src="<%=Url.Content("~/Content/cash.png")%>" width="40px" height="40px" title="<%=ResourceEmpresa.Cash%>" alt="Efectivo"/>
         <%
           }%>
           <%if (Model.Transferencia != null)
           {%>
 
-          <img src="<%=Url.Content("~/Content/wire_transfer.png")%>" width="40px" height="40px"  title="Transferencia Electronica"  alt="Transferencia Electronica"/>
+          <img src="<%=Url.Content("~/Content/wire_transfer.png")%>" width="40px" height="40px"  title="<%=ResourceEmpresa.Transfer%>"  alt="Transferencia Electronica"/>
         <%
           }%>
         </div>
@@ -113,8 +119,8 @@
 
 <table style="border: 2px none #C0C0C0;width:750px;">
 <tr>
-<td class="tituloTabla2"><%ResourceEmpresa.Description%></td>
-<td class="tituloTabla2"><%ResourceEmpresa.Services%></td>
+<td class="tituloTabla2"><%=ResourceEmpresa.Description%></td>
+<td class="tituloTabla2"><%=ResourceEmpresa.Services%></td>
 </tr>
 <tr>
 <td class="contenidoDescripcionTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
@@ -130,7 +136,7 @@
 </td>
 </tr>
 <tr>
-<td class="tituloTabla2"><%ResourceEmpresa.Notes%> </td>
+<td class="tituloTabla2"><%=ResourceEmpresa.Notes%> </td>
 </tr>
 <tr>
 <td class="contenidoNotasTabla"  style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">

@@ -129,17 +129,41 @@
   <data name="ButtonSearch" xml:space="preserve">
     <value>Buscar</value>
   </data>
+  <data name="Cash" xml:space="preserve">
+    <value>Efectivo</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Categoria</value>
+  </data>
   <data name="Companies" xml:space="preserve">
     <value>Empresas</value>
+  </data>
+  <data name="Coordenates" xml:space="preserve">
+    <value>Coordenadas</value>
+  </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Tarjeta de Crédito</value>
+  </data>
+  <data name="DebitCard" xml:space="preserve">
+    <value>Tarjeta de Debito</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Descripción</value>
   </data>
+  <data name="English" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
   <data name="HighPrice" xml:space="preserve">
     <value>Mayor Precio</value>
   </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitud</value>
+  </data>
   <data name="Location" xml:space="preserve">
     <value>Ubicación</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitud</value>
   </data>
   <data name="LowPrice" xml:space="preserve">
     <value>Menor Precio</value>
@@ -149,6 +173,9 @@
   </data>
   <data name="NewCompanie" xml:space="preserve">
     <value>Nueva Empresa</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="Notes" xml:space="preserve">
     <value>Notas</value>
@@ -162,10 +189,28 @@
   <data name="Search" xml:space="preserve">
     <value>Buscar empresa</value>
   </data>
+  <data name="SeasonHigh" xml:space="preserve">
+    <value>Temporada Alta</value>
+  </data>
+  <data name="SeasonLow" xml:space="preserve">
+    <value>Temporada Baja</value>
+  </data>
   <data name="Services" xml:space="preserve">
     <value>Servicios y Actividades</value>
   </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>Español</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Empresa</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transferencia Eléctronica</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Si</value>
   </data>
 </root>
