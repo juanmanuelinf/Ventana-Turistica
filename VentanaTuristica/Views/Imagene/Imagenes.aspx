@@ -15,11 +15,11 @@
             </tr></table>
 	        
         </div>
-        <div class="fbCycler" style="width: 910px; height:450px">
+        <div class="fbCycler" style="width: 900px; height:450px">
          <% foreach (var item in Model)
             { %>
                 <div id="contenido">
-                    <img class="fbTooltip" data-fb-tooltip="source:#tooltip<%:item.IdImagen %> attachToHost:true" src='<%=Url.Action("Show", "Imagene", new {id = item.IdImagen})%>' alt="" style="width: 100%"/>
+                    <img class="fbTooltip" data-fb-tooltip="source:#tooltip<%:item.IdImagen %> attachToHost:true" src='<%=Url.Action("Show", "Imagene", new {id = item.IdImagen})%>' alt="" style="width:900px"/>
                 </div>
                     
                 <div>
@@ -38,7 +38,7 @@
 <style>
 #loading-image {
 	background-color:White;
-	width: 910px;
+	width: 943px;
 	height: 450px;
 	position:absolute;
 	z-index: 1;

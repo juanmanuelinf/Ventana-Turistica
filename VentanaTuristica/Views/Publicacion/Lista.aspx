@@ -32,10 +32,9 @@
 	width: 225px;
 	height:250px;
 	color:Black;
-	text-align:left;
 	font-family:Century Gothic;
 	font-weight: normal;
-	font-size:14px;
+	font-size:13px;
 	background: url(../../Content/fondoPubli.png);
 	background-repeat: no-repeat; 
 	background-position: center center;
@@ -62,10 +61,14 @@
 </style>
 <script src="http://www.microcosmotalk.com/tech/scripts/library/country.js"></script> 
 
-<!-- <div class="bl2"><div class="br2"><div class="tl2"><div class="tr2">
- <%=Html.ActionLink("Menor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 0})%>
- <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1})%>
-<div class="clear">&nbsp;</div> -->
+<div style=" text-align:center; margin-left:auto; margin-right:auto;">
+
+    <%=Html.ActionLink("Menor Precio", "Lista", new { pagActual = Convert.ToInt32(ViewData["pagActual"]), orden = 0, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
+    <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
+
+</div>
+ 
+
 
 <%if (Model.Count() != 0)
   {%>
@@ -73,11 +76,11 @@
 
     <div class="tabla">
     <div class="cuadriculaAbajo">
-        <div class="cuadriculaDerecha"><%
+       <%
       int externo = 1;
       if (cuenta >= externo)
       {
-          int valor = 0;%>
+          int valor = 0;%> <div class="cuadriculaDerecha">
          <br />
         
         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
@@ -86,15 +89,16 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
-        
-       <%}%></div>
-        <div class="cuadriculaDerecha"><%
+        </div>
+       <%}%>
+        <%
       externo = 5;
       if (cuenta >= externo)
       {
-          int valor = 4;%>
+          int valor = 4;%><div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
@@ -102,35 +106,37 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
-        
-       <%}%></div>
+        </div>
+       <%}%>
         
     </div>
     <div class="cuadriculaAbajo">
-    <div class="cuadriculaDerecha"><%
+   <%
       externo = 2;
       if (cuenta >= externo)
       {
-          int valor = 1;%>
+          int valor = 1;%> <div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
-            <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
+             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
-            <%}%>   
-        
-       <%}%></div>
-        <div class="cuadriculaDerecha">
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
+           <%}%>   
+        </div>
+       <%}%>
+       
         <%
       externo = 6;
       if (cuenta >= externo)
       {
-          int valor = 5;%>
+          int valor = 5;%> <div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
@@ -138,17 +144,18 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
-        
-       <%}%></div>
+        </div>
+       <%}%>
     </div>
     <div class="cuadriculaAbajo">
-        <div class="cuadriculaDerecha"><%
+        <%
       externo = 3;
       if (cuenta >= externo)
       {
-          int valor = 2;%>
+          int valor = 2;%><div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
@@ -156,16 +163,17 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
+        </div>
+       <%}%>
         
-       <%}%></div>
-        <div class="cuadriculaDerecha">
         <%
       externo = 7;
       if (cuenta >= externo)
       {
-          int valor = 6;%>
+          int valor = 6;%><div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
@@ -173,35 +181,37 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
-        
-       <%}%></div>
+        </div>
+       <%}%>
         
         
     </div>
     <div class="cuadriculaAbajo">
-        <div class="cuadriculaDerecha"><%
+        <%
       externo = 4;
       if (cuenta >= externo)
       {
-          int valor = 3;%>
+          int valor = 3;%><div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
-            <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
+           <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
-            <%}%>   
-        
-       <%}%></div>
-        <div class="cuadriculaDerecha"><%
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
+             <%}%>   
+        </div>
+       <%}%>
+        <%
       externo = 8;
       if (cuenta >= externo)
       {
-          int valor = 7;%>
+          int valor = 7;%><div class="cuadriculaDerecha">
          <br />
          <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:90% height:90%">   
    
@@ -209,16 +219,17 @@
             {%>
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
-            <b style=" font-size:12px;text-align:left; "><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b>
+            <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
-        
-       <%}%></div>
+        </div>
+       <%}%>
     </div>
 </div>
 
 
 
-<div style=" font-size:16px ; color:Black; margin-left:10px;">
+<div style=" font-size:16px ; color:Black; margin-left:auto; margin-right:auto; text-align:center">
 <%
   int nro = Convert.ToInt32(ViewData["nroPaginas"]);
   int pagina = Convert.ToInt32(ViewData["pagActual"]);

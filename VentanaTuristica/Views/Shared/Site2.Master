@@ -17,7 +17,7 @@
 </head>
 
 <body>
-        <div id="header">
+        <div id="header2">
             <div id="title2">
                 <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
             </div>
@@ -41,13 +41,13 @@
             </div>        
         </div>
         <div class="page">
-            <div id="main">
+            <div id="main2">
             
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
             </div>
         </div>
-        <div id="footer">
+        <div id="footer2">
         <div id="footerMountain">
                 <img src="../../Content/footerMountain.png" />
             </div>
