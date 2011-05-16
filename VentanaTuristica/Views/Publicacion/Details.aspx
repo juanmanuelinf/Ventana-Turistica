@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site3.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Publicacion>" %>
+<%@ Import Namespace="Resources" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	
@@ -41,8 +42,8 @@
                 <%}%>
         </div>
 
-        <div id="publiUbi" class="descripcionContDere"> <b>Ubicacion:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
-        <div id="publiDir" class="descripcionContDere"><b>Dirección:</b> <%=Html.Encode(Model.Direccion)%></div>
+        <div id="publiUbi" class="descripcionContDere"> <b><%ResourceEmpresa.Location%>:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
+        <div id="publiDir" class="descripcionContDere"><b><%ResourceEmpresa.Address%>:</b> <%=Html.Encode(Model.Direccion)%></div>
         <%if (Html.Encode(Model.Empresa.Mail).CompareTo("") != 0)
           {%>
         <div id="publiMail" class="descripcionContDere"><b>Mail:</b> <%=Html.Encode(Model.Empresa.Mail)%></div>
@@ -61,9 +62,9 @@
         </div>
         <%
            }%>
-        <div id="publiRes" class="descripcionContDere"><b>Por Reservacion:</b> <%=Html.Encode(Model.Reservacion)%>  </div>
+        <div id="publiRes" class="descripcionContDere"><b><%ResourceEmpresa.Reservation%>:</b> <%=Html.Encode(Model.Reservacion)%>  </div>
         <div id="publiPre" class="descripcionContDere">
-        <b>Precio:</b>
+        <b><%ResourceEmpresa.Price%>:</b>
             <%foreach (var precio in Model.Precios)
             {%><br />
                 <%if (precio.Tipo.CompareTo("TA") == 0)
@@ -112,8 +113,8 @@
 
 <table style="border: 2px none #C0C0C0;width:750px;">
 <tr>
-<td class="tituloTabla2">Descripcion</td>
-<td class="tituloTabla2">Servicios y Actividades</td>
+<td class="tituloTabla2"><%ResourceEmpresa.Description%></td>
+<td class="tituloTabla2"><%ResourceEmpresa.Services%></td>
 </tr>
 <tr>
 <td class="contenidoDescripcionTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
@@ -129,7 +130,7 @@
 </td>
 </tr>
 <tr>
-<td class="tituloTabla2">Notas </td>
+<td class="tituloTabla2"><%ResourceEmpresa.Notes%> </td>
 </tr>
 <tr>
 <td class="contenidoNotasTabla"  style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">

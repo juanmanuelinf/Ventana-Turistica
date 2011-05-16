@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Publicacion>>" %>
+<%@ Import Namespace="Resources" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	VentanaTuristica.com
@@ -63,8 +64,8 @@
 
 <div style=" text-align:center; margin-left:auto; margin-right:auto;">
 
-    <%=Html.ActionLink("Menor Precio", "Lista", new { pagActual = Convert.ToInt32(ViewData["pagActual"]), orden = 0, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
-    <%=Html.ActionLink("Mayor Precio", "Lista", new {pagActual =  Convert.ToInt32(ViewData["pagActual"]), orden = 1, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
+    <%=Html.ActionLink(ResourceEmpresa.LowPrice, "Lista", new { pagActual = Convert.ToInt32(ViewData["pagActual"]), orden = 0, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
+    <%=Html.ActionLink(ResourceEmpresa.HighPrice, "Lista", new { pagActual = Convert.ToInt32(ViewData["pagActual"]), orden = 1, lug = Request["lug"], cat = Request["cat"], sub = Request["sub"] })%>
 
 </div>
  
