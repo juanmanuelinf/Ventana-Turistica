@@ -134,12 +134,16 @@ namespace VentanaTuristica.Controllers
                 var listaPrecios = myRepoPrecio.GetAll();
                 p.Precios = listaPrecios.Where(listaPrecio => listaPrecio.IdPublicacion == id).ToList();
                 p.Reservacion = p.Reservacion == "S" ? "Si" : "No";
-                if (p.Idioma[0].Categoria != "1" && p.Idioma[0].Categoria != "2" && p.Idioma[0].Categoria != "3" && p.Idioma[0].Categoria != "4" && p.Idioma[0].Categoria != "5")
+                if (p.Idioma[0].Categoria.CompareTo("1 Estrella") == 0 || p.Idioma[0].Categoria.CompareTo("2 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("3 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("4 Estrellas") == 0 || p.Idioma[0].Categoria.CompareTo("5 Estrellas") == 0)
+                {
+                    p.Idioma[0].Categoria = p.Idioma[0].Categoria.Substring(0, 1);
+
+                }else
                 {
                     p.Idioma.Add(new Idioma { Categoria = p.Idioma[0].Categoria });
                     p.Idioma[0].Categoria = "0";
                 }
-                    
+
                 return View(p);
             }
             return RedirectToAction("Index");
@@ -163,11 +167,11 @@ namespace VentanaTuristica.Controllers
                 }
                
             }
-            ViewData["Lugar"] = new SelectList(items3);
+            ViewData["Pais"] = new SelectList(items3);
             IEnumerable<string> items2 = new string[] { "--Seleccione--" };
-            ViewData["Foranea"] = new SelectList(items2);
+            ViewData["Estado"] = new SelectList(items2);
             IEnumerable<string> items4 = new string[] { "--Seleccione--" };
-            ViewData["Foranea2"] = new SelectList(items4);
+            ViewData["Ciudad"] = new SelectList(items4);
             var repoSubCat = new SubCategoriumRepositorio();
             var repoCat = new CategoriumRepositorio();
             //Lista de Subcategoria para las publicaciones
@@ -218,6 +222,9 @@ namespace VentanaTuristica.Controllers
         {
             //Empresa
             var nombreEmpresa =collection[0];
+            var repoLugar = new LugarRepositorio();
+            p.Estado = repoLugar.GetById(Convert.ToInt32(p.Estado)).Nombre;
+            p.Ciudad = repoLugar.GetById(Convert.ToInt32(p.Ciudad)).Nombre;
             if(String.IsNullOrEmpty(nombreEmpresa))
             {   
                 ModelState.AddModelError("NombreE","Nombre Empresa es Necesario");
@@ -297,29 +304,91 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Publicacion/Edit/5
-        [ChildActionOnly]
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit()
         {
             return View();
         }
 
-        public ActionResult Lista(int pagActual, int orden, string filtros)
+       
+        public ActionResult Mail()
         {
-            IList<string> listaFiltros = filtros.Split(',');
+            return View();
+        }
 
+        public ActionResult Lista(int pagActual, int orden, string cat, string sub, string lug)
+        {
 
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoSubCat = new SubCategoriumRepositorio();
+            var myRepoCat = new CategoriumRepositorio();
             var myRepoPrecio = new PrecioRepositorio();
             IList<IList<Publicacion>> listaDeLista = new List<IList<Publicacion>>();
-            IList<Publicacion> listaPub = myRepoPublicacion.GetAll();
+            IList<Publicacion> listaPub = new List<Publicacion>();
             IList<Publicacion> listaPub2 = myRepoPublicacion.GetAll();
             foreach (var publicacion in listaPub2)
             {
                 publicacion.SubCategorium = myRepoSubCat.GetById(publicacion.IdSubCategoria);
-                if (publicacion.SubCategorium.Nombre != filtros)
-                    listaPub.RemoveAt(listaPub2.IndexOf(publicacion));
+                if(lug!=null && sub!=null && cat!=null)
+                {
+                    publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                    if (publicacion.SubCategorium.Nombre == sub && publicacion.Categorium.Nombre == cat && publicacion.Estado ==lug)
+                        listaPub.Add(publicacion);
+                }
+                else
+                {
+                    if (sub != null && cat != null)
+                    {
+                        publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                        if (publicacion.SubCategorium.Nombre == sub && publicacion.Categorium.Nombre == cat)
+                            listaPub.Add(publicacion);
+                    }else
+                    {
+                        if (sub != null && lug != null)
+                        {
+                            if (publicacion.SubCategorium.Nombre == sub && publicacion.Estado == lug)
+                            listaPub.Add(publicacion);
+                        }
+                        else
+                        {
+                            if (cat != null && lug != null)
+                            {
+                                publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                                if (publicacion.Categorium.Nombre == sub && publicacion.Estado == lug)
+                                listaPub.Add(publicacion);
+                            }else
+                            {
+                                if (sub != null)
+                                {
+                                    if (publicacion.SubCategorium.Nombre == sub)
+                                    listaPub.Add(publicacion);
+                                }
+                                else
+                                {
+                                    if (cat != null)
+                                    {
+                                        publicacion.Categorium = myRepoCat.GetById(publicacion.SubCategorium.IdCategoria);
+                                        if (publicacion.Categorium.Nombre == cat)
+                                        listaPub.Add(publicacion);
+                                    }
+                                    else
+                                    {
+                                        if (lug != null)
+                                        {
+                                            if (publicacion.Estado == lug)
+                                            listaPub.Add(publicacion);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+                
+               
+
+                
             }
             if (listaPub.Count() == 0)
             {
@@ -409,6 +478,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Publicacion/Delete/5
+        [HandleError] 
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
@@ -500,6 +570,22 @@ namespace VentanaTuristica.Controllers
             bmPhoto.Dispose();
             grPhoto.Dispose();
             return mm.GetBuffer();
+        }
+        public ActionResult Find(string q)
+        {
+            IRepositorio<Publicacion> repoP = new PublicacionRepositorio();
+            IList<Publicacion> Publicacions = repoP.GetAll();
+            IList<Publicacion> posiblesPublicacions = Publicacions.Where(item => item.Nombre.Contains(q.ToUpper()) || item.Nombre.Contains(q.ToLower())).ToList();
+
+            string[] pub = new string[posiblesPublicacions.Count];
+            int i = 0;
+            foreach (var publicacion in posiblesPublicacions)
+            {
+                pub[i] = publicacion.Nombre;
+                i++;
+            }
+
+            return Content(string.Join("\n", pub)); ;
         }
        
     }

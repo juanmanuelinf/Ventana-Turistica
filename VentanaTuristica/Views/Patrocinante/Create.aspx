@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site2.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Patrocinante>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site4.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Patrocinante>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Nuevo Patrocinante
@@ -91,11 +91,11 @@
                 </div>
 
                 <div class="editor-label">
-                    <%: Html.LabelFor(model => model.Imagene.Link) %>
+                    <%: Html.LabelFor(model => model.Link) %>
                 </div>
                 <div class="editor-field">
-                    <%: Html.TextBoxFor(model => model.Imagene.Link)%>
-                    <%: Html.ValidationMessageFor(model => model.Imagene.Link)%>
+                    <%: Html.TextBoxFor(model => model.Link)%>
+                    <%: Html.ValidationMessageFor(model => model.Link)%>
                 </div>
 
                 <div class="editor-label">

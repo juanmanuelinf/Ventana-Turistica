@@ -9,6 +9,6 @@
 		<property name="IdContacto" column="`IdContacto`" />
 		<property name="IdEmpresa" column="`IdEmpresa`" />
 		<property name="Numero" column="`Numero`" />
-		<property name="Tipo" column="`Tipo`" length="20" />
+		<property name="Tipo" column="`Tipo`"/>
 	</class>
 </hibernate-mapping>

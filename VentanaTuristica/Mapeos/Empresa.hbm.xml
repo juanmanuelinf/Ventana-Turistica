@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <hibernate-mapping namespace="VentanaTuristica.Model" assembly="VentanaTuristica" xmlns="urn:nhibernate-mapping-2.2">
-	<class name="Empresa" lazy="true" table="`Empresa`" schema="`dbo`" mutable="false">
+	<class name="Empresa" lazy="true" table="`Empresa`" schema="`dbo`" mutable="true">
 		<id name="IdEmpresa" access="property" column="`IdEmpresa`">
 			<generator class="native" />
 		</id>
-		<property name="Ciudad" column="`Ciudad`" length="15" />
-		<property name="Direccion" column="`Direccion`" length="200" />
+		<property name="Ciudad" column="`Ciudad`" length="50" />
+		<property name="Direccion" column="`Direccion`"/>
 		<property name="Localidad" column="`Localidad`" length="50" />
-		<property name="Mail" column="`Mail`" length="50" />
+		<property name="Mail" column="`Mail`" />
 		<property name="Nombre" column="`Nombre`" length="50" />
 		<property name="Rif" column="`Rif`" length="15" />
-		<property name="Website" column="`Website`" length="50" />
+		<property name="Website" column="`Website`" />
 	</class>
 </hibernate-mapping>

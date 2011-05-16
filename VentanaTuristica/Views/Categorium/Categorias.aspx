@@ -26,7 +26,7 @@
         {
             foreach (var item in Model)
             {%>
-                <li><%:Html.ActionLink(item.Nombre, "Index", "Home", new { pagActual = 1, orden = 1, cat = item.Nombre }, null)%>
+                <li><%:Html.ActionLink(item.Nombre, "Lista", "Publicacion", new { pagActual = 1, orden = 1, cat = item.Nombre }, null)%>
                     
                 <%
                 if (item.SubCategoriums.Count != 0)
@@ -38,7 +38,7 @@
                 foreach (var subCategorium in item.SubCategoriums)
                 {%>
                     
-                        <li><%:Html.ActionLink(subCategorium.Nombre, "Lista", "Publicacion", new {pagActual = 1, orden = 1, sub = subCategorium.Nombre},null)%>
+                        <li><%:Html.ActionLink(subCategorium.Nombre, "Lista", "Publicacion", new {pagActual = 1, orden = 1, sub = subCategorium.Nombre, cat = item.Nombre},null)%>
                         <%
                         if (subCategorium.Lugares.Count != 0)
                         {
@@ -48,7 +48,7 @@
                         }
                         foreach (var lugar in subCategorium.Lugares)
                         {%>
-                                <li><%:Html.ActionLink(lugar, "Lista", "Publicacion", new {pagActual = 1, orden = 1, lug = lugar},null)%></li>
+                                <li><%:Html.ActionLink(lugar, "Lista", "Publicacion", new {pagActual = 1, orden = 1, lug = lugar, cat = item.Nombre, sub =subCategorium.Nombre},null)%></li>
                         <%
                         }
                         if (subCategorium.Lugares.Count != 0)

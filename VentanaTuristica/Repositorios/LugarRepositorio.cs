@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Lugar IRepositorio<Lugar>.GetById(int id)
+        public Lugar GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Lugar>().Add(Restrictions.Eq("IdLugar", id)).UniqueResult<Lugar>();

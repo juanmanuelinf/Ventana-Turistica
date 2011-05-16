@@ -4,24 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link rel="SHORTCUT ICON" href="../../Content/logo.ico"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link href="../../Scripts/jquery.galleryview-3.0.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.tools.min.js") %>"></script>
-    <link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%:Url.Content("~/Content/floatbox/floatbox.js") %>"></script>
-    <style>
-    .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:910px; margin-left:auto; margin-right:auto;}
-    .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:25px; margin-top:5px; margin-bottom:5px}
-    .tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
-    .tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
-    
-    </style>
 </head>
 
 <body>
@@ -32,11 +23,21 @@
             </div>
               
             <div id="logindisplay">
-                <% Html.RenderPartial("Services"); %>
+              <% Html.RenderPartial("LogOnUserControl"); %>
             </div> 
             
             <div id="menucontainer">
-                <% Html.RenderAction("Categorias","Categorium");%>
+                <ul id="nav">         
+                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
+                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
+                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%></li>
+                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%></li>
+                        <li><%: Html.ActionLink("Lugares", "Index", "Lugar")%></li>
+                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%></li>
+                        <li><%: Html.ActionLink("Patrocinantes", "Index", "Patrocinante")%></li>
+                        <li><%: Html.ActionLink("Imagenes", "Index", "Imagene")%></li>
+                        <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
+                    </ul>
             </div>
         
         </div><div id="compHeaderDer"></div>
@@ -46,25 +47,8 @@
             <div id="Main">
 	        <div id="compMainIzq"></div><div id="contMain">
             <div style=" height:27px"></div>
-            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-                <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
-                </div></div></div></div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-                <!-- root element for scrollable -->
-                <div class="scrollable" id="scroller">   
-   
-                   <!-- root element for the items -->
-                   <div class="items" style="left: -2040px; ">
-                        <% Html.RenderAction("Sponsors","Patrocinante");%>
-                   </div>   
-                </div>
-                <br /><br />
-                
-                <div class="hr"></div>
-
-                <% Html.RenderAction("Logos","Patrocinante");%>
-               
-            
             </div><div id="compMainDer"></div>
             </div>
           
@@ -83,12 +67,7 @@
 
     <!-- javascript coding -->
     <script type="text/javascript">
-        jQuery.noConflict();
-        jQuery(document).ready(function () {
-            var root = jQuery("#scroller").scrollable({ circular: true }).autoscroll({ autoplay: true });
-            window.api = root.data("scrollable");
-        });
-        var div7 = document.getElementById("contMain");
+         var div7 = document.getElementById("contMain");
         var div5 = document.getElementById("compMainIzq");
         var div6 = document.getElementById("compMainDer");
         var div = document.getElementById("Main");
@@ -152,14 +131,6 @@
         }
         fillWindow();
     </script>
-
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
-    
-	<!-- Create a MenuMatic Instance -->
-	<script type="text/javascript" >
-	    var myMenu = new MenuMatic({/*options here*/});	
-	</script>
 
 
 </html>

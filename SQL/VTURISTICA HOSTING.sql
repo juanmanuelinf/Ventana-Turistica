@@ -7,11 +7,11 @@ CREATE TABLE [Empresa]
  [IdEmpresa] Int IDENTITY(1,1),
  [Rif] Varchar(15) NOT NULL,
  [Nombre] Varchar(50) NOT NULL,
- [Ciudad] Varchar(15) NOT NULL,
+ [Ciudad] Varchar(50) NOT NULL,
  [Localidad] Varchar(50) NOT NULL,
- [Direccion] Varchar(200) NOT NULL,
- [Website] Varchar(50) NULL,
- [Mail] Varchar(50) NULL
+ [Direccion] Varchar(max) NOT NULL,
+ [Website] Varchar(max) NULL,
+ [Mail] Varchar(max) NULL
 )
 go
 
@@ -25,7 +25,7 @@ go
 CREATE TABLE [Telefono]
 (
  [IdTelefono] Int IDENTITY(1,1),
- [Tipo] Varchar(20) NOT NULL,
+ [Tipo] Varchar(max) NOT NULL,
  [CodigoInt] Int NOT NULL,
  [CodigoLoc] Int NOT NULL,
  [Numero] Int NOT NULL,
@@ -297,3 +297,110 @@ go
 ALTER TABLE [CarpetaViajera] ADD CONSTRAINT [FKCarpetaViajeraPublicacion] FOREIGN KEY ([IdPublicacion]) REFERENCES [Publicacion] ([IdPublicacion]) ON  DELETE CASCADE NOT FOR REPLICATION 
 go
 
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Lugar](
+	[IdLugar] [int] IDENTITY(1,1) NOT NULL,
+	[Nombre] [varchar](50) NOT NULL,
+	[Tipo] [varchar](50) NOT NULL,
+	[FkLugar] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+SET IDENTITY_INSERT [dbo].[Lugar] ON
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (1, N'Venezuela', N'Pais', NULL)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (2, N'Distrito Federal', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (3, N'Amazonas', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (4, N'Anzoátegui', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (5, N'Apure', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (6, N'Aragua', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (7, N'Barinas', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (8, N'Bolívar', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (9, N'Puerto Ayacucho', N'Localidad', 3)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (10, N'San Fernando de Atabapo', N'Localidad', 3)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (11, N'Maroa', N'Localidad', 3)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (12, N'San Carlos de Rio Negro', N'Localidad', 3)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (13, N'San juan de Manapiare', N'Localidad', 3)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (14, N'Caracas', N'Localidad', 2)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (15, N'Barcelona', N'Localidad', 4)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (16, N'San Fernando de Apure', N'Localidad', 5)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (17, N'Maracay', N'Localidad', 6)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (18, N'Barinas', N'Localidad', 7)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (19, N'Ciudad Bolívar', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (20, N'Ciudad Guayana', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (21, N'Puerto Ordaz', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (22, N'San Felix', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (23, N'Upata', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (24, N'Guasipati', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (25, N'El callao', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (26, N'Tumeremo', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (27, N'El Dorado', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (28, N'Santa Elena de Uairen', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (29, N'El Pauji', N'Localidad', 8)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (30, N'Carabobo', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (31, N'Valencia', N'Localidad', 30)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (32, N'Cojedes', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (33, N'San Carlos', N'Localidad', 32)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (34, N'Delta Amacuro', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (35, N'Tucupita', N'Localidad', 34)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (36, N'Curiapo', N'Localidad', 34)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (37, N'Pedernales', N'Localidad', 34)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (38, N'Falcón', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (39, N'Coro', N'Localidad', 38)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (40, N'Guárico', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (41, N'San Juan de Los Morros', N'Localidad', 40)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (42, N'Lara', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (43, N'Barquisimeto', N'Localidad', 42)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (44, N'Mérida', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (45, N'Mérida', N'Localidad', 44)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (46, N'Miranda', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (47, N'Los Teques', N'Localidad', 46)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (48, N'Monagas', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (49, N'Maturín', N'Localidad', 48)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (50, N'Nueva Esparta', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (51, N'La Asunción Isla de Margarita', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (52, N'Porlamar', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (53, N'Pampatar', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (54, N'Juan Griego', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (55, N'Santa Ana', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (56, N'Coche', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (57, N'Cubagua', N'Localidad', 50)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (58, N'Portuguesa', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (59, N'Guanare', N'Localidad', 58)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (60, N'Sucre', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (61, N'Cumaná', N'Localidad', 60)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (62, N'Táchira', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (63, N'San Cristóbal', N'Localidad', 62)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (64, N'Trujillo', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (65, N'Trujillo', N'Localidad', 64)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (66, N'Vargas', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (67, N'Felipe', N'Localidad', 66)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (68, N'Yaracuy', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (69, N'San Felipe', N'Localidad', 68)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (70, N'Zulia', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (71, N'Maracaibo', N'Localidad', 70)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (72, N'Dependencias Federales', N'Estado', 1)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (73, N'Archipiélago Los Monjes', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (74, N'Archipiélago Las Aves', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (75, N'Archipiélago Los Roques', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (76, N'Isla Los Hermanos', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (77, N'Isla Los Frailes', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (78, N'Isla Aves', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (79, N'Isla La Blanquilla', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (80, N'Isla Los Testigos', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (81, N'Isla La Orchila', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (87, N'Isla La Tortuga', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (83, N'Isla La Sola ', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (88, N'Isla de Patos', N'Localidad', 72)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (85, N'4', N'4', 4)
+INSERT [dbo].[Lugar] ([IdLugar], [Nombre], [Tipo], [FkLugar]) VALUES (86, N'Clarines', N'Localidad', 4)
+SET IDENTITY_INSERT [dbo].[Lugar] OFF
+/****** Object:  Default [DF_Lugar_Tipo]    Script Date: 05/11/2011 11:39:10 ******/
+ALTER TABLE [dbo].[Lugar] ADD  CONSTRAINT [DF_Lugar_Tipo]  DEFAULT ('Ciudad''Pais''Estado') FOR [Tipo]
+GO
