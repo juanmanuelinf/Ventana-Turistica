@@ -304,9 +304,14 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Publicacion/Edit/5
-        [ChildActionOnly]
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit()
+        {
+            return View();
+        }
+
+       
+        public ActionResult Mail()
         {
             return View();
         }
@@ -473,6 +478,7 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Publicacion/Delete/5
+        [HandleError] 
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {

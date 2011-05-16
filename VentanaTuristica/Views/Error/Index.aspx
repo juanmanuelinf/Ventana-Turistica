@@ -6,11 +6,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    
     <h2>Error</h2>
     <br />
-    <div>Ha Habido un Error en el Servidor</div>
-    <br />
-    <div>Pronto lo solucionaremos J2L Team.</div>
+    <div style=" margin-left:10px">Lo Sentimos, Ha habido un error, fue informado, pronto lo solucionaremos</div>
 
 </asp:Content>

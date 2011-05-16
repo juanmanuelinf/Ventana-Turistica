@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mail;
 using System.Web.Mvc;
 using VentanaTuristica.Model;
 using VentanaTuristica.Repositorios;
 
 namespace VentanaTuristica.Controllers
 {
+    [HandleError] 
     public class EmpresaController : Controller
     {
         //
