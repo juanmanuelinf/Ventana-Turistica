@@ -129,6 +129,12 @@
   <data name="Companies" xml:space="preserve">
     <value>Companies</value>
   </data>
+  <data name="HighPrice" xml:space="preserve">
+    <value>Higher price</value>
+  </data>
+  <data name="LowPrice" xml:space="preserve">
+    <value>Lower price</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>

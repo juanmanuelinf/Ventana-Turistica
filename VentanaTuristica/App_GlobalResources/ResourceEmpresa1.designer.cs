@@ -97,6 +97,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Mayor Precio.
+        /// </summary>
+        internal static string HighPrice {
+            get {
+                return ResourceManager.GetString("HighPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Menor Precio.
+        /// </summary>
+        internal static string LowPrice {
+            get {
+                return ResourceManager.GetString("LowPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
         internal static string Name {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using VentanaTuristica.Model;
 using VentanaTuristica.Repositorios;
 
@@ -10,6 +11,15 @@ namespace VentanaTuristica.Controllers
 {
     public class LugarController : Controller
     {
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            IEnumerable<string> items = new string[] { "--Seleccione--", "Pais", "Estado", "Localidad" };
+            ViewData["Lugar"] = new SelectList(items);
+            IEnumerable<string> items2 = new string[] { " " };
+            ViewData["Foranea"] = new SelectList(items2);
+            base.Initialize(requestContext);
+        }
 
         //
         // GET: /Lugar/
@@ -28,10 +38,6 @@ namespace VentanaTuristica.Controllers
         [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
-            IEnumerable<string> items = new string[] {"Pais", "Estado", "Localidad"};
-            ViewData["Lugar"] = new SelectList(items);
-            IEnumerable<string> items2 = new string[] { "" };
-            ViewData["Foranea"] = new SelectList(items2);
             return View();
         }
 
@@ -84,18 +90,34 @@ namespace VentanaTuristica.Controllers
         {
             try
             {
-               ValueProviderResult valor = collection.GetValue("Foranea");
-               int idForanea = Convert.ToInt32(valor.AttemptedValue);
-               ValueProviderResult valorNombre = collection.GetValue("Nombre");
-               String Nombre = valorNombre.AttemptedValue;
-               ValueProviderResult valorTipo = collection.GetValue("Lugar");
-               String Tipo = valorTipo.AttemptedValue;
-                lugar = new Lugar();
-                lugar.Nombre = Nombre;
-                lugar.Tipo = Tipo;
-                lugar.FkLugar = idForanea;
-                IRepositorio<Lugar> myRepoLugar = new LugarRepositorio();
-                myRepoLugar.Save(lugar);
+                if (collection.GetValue("Foranea").AttemptedValue.CompareTo("null")!=0)
+                {
+                    ValueProviderResult valor = collection.GetValue("Foranea");
+                    int idForanea = Convert.ToInt32(valor.AttemptedValue);
+                    ValueProviderResult valorNombre = collection.GetValue("Nombre");
+                    String Nombre = valorNombre.AttemptedValue;
+                    ValueProviderResult valorTipo = collection.GetValue("Lugar");
+                    String Tipo = valorTipo.AttemptedValue;
+                    lugar = new Lugar();
+                    lugar.Nombre = Nombre;
+                    lugar.Tipo = Tipo;
+                    lugar.FkLugar = idForanea;
+                    IRepositorio<Lugar> myRepoLugar = new LugarRepositorio();
+                    myRepoLugar.Save(lugar);
+                }
+                else
+                {
+                    ValueProviderResult valorNombre = collection.GetValue("Nombre");
+                    String Nombre = valorNombre.AttemptedValue;
+                    ValueProviderResult valorTipo = collection.GetValue("Lugar");
+                    String Tipo = valorTipo.AttemptedValue;
+                    lugar = new Lugar();
+                    lugar.Nombre = Nombre;
+                    lugar.Tipo = Tipo;
+                    lugar.FkLugar = null;
+                    IRepositorio<Lugar> myRepoLugar = new LugarRepositorio();
+                    myRepoLugar.Save(lugar);
+                }
                 return RedirectToAction("Index");
             }
             catch
