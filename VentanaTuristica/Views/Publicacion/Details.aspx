@@ -43,14 +43,24 @@
 
         <div id="publiUbi" class="descripcionContDere"> <b>Ubicacion:</b> <%=Html.Encode(Model.Ciudad)%>, <%=Html.Encode(Model.Estado)%> - <%=Html.Encode(Model.Pais)%></div>
         <div id="publiDir" class="descripcionContDere"><b>Dirección:</b> <%=Html.Encode(Model.Direccion)%></div>
+        <%if (Html.Encode(Model.Empresa.Mail).CompareTo("") != 0)
+          {%>
         <div id="publiMail" class="descripcionContDere"><b>Mail:</b> <%=Html.Encode(Model.Empresa.Mail)%></div>
-        <div id="publiWeb" class="descripcionContDere"> <b>Website:</b> <%=Html.Encode(Model.Empresa.Website)%></div>
+        <%
+          }%>
+        <%if (Html.Encode(Model.Empresa.Website).CompareTo("") != 0)
+          {%>
+          <div id="publiWeb" class="descripcionContDere"><b>Website:</b> <a target="_blank"  href=" <%=Html.Encode(Model.Empresa.Website)%>"> <%=Html.Encode(Model.Empresa.Website)%></a></div>
+        <%}%>
+        <% if (Html.Encode(Model.Latitud).CompareTo("") != 0)
+           {%>
         <div id="publiCoor" class="descripcionContDere"> 
             <b>Coordenadas:</b><br />
               Latitud - <%=Html.Encode(Model.Latitud)%> <br />
               Longitud - <%=Html.Encode(Model.Longitud)%>
         </div>
-
+        <%
+           }%>
         <div id="publiRes" class="descripcionContDere"><b>Por Reservacion:</b> <%=Html.Encode(Model.Reservacion)%>  </div>
         <div id="publiPre" class="descripcionContDere">
         <b>Precio:</b>
@@ -135,13 +145,13 @@
 .contenidoIzq{
 	float:left;
 	width:400px;
-	}
+}
 .contenidoDer{
 	float:left;
 	width:330px;
 	font-size:12px;
 	margin-left:10px;	
-	}
+}
 #publiNombre
 {
      color:#D11221;
@@ -183,7 +193,9 @@
             panel_width: 400,
             panel_height: 300,
             frame_width: 50,
-            frame_height: 35
+            frame_height: 35,
+            pause_on_hover: true,
+            panel_scale: 'nocrop'
 
         });
     });

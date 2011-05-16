@@ -77,7 +77,7 @@
                 <td>
                     <%:item.Ciudad%>
                 </td>
-                <td>
+                <td style=" width:100px">
                     <%:item.Localidad%>
                 </td>
                 <td>

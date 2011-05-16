@@ -7,11 +7,11 @@ CREATE TABLE [Empresa]
  [IdEmpresa] Int IDENTITY(1,1),
  [Rif] Varchar(15) NOT NULL,
  [Nombre] Varchar(50) NOT NULL,
- [Ciudad] Varchar(15) NOT NULL,
+ [Ciudad] Varchar(50) NOT NULL,
  [Localidad] Varchar(50) NOT NULL,
- [Direccion] Varchar(200) NOT NULL,
- [Website] Varchar(50) NULL,
- [Mail] Varchar(50) NULL
+ [Direccion] Varchar(max) NOT NULL,
+ [Website] Varchar(max) NULL,
+ [Mail] Varchar(max) NULL
 )
 go
 
@@ -25,7 +25,7 @@ go
 CREATE TABLE [Telefono]
 (
  [IdTelefono] Int IDENTITY(1,1),
- [Tipo] Varchar(20) NOT NULL,
+ [Tipo] Varchar(max) NOT NULL,
  [CodigoInt] Int NOT NULL,
  [CodigoLoc] Int NOT NULL,
  [Numero] Int NOT NULL,

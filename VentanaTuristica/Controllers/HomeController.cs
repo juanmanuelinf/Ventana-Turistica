@@ -5,7 +5,7 @@ using VentanaTuristica.Repositorios;
 
 namespace VentanaTuristica.Controllers
 {
-    [HandleError]
+    
     public class HomeController : Controller
     {
         public ActionResult Index()
