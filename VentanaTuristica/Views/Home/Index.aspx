@@ -7,6 +7,14 @@
         base.InitializeCulture();
         if (Session["culture"] != null)
         {
+            
+            Culture = Session["culture"].ToString();
+            UICulture = Session["culture"].ToString();
+            
+        }
+        else
+        {
+            Session["culture"] = "es-MX";
             Culture = Session["culture"].ToString();
             UICulture = Session["culture"].ToString();
         }

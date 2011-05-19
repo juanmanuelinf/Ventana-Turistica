@@ -37,16 +37,17 @@
     <br />
  <%  if (Model.Count() != 0)
      {%>
-    <table>
+    
+    
+    <%foreach (var group in Model.GroupBy(item => item.Tipo)){
+        if (group.Key.CompareTo("Pais") == 0){%>
+        <table>
         <tr>
          <th> </th>
              <th>
                 Nombre
             </th>
         </tr>
-    
-    <%foreach (var group in Model.GroupBy(item => item.Tipo)){
-        if (group.Key.CompareTo("Pais") == 0){%>
              <th><%=Html.Encode(group.Key)%>
 
         <%foreach (var item in group){%>
@@ -60,10 +61,6 @@
             <td>
                 <a title="Eliminar Lugar" href="<%=Url.Action("Delete", "Lugar", new {id = item.IdLugar})%>">
                     <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
-            </td>
-            <td>
-                <a title="Editar Lugar" href="<%=Url.Action("Edit", "Lugar", new {id = item.IdLugar})%>">
-                    <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>  
             </td>
         </tr>          
           <%foreach (var group2 in Model.GroupBy(item2 => item2.Tipo))
@@ -86,10 +83,6 @@
                     <td>
                         <a title="Eliminar Lugar" href="<%=Url.Action("Delete", "Lugar", new {id = item2.IdLugar})%>">
                             <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
-                    </td>
-                    <td>
-                        <a title="Editar Lugar" href="<%=Url.Action("Edit", "Lugar", new {id = item2.IdLugar})%>">
-                            <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>  
                     </td>
                 </tr> 
 
@@ -115,10 +108,6 @@
                                 <td>
                                     <a title="Eliminar Lugar" href="<%=Url.Action("Delete", "Lugar", new {id = item3.IdLugar})%>">
                                         <img src="<%=Url.Content("~/Content/eliminar.png")%>" height="25px" width="25px" /></a>
-                                </td>
-                                <td>
-                                    <a title="Editar Lugar" href="<%=Url.Action("Edit", "Lugar", new {id = item3.IdLugar})%>">
-                                        <img src="<%=Url.Content("~/Content/editar.png")%>" height="25px" width="25px" /></a>  
                                 </td>
                             </tr> 
                             <%

@@ -17,6 +17,10 @@ namespace VentanaTuristica.Controllers
         {
             return View();
         }
+        public ActionResult Busqueda()
+        {
+            return View();
+        }
         public ActionResult Espanol()
         {
             Session["culture"] = "es-MX";
