@@ -19,17 +19,17 @@
          <% foreach (var item in Model)
             { %>
                 <div id="contenido">
-                    <img class="fbTooltip" data-fb-tooltip="source:#tooltip<%:item.IdImagen %> attachToHost:true" src='<%=Url.Action("Show", "Imagene", new {id = item.IdImagen})%>' alt="" style="width:900px"/>
+                    <p class="floatbox" data-fb-options="modal:false disableScroll:true width:250 scrolling:no enableDragResize:false cornerRadius:4 padding:12 colorTheme:white">
+                        <a href="#nonmodal<%: item.IdImagen %>" data-fb-options="boxLeft:+56% boxTop:550"><img class="fbTooltip" src='<%=Url.Action("Show", "Imagene", new {id = item.IdImagen})%>' alt="" style="width:900px"/></a>
+                    </p>
                 </div>
                     
                 <div>
                     <%: item.Descripcion %>
                 </div>
 
-                <div id="tooltip<%:item.IdImagen%>" style="display:none; width:200px;"> 
-                    <div style="font-size:12px; margin:8px 0; width:200px;"> 
+                <div id="nonmodal<%: item.IdImagen %>" style="display:none; width:200px;"> 
                         <%: item.Descripcion %>
-                    </div> 
                 </div> 
             <%} %>
         <%} %>
