@@ -23,7 +23,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        bool IRepositorio<PublicacionServicio>.Update(PublicacionServicio entity)
+        public bool Update(PublicacionServicio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -36,7 +36,7 @@ namespace VentanaTuristica.Repositorios
             return true;
         }
 
-        void IRepositorio<PublicacionServicio>.Delete(PublicacionServicio entity)
+        public void Delete(PublicacionServicio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
