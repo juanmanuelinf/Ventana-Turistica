@@ -84,7 +84,7 @@
           int valor = 0;%> <div class="cuadriculaDerecha">
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -101,7 +101,7 @@
       {
           int valor = 4;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -121,7 +121,7 @@
       {
           int valor = 1;%> <div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -139,7 +139,7 @@
       {
           int valor = 5;%> <div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -158,7 +158,7 @@
       {
           int valor = 2;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -176,7 +176,7 @@
       {
           int valor = 6;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -197,7 +197,7 @@
       {
           int valor = 3;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -214,7 +214,7 @@
       {
           int valor = 7;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>

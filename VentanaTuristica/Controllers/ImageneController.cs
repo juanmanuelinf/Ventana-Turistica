@@ -116,7 +116,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Empresa/Delete/5
-       // [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Delete(int id)
         {
             IRepositorio<Imagene> repo = new ImageneRepositorio();
@@ -124,7 +124,7 @@ namespace VentanaTuristica.Controllers
             return RedirectToAction("Index");
         }
 
-        // [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult DeleteForPublicacion(int id)
         {
             IRepositorio<Imagene> repo = new ImageneRepositorio();
