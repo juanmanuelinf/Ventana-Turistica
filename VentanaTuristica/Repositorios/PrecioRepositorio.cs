@@ -23,7 +23,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        bool IRepositorio<Precio>.Update(Precio entity)
+        public bool Update(Precio entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
