@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using VentanaTuristica.Model;
 using VentanaTuristica.Repositorios;
 using System;
@@ -15,9 +16,94 @@ namespace VentanaTuristica.Controllers
 {
     public class PublicacionController : Controller
     {
+
+        protected override void Initialize(RequestContext requestContext)
+        {
+            var items3 = new List<string>();
+            IRepositorio<Lugar> repoMarca = new LugarRepositorio();
+            IList<Lugar> query = repoMarca.GetAll();
+            items3.Add("--Seleccione--");
+            foreach (var lugar in query)
+            {
+                if (lugar.Tipo == "Pais")
+                {
+                    items3.Add(lugar.Nombre);
+                }
+
+            }
+            ViewData["Pais"] = new SelectList(items3);
+            IEnumerable<string> items2 = new string[] { "--Seleccione--" };
+            ViewData["Estado"] = new SelectList(items2);
+            IEnumerable<string> items4 = new string[] { "--Seleccione--" };
+            ViewData["Ciudad"] = new SelectList(items4);
+            var repoSubCat = new SubCategoriumRepositorio();
+            var repoCat = new CategoriumRepositorio();
+            //Lista de Subcategoria para las publicaciones
+            var miLista = repoSubCat.GetAll();
+            if (miLista != null)
+            {
+                var items = (from subCategorium in miLista
+                             let miCategorium = repoCat.GetById(subCategorium.IdCategoria)
+                             select miCategorium.Nombre + " - " + subCategorium.Nombre).ToList();
+
+                ViewData["SubCategorium.Nombre"] = new SelectList(items);
+            }
+            //Lista de Categoria de la publicacion
+            var itemsCategoria = new List<string>
+                                               {
+                                                   "1 Estrella",
+                                                   "2 Estrellas",
+                                                   "3 Estrellas",
+                                                   "4 Estrellas",
+                                                   "5 Estrellas",
+                                                   "Otra"
+                                               };
+            ViewData["Idioma[0].Categoria"] = new SelectList(itemsCategoria);
+            var itemsPrecio = new List<string>
+                                               {
+                                                   "Bs.",
+                                                   "$",
+                                                   "€",
+                                                   "£",
+                                                   "¥"
+                                               };
+            ViewData["Precios[0].Moneda"] = new SelectList(itemsPrecio);
+            ViewData["Precios[1].Moneda"] = new SelectList(itemsPrecio);
+            //Lista de Servicios Para la Publiacion
+            var repoServ = new ServicioRepositorio();
+            var servicios = repoServ.GetAll();
+            var itemsCategoria3 = new List<string>();
+            var itemsCategoria2 = new List<string>();
+            foreach (var servicio in servicios)
+            {
+                if (servicio.Idioma.CompareTo("es-MX") == 0)
+                {
+                    itemsCategoria3.Add(servicio.Nombre);
+                    itemsCategoria2.Add(servicio.IdServicio.ToString());
+                }
+            }
+
+            ViewData["Servicios-Es"] = itemsCategoria3;
+            ViewData["Servicios-Es-id"] = itemsCategoria2;
+
+            itemsCategoria3 = new List<string>();
+            itemsCategoria2 = new List<string>();
+            foreach (var servicio in servicios)
+            {
+                if (servicio.Idioma.CompareTo("en-US") == 0)
+                {
+                    itemsCategoria3.Add(servicio.Nombre);
+                    itemsCategoria2.Add(servicio.IdServicio.ToString());
+                }
+            }
+
+            ViewData["Servicios-En"] = itemsCategoria3;
+            ViewData["Servicios-En-id"] = itemsCategoria2;
+            base.Initialize(requestContext);
+        }
         //
         // GET: /Publicacion/
-       // [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Index()
         {
             var myRepoPublicacion = new PublicacionRepositorio();
@@ -152,90 +238,38 @@ namespace VentanaTuristica.Controllers
 
         //
         // GET: /Publicacion/Create
-    //    [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create()
         {
-            var items3 = new List<string>();
-            IRepositorio<Lugar> repoMarca = new LugarRepositorio();
-            IList<Lugar> query = repoMarca.GetAll();
-            items3.Add("--Seleccione--");
-            foreach (var lugar in query)
-            {
-                if (lugar.Tipo=="Pais")
-                {
-                    items3.Add(lugar.Nombre);
-                }
-               
-            }
-            ViewData["Pais"] = new SelectList(items3);
-            IEnumerable<string> items2 = new string[] { "--Seleccione--" };
-            ViewData["Estado"] = new SelectList(items2);
-            IEnumerable<string> items4 = new string[] { "--Seleccione--" };
-            ViewData["Ciudad"] = new SelectList(items4);
-            var repoSubCat = new SubCategoriumRepositorio();
-            var repoCat = new CategoriumRepositorio();
-            //Lista de Subcategoria para las publicaciones
-            var miLista = repoSubCat.GetAll();
-            if (miLista != null)
-            {
-                var items = (from subCategorium in miLista
-                             let miCategorium = repoCat.GetById(subCategorium.IdCategoria)
-                             select miCategorium.Nombre + " - " + subCategorium.Nombre).ToList();
-
-                ViewData["SubCategorium.Nombre"] = new SelectList(items);
-            }
-            //Lista de Categoria de la publicacion
-            var itemsCategoria = new List<string>
-                                               {
-                                                   "1 Estrella",
-                                                   "2 Estrellas",
-                                                   "3 Estrellas",
-                                                   "4 Estrellas",
-                                                   "5 Estrellas",
-                                                   "Otra"
-                                               };
-            ViewData["Idioma[0].Categoria"] = new SelectList(itemsCategoria);
-            var itemsPrecio = new List<string>
-                                               {
-                                                   "Bs.",
-                                                   "$",
-                                                   "€",
-                                                   "£",
-                                                   "¥"
-                                               };
-            ViewData["Precios[0].Moneda"] = new SelectList(itemsPrecio);
-            ViewData["Precios[1].Moneda"] = new SelectList(itemsPrecio);
-            //Lista de Servicios Para la Publiacion
-            var repoServ = new ServicioRepositorio();
-            var miListaServ = repoServ.GetAll();
-            var itemsServ = miListaServ.Select(servicio => servicio.Nombre).ToList();
-            ViewData["Servicios"] = new SelectList(itemsServ);
-            return View(miListaServ);
+            Publicacion p = new Publicacion();
+            p.Precios = new List<Precio>();
+            p.Precios.Add(new Precio());
+            p.Precios.Add(new Precio());
+            p.Precios[0].Tipo = "TB";
+            p.Precios[1].Tipo = "TA";
+            return View();
         } 
 
         //
         // POST: /Publicacion/Create
-
         [HttpPost]
-      //  [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Create(Publicacion p,FormCollection collection)
         {
             //Empresa
             var nombreEmpresa =collection[0];
-            var repoLugar = new LugarRepositorio();
-            p.Estado = repoLugar.GetById(Convert.ToInt32(p.Estado)).Nombre;
-            p.Ciudad = repoLugar.GetById(Convert.ToInt32(p.Ciudad)).Nombre;
-            if(String.IsNullOrEmpty(nombreEmpresa))
-            {   
-                ModelState.AddModelError("NombreE","Nombre Empresa es Necesario");
-                return View(p);
-            }
             var repoEmp = new EmpresaRepositorio();
             var listaEmp = repoEmp.GetAll();
             foreach (var empresa in listaEmp.Where(empresa => empresa.Nombre == nombreEmpresa))
             {
                 p.IdEmpresa = empresa.IdEmpresa;
             }
+            if(String.IsNullOrEmpty(nombreEmpresa)|| p.IdEmpresa==0)
+            {   
+                ModelState.AddModelError("NombreE","Nombre Empresa es Necesario");
+                return View(p);
+            }
+           
             //fin Empresa
             //Sub Categoria
             var repoSub = new SubCategoriumRepositorio();
@@ -252,7 +286,9 @@ namespace VentanaTuristica.Controllers
             var repoPubli = new PublicacionRepositorio();
             IList<Idioma> myIdiomas = p.Idioma;
             p.Idioma = null;
-
+            var repoLug = new LugarRepositorio();
+            p.Ciudad = repoLug.GetById(Convert.ToInt32(p.Ciudad)).Nombre;
+            p.Estado = repoLug.GetById(Convert.ToInt32(p.Estado)).Nombre;
             var idPublicacion =repoPubli.Save(p);
 
             //Precios
@@ -304,7 +340,7 @@ namespace VentanaTuristica.Controllers
         
         //
         // GET: /Publicacion/Edit/5
-    //    [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(int id)
         {
             var repoPubli = new PublicacionRepositorio();
@@ -529,7 +565,7 @@ namespace VentanaTuristica.Controllers
         // POST: /Publicacion/Edit/5
 
         [HttpPost]
-     //   [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Edit(Publicacion p, FormCollection collection)
         {
             int idPublicacion = p.IdPublicacion;
@@ -648,7 +684,7 @@ namespace VentanaTuristica.Controllers
          }
 
         [HttpPost]
-      //  [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
         {
             var repoImagen = new ImageneRepositorio();
@@ -667,7 +703,7 @@ namespace VentanaTuristica.Controllers
             return RedirectToAction("Index");
       }
         [HttpPost]
-        //  [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "admin,j2lteam")]
         public ActionResult UploadForEdit(IEnumerable<HttpPostedFileBase> files)
         {
             var repoImagen = new ImageneRepositorio();

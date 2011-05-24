@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site4.Master" Inherits="System.Web.Mvc.ViewPage<IList<VentanaTuristica.Model.Servicio>>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site4.Master" Inherits="System.Web.Mvc.ViewPage<VentanaTuristica.Model.Publicacion>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	Crear Empresa
@@ -35,7 +35,8 @@
 	</script>
  <h2></h2>
   <% using (Html.BeginForm()) {%>
-        <%= Html.ValidationSummary(true,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
+        <%= Html.ValidationSummary(false,"Ha ocurrido un error. Por favor corrijalos e intente de nuevo.") %>
+        
 
         <fieldset>
             <legend>Registro de Publicacion:</legend>
@@ -47,20 +48,20 @@
                 <label for="Empresa.Nombre">Nombre:</label>
             </div>
             <div class="editor-field">
-            <%= Html.TextBox("Empresa",null, new { @class = "text-box" })%>
+            <%= Html.TextBox("Empresa")%>
             </div>
          </fieldset>
 
          <fieldset>
         <legend>Datos de la Publicacion:</legend>
          <label for="Nombre"> Nombre de la Publicacion:</label>
-         <input  type="text" id= "Text2" name="Nombre"/>
+         <%= Html.TextBoxFor(model => model.Nombre)%>
 
         <div class="editor-label">
         <label for="Descripcion"> Descripcion:</label>
         </div>
         <div class="editor-field">
-        <textarea name="Idioma[0].Descripcion" rows="3" cols="45" ></textarea>
+            <%= Html.TextAreaFor(model => model.Idioma[0].Descripcion)%>
         </div>
 
         <div class="editor-label">
@@ -82,13 +83,14 @@
                  <%= Html.DropDownList("Ciudad")%>    
             </div>
         <div class="editor-field">
-        <textarea name="Direccion" rows="3" cols="45" ></textarea>
+        <%= Html.TextAreaFor(model => model.Direccion)%>
         </div>
          </fieldset>
 
         <fieldset>
             <legend>Categorias:</legend>
             <div class="editor-field">
+              <%= Html.DropDownListFor(model => model.SubCategorium.Nombre, (SelectList)ViewData["SubCategorium.Nombre"])%>
             <%= Html.DropDownList("SubCategorium.Nombre") %>
             <%= Html.ValidationMessage("SubCategorium.Nombre", "*")%>
         </div>
@@ -98,7 +100,7 @@
         <fieldset>
         <legend>Categoria:</legend>
          <div class="editor-field">
-            <%= Html.DropDownList("Idioma[0].Categoria") %>
+           <%= Html.DropDownListFor(model => model.Idioma[0].Categoria, (SelectList)ViewData["Idioma[0].Categoria"])%>
             <%= Html.ValidationMessage("Idioma[0].Categoria", "*")%>
          </div>
 
@@ -106,15 +108,18 @@
         <input  type="text" id= "Text1" name="Idioma[1].Categoria"/>
         </fieldset>
 
-
+        <%
+             var Modelo = (IList<string>)ViewData["Servicios-Es"];
+             var Modelo2 = (IList<string>)ViewData["Servicios-Es-id"];
+          %>
         <fieldset>
         <legend>Servicios:</legend>
          <div class="editor-label">
-        <%for (int i = 0; i < Model.Count(); i++)
+        <%for (int i = 0; i < Modelo.Count(); i++)
         {%>
-      <label  id="Servicios[<%=i%>].Nombre"><%=Model[i].Nombre %></label>
-      <input  type="checkbox" id= "Servicios[<%=i%>].IdServicio"name="Servicios[<%=i%>].IdServicio" value="<%= Model[i].IdServicio%>" />
-      <input  type="hidden"  name="Servicios[<%=i%>].Nombre" value="<%=Model[i].Nombre %>" />
+      <label  id="Servicios[<%=i%>].Nombre"><%=Modelo[i] %></label>
+      <input  type="checkbox" id= "Servicios[<%=i%>].IdServicio"name="Servicios[<%=i%>].IdServicio" value="<%= Modelo2[i]%>" />
+      <input  type="hidden"  name="Servicios[<%=i%>].Nombre" value="<%=Modelo[i] %>" />
      <%}%>
        </div>
         </fieldset>
@@ -123,20 +128,20 @@
         <legend>Metodos de Pago:</legend>
        
         <div class="editor-field">
-        <label name="Efectivo" id="Efectivo1">Efectivo</label>
+        <label name="Efectivo" >Efectivo</label>
         <input  type="checkbox" id= "Efectivo" name="Efectivo" value="S" />
 
-        <label name="Transferencia" id="Transferencia">Transferencia</label>
-        <input  type="checkbox" id= "Transferencia1" name="Transferencia" value="S" />
+        <label name="Transferencia">Transferencia</label>
+        <input  type="checkbox" id= "Transferencia" name="Transferencia" value="S" />
 
-        <label name="Tdebito" id="Tdebito">TDebito</label>
-        <input  type="checkbox" id= "Tdebito1" name="Tdebito" value="S" />
+        <label name="Tdebito" >TDebito</label>
+        <input  type="checkbox" id= "Tdebito" name="Tdebito" value="S" />
 
-        <label name="Tcredito" id="Tcredito">TCredito</label>
-        <input  type="checkbox" id= "Tcredito1" name="Tcredito" value="S" />
+        <label name="Tcredito" >TCredito</label>
+        <input  type="checkbox" id= "Tcredito" name="Tcredito" value="S" />
 
-        <label name="Reservacion" id="Reservacion">Reservacion</label>
-        <input  type="checkbox" id= "Reservacion1" name="Reservacion" value="S" />
+        <label name="Reservacion">Reservacion</label>
+        <input  type="checkbox" id= "Reservacion" name="Reservacion" value="S" />
          </div>
          </fieldset>
 
@@ -145,32 +150,35 @@
         <legend>Coordenadas:</legend>
         <div class="editor-field">
         <label for="Latitud"> Latitud:</label>
-         <input  type="text" id= "Latitud" name="Latitud"/>
+            <%= Html.TextBoxFor(model => model.Latitud)%>
+        
          <label for="Longitud"> Longitud:</label>
-         <input  type="text" id= "Longitud" name="Longitud"/>
+            <%= Html.TextBoxFor(model => model.Longitud)%>
         </div>
           </fieldset>
         
         <fieldset>
         <legend>Precios:</legend>
-         <div class="editor-field">
+        <div class="editor-field">
         <label for="TBaja"> Temporada Baja:</label>
         <label for="PrecioMinTb"> Min:</label>
-        <input  type="text" id= "Precios[0].PrecioMin" name="Precios[0].PrecioMin"/>
+        <%= Html.TextBoxFor(model => model.Precios[0].PrecioMin)%>
         <label for="PrecioMaxTb"> Max:</label>
-        <input  type="text" id= "Precios[0].PrecioMax" name="Precios[0].PrecioMax"/>
-        <%= Html.DropDownList("Precios[0].Moneda") %>
-        <input type="hidden" id="Precios[0].Tipo" name="Precios[0].Tipo" value="TB" />
+        <%= Html.TextBoxFor(model => model.Precios[0].PrecioMax)%>
+        <%= Html.DropDownListFor(model => model.Precios[0].Moneda, (SelectList)ViewData["Precios[0].Moneda"])%>
+        <input type="hidden" id="Precios[0].Tipo" name="Precios[0].Tipo" value="TB" /> 
+      
         </div>
 
         <div class="editor-field">
         <label for="TBaja"> Temporada  Alta:</label>
         <label for="PrecioMinTa"> Min:</label>
-        <input  type="text" id= "Precios[1].PrecioMin" name="Precios[1].PrecioMin"/>
+        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMin)%>
         <label for="PrecioMaxTa"> Max:</label>
-        <input  type="text" id= "Precios[1].PrecioMax" name="Precios[1].PrecioMax"/>
-        <%= Html.DropDownList("Precios[1].Moneda") %>
-        <input type="hidden" id="Precios[1].Tipo" name="Precios[1].Tipo" value="TA" />
+        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMax)%>
+        <%= Html.DropDownListFor(model => model.Precios[1].Moneda, (SelectList)ViewData["Precios[1].Moneda"])%>
+        <input type="hidden" id="Precios[1].Tipo" name="Precios[1].Tipo" value="TA" /> 
+       
         </div>
         </fieldset>
 
@@ -178,14 +186,15 @@
             <label for="Coordenadas"> Notas:</label>
         </div>
         <div class="editor-field">
-         <textarea name="Idioma[0].Notas" rows="5" cols="45" ></textarea>
+        <%= Html.TextAreaFor(model => model.Idioma[0].Notas)%>
         </div>
 
         <div class="editor-label">
             <label for="Coordenadas"> Procesos Ecologicos:</label>
         </div>
         <div class="editor-field">
-        <textarea name="Idioma[0].ProcesosEcologicos" rows="5" cols="45" ></textarea>
+        <%= Html.TextAreaFor(model => model.Idioma[0].ProcesosEcologicos)%>
+        
         </div>
 
 

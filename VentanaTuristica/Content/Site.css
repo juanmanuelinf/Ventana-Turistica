@@ -84,8 +84,6 @@ ancho de pÃƒÆ’Ã‚Â¡gina. O bien puede especificar un ancho de pÃƒÆ�
 .page2
 {
 	width: 770px;
-	margin-left: auto;
-	margin-right: auto;
 }
 #Header{
 	display:table;
@@ -147,12 +145,19 @@ ancho de pÃƒÆ’Ã‚Â¡gina. O bien puede especificar un ancho de pÃƒÆ�
 	background-repeat:repeat-y;
 	background-position:right;
 }
+#compMainIzq2{
+	float:left;
+	
+}
 #compMainDer{
 	float:left;
 
 
 	background:url(../../Content/marcoDerecho.jpg);
 	background-repeat:repeat-y;
+}
+#compMainDer2{
+	float:left;
 }
 #compFooterIzq{
 	float:left;	
@@ -192,9 +197,16 @@ ancho de pÃƒÆ’Ã‚Â¡gina. O bien puede especificar un ancho de pÃƒÆ�
 	background-position:right;
 	height:29px;
 }
+#MountainIzq2{
+	
+	height:29px;
+}
 #MountainDer{
 	background:url(../../Content/marcoDerecho.jpg);
 	background-repeat:repeat-y;
+	height:29px;
+}
+#MountainDer2{
 	height:29px;
 }
 DIV.hr
