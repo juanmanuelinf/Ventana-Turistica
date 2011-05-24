@@ -7,53 +7,151 @@
     <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
     <link rel="SHORTCUT ICON" href="../../Content/logo.ico"/>
     <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="../../Scripts/jquery.galleryview-3.0.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-1.4.2.min.js") %>"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-ui.1.8.2.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery-getCSS.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.loadImages.1.0.1.min.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.autocomplete.js") %>"></script>
-
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/jquery.tools.min.js") %>"></script>
+    <link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="<%:Url.Content("~/Content/floatbox/floatbox.js") %>"></script>
+    <style>
+    .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:910px; margin-left:auto; margin-right:auto;}
+    .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:25px; margin-top:5px; margin-bottom:5px}
+    .tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
+    .tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
+    
+    </style>
 </head>
 
 <body>
-        <div id="header2">
-            <div id="title2">
+    <div id="Header">
+	    <div id="compHeaderIzq"></div><div id="contHeader">
+        <div id="title">
                 <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
             </div>
               
             <div id="logindisplay">
-                 <% Html.RenderPartial("LogOnUserControl"); %>
-            </div>
-
-            <div id="menucontainer" style=" margin-top:75px">
-                    <ul id="nav">         
-                        <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
-                        <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
-                        <li><%: Html.ActionLink("Empresas", "Index", "Empresa")%></li>
-                        <li><%: Html.ActionLink("Servicios", "Index", "Servicio")%></li>
-                        <li><%: Html.ActionLink("Lugares", "Index", "Lugar")%></li>
-                        <li><%: Html.ActionLink("Publicaciones", "Index", "Publicacion")%></li>
-                        <li><%: Html.ActionLink("Patrocinantes", "Index", "Patrocinante")%></li>
-                        <li><%: Html.ActionLink("Imagenes", "Index", "Imagene")%></li>
-                        <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
-                    </ul>
-            </div>        
-        </div>
-        <div class="page">
-            <div id="main2">
+                <% Html.RenderPartial("Services"); %>
+            </div> 
             
-                <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-
+            <div id="menucontainer">
+                <% Html.RenderAction("Categorias","Categorium");%>
             </div>
-        </div>
-        <div id="footer2">
-        <div id="footerMountain">
-                <img src="../../Content/footerMountain.png" />
+        
+        </div><div id="compHeaderDer"></div>
+    </div>
+
+        
+            <div id="Main">
+	        <div id="compMainIzq2"></div><div id="contMain">
+            <div style=" height:27px"></div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+                <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
+                </div></div></div></div>
+
+                <!-- root element for scrollable -->
+                <div class="scrollable" id="scroller">   
+   
+                   <!-- root element for the items -->
+                   <div class="items" style="left: -2040px; ">
+                        <% Html.RenderAction("Sponsors","Patrocinante");%>
+                   </div>   
+                </div>
+                <br /><br />
+                
+                <div class="hr"></div>
+
+                <% Html.RenderAction("Logos","Patrocinante");%>
+               
+            
+            </div><div id="compMainDer2"></div>
             </div>
-            <br /><br />
-            Ventana Turistica &copy;
+          
+         <div id="Footer">
+	        <div id="compFooterIzq"><div id="MountainIzq2"></div></div><div id="contFooter"><div id="Mountain"></div>
+            <div>
+                <br /><br />
+                Ventana Turistica &copy;
+                </div>            
+            </div><div id="compFooterDer"><div id="MountainDer2"></div></div>
         </div>
 
-</body>
+        
+    
+
+    <!-- javascript coding -->
+    <script type="text/javascript">
+        jQuery.noConflict();
+        jQuery(document).ready(function () {
+            var root = jQuery("#scroller").scrollable({ circular: true }).autoscroll({ autoplay: true });
+            window.api = root.data("scrollable");
+        });
+
+        var div7 = document.getElementById("contMain");
+        var div5 = document.getElementById("compMainIzq2");
+        var div6 = document.getElementById("compMainDer2");
+        var div = document.getElementById("Main");
+        div5.style.height = (div7.offsetHeight+100) + 'px';
+        div6.style.height = (div7.offsetHeight + 100) + 'px';
+        div.style.height = (div7.offsetHeight + 100) + 'px';
+
+
+
+        window.onresize = fillWindow;
+
+
+        function fillWindow() {
+
+            var div = document.getElementById("compFooterIzq");
+            var div2 = document.getElementById("compFooterDer");
+            var div3 = document.getElementById("compHeaderIzq");
+            var div4 = document.getElementById("compHeaderDer");
+            var div5 = document.getElementById("compMainIzq2");
+            var div6 = document.getElementById("compMainDer2");
+
+            var ancho = 0;
+            try {
+                if (window.innerHeight) { //if browser supports window.innerWidth
+                    // mapDiv.style.height = window.innerHeight + 'px';
+                    ancho = eval(window.innerWidth);
+                    if (ancho <= 960)
+                        ancho = 0
+                    else
+                        ancho = (ancho - 960) / 2;
+
+                    div.style.width = ancho + 'px';
+                    div2.style.width = ancho + 'px';
+                    div3.style.width = ancho + 'px';
+                    div4.style.width = ancho + 'px';
+                    div5.style.width = ancho + 'px';
+                    div6.style.width = ancho + 'px';
+
+
+                }
+                else {	//MSIE
+                    ancho = eval(document.body.clientWidth);
+                    if (ancho <= 960)
+                        ancho = 0
+                    else
+                        ancho = (ancho - 960) / 2;
+
+                    div.style.width = ancho + 'px';
+                    div2.style.width = ancho + 'px';
+                    div3.style.width = (ancho + 9) + 'px';
+                    div4.style.width = (ancho + 9) + 'px';
+                    div5.style.width = ancho + 'px';
+                    div6.style.width = ancho + 'px';
+
+                }
+
+            }
+            catch (ex) {
+            }
+
+        }
+        fillWindow();
+    </script>
+
+
 </html>
