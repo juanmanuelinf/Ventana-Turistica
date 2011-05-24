@@ -131,6 +131,13 @@
         }
         fillWindow();
     </script>
-
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
+    
+	<!-- Create a MenuMatic Instance -->
+	<script type="text/javascript" >
+	    var myMenu = new MenuMatic({/*options here*/
+	});	
+	</script>
 
 </html>

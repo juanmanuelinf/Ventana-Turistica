@@ -5,7 +5,7 @@
 <div>
     
      
-       <form action="http://localhost:1491/Home/Busqueda" id="cse-search-box">
+       <form action="http://www.ventanaturistica.com/Home/Busqueda" id="cse-search-box">
   <div>
     <input type="hidden" name="cx" value="017947157383025472513:mwooje1unnw" />
     <input type="hidden" name="cof" value="FORID:9" />

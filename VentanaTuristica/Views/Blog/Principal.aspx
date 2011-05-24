@@ -4,6 +4,28 @@
 	Blog
 </asp:Content>
 
+<script runat="server">
+
+    protected override void InitializeCulture()
+    {
+        base.InitializeCulture();
+        if (Session["culture"] != null)
+        {
+            
+            Culture = Session["culture"].ToString();
+            UICulture = Session["culture"].ToString();
+            
+        }
+        else
+        {
+            Session["culture"] = "es-MX";
+            Culture = Session["culture"].ToString();
+            UICulture = Session["culture"].ToString();
+        }
+    }
+    
+</script>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2 align="center" style="color: #F9A62B" >Bienvenido a mi Blog</h2>
