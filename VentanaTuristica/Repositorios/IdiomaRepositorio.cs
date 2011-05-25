@@ -23,7 +23,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        bool IRepositorio<Idioma>.Update(Idioma entity)
+        public bool Update(Idioma entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -58,7 +58,7 @@ namespace VentanaTuristica.Repositorios
             }
         }
 
-        Idioma IRepositorio<Idioma>.GetById(int id)
+        public Idioma GetById(int id)
         {
             using (ISession session = NHibernateHelper.OpenSession())
                 return session.CreateCriteria<Idioma>().Add(Restrictions.Eq("IdIdioma", id)).UniqueResult<Idioma>();

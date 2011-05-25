@@ -1,6 +1,27 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<VentanaTuristica.Model.Publicacion>>" %>
 <%@ Import Namespace="Resources" %>
 
+<script runat="server">
+
+    protected override void InitializeCulture()
+    {
+        base.InitializeCulture();
+        if (Session["culture"] != null)
+        {
+            
+            Culture = Session["culture"].ToString();
+            UICulture = Session["culture"].ToString();
+            
+        }
+        else
+        {
+            Session["culture"] = "es-MX";
+            Culture = Session["culture"].ToString();
+            UICulture = Session["culture"].ToString();
+        }
+    }
+    
+</script>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 	VentanaTuristica.com
 </asp:Content>
@@ -84,7 +105,7 @@
           int valor = 0;%> <div class="cuadriculaDerecha">
          <br />
         
-        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+        <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -101,7 +122,7 @@
       {
           int valor = 4;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -121,7 +142,7 @@
       {
           int valor = 1;%> <div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -139,7 +160,7 @@
       {
           int valor = 5;%> <div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -158,7 +179,7 @@
       {
           int valor = 2;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -176,7 +197,7 @@
       {
           int valor = 6;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -197,7 +218,7 @@
       {
           int valor = 3;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>
@@ -214,7 +235,7 @@
       {
           int valor = 7;%><div class="cuadriculaDerecha">
          <br />
-         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:800px height:80% colorTheme:black">   
+         <a href="/Publicacion/Details/<%: Model.ElementAt(valor).IdPublicacion %>" class="floatbox" data-fb-options="width:802px height:80% colorTheme:black">   
    
             <%if (Model.ElementAt(valor).Imagen != null)
             {%>

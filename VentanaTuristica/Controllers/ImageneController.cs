@@ -76,6 +76,42 @@ namespace VentanaTuristica.Controllers
             }
             return View(imagene);
         }
+
+        [Authorize(Users = "admin,j2lteam")]
+        [HttpPost]
+        public ActionResult CreateForPublicacion(Imagene imagene)
+        {
+            IRepositorio<Imagene> repoImagen = new ImageneRepositorio();
+            if (imagene.File != null)
+            {
+                imagene.DatosOriginal = ConvertFile(imagene.File);
+                imagene.DatosTrans = Resize(ConvertFile(imagene.File));
+                repoImagen.Save(imagene);
+                return RedirectToAction("Index");
+            }
+            return View(imagene);
+        }
+
+        public ActionResult CreateForPublicacion()
+        {
+            return View();
+        }
+
+        public ActionResult EditForPublicacion(int idPubli)
+        {
+            IRepositorio<Imagene> repoImagen = new ImageneRepositorio();
+            var listaImg = repoImagen.GetAll();
+            var listaImg2 = new List<Imagene>();
+            foreach (var imagene in listaImg)
+            {
+                if(imagene.IdPublicacion==idPubli)
+                {
+                    listaImg2.Add(imagene);
+                }
+            }
+            Session["IdPublicacion"] = idPubli;
+            return View(listaImg2);
+        }
         
         
         //
@@ -86,6 +122,14 @@ namespace VentanaTuristica.Controllers
             IRepositorio<Imagene> repo = new ImageneRepositorio();
             repo.Delete(repo.GetById(id));
             return RedirectToAction("Index");
+        }
+
+        [Authorize(Users = "admin,j2lteam")]
+        public ActionResult DeleteForPublicacion(int id)
+        {
+            IRepositorio<Imagene> repo = new ImageneRepositorio();
+            repo.Delete(repo.GetById(id));
+            return RedirectToAction("EditForPublicacion",new {idPubli=Session["IdPublicacion"]});
         }
 
         public ActionResult Show(int id)

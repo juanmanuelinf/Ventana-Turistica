@@ -45,20 +45,20 @@
 
         
             <div id="Main">
-	        <div id="compMainIzq"></div><div id="contMain">
+	        <div id="compMainIzq2"></div><div id="contMain">
             <div style=" height:27px"></div>
                 <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
 
-            </div><div id="compMainDer"></div>
+            </div><div id="compMainDer2"></div>
             </div>
           
          <div id="Footer">
-	        <div id="compFooterIzq"><div id="MountainIzq"></div></div><div id="contFooter"><div id="Mountain"></div>
+	        <div id="compFooterIzq"><div id="MountainIzq2"></div></div><div id="contFooter"><div id="Mountain"></div>
             <div>
                 <br /><br />
                 Ventana Turistica &copy;
                 </div>            
-            </div><div id="compFooterDer"><div id="MountainDer"></div></div>
+            </div><div id="compFooterDer"><div id="MountainDer2"></div></div>
         </div>
 
         
@@ -68,8 +68,8 @@
     <!-- javascript coding -->
     <script type="text/javascript">
          var div7 = document.getElementById("contMain");
-        var div5 = document.getElementById("compMainIzq");
-        var div6 = document.getElementById("compMainDer");
+        var div5 = document.getElementById("compMainIzq2");
+        var div6 = document.getElementById("compMainDer2");
         var div = document.getElementById("Main");
         div5.style.height = div7.offsetHeight + 'px';
         div6.style.height = div7.offsetHeight + 'px';
@@ -86,8 +86,8 @@
             var div2 = document.getElementById("compFooterDer");
             var div3 = document.getElementById("compHeaderIzq");
             var div4 = document.getElementById("compHeaderDer");
-            var div5 = document.getElementById("compMainIzq");
-            var div6 = document.getElementById("compMainDer");
+            var div5 = document.getElementById("compMainIzq2");
+            var div6 = document.getElementById("compMainDer2");
             
             var ancho = 0;
             try {
@@ -131,6 +131,13 @@
         }
         fillWindow();
     </script>
-
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
+    
+	<!-- Create a MenuMatic Instance -->
+	<script type="text/javascript" >
+	    var myMenu = new MenuMatic({/*options here*/
+	});	
+	</script>
 
 </html>
