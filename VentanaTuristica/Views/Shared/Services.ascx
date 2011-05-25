@@ -18,10 +18,12 @@
 </div> 
 <br />
 <div>
-    <a title="FaceBook" target="_blank" href="http://www.facebook.com/pages/Ventana-Turisticacom/113756445350700">
+    <a title="Facebook" target="_blank" href="http://www.facebook.com/pages/Ventana-Turisticacom/113756445350700">
         <img src="<%=Url.Content("~/Content/facebook.png")%>" width="25px" /></a>
     <a title="Twitter" target="_blank" href="#">
         <img src="<%=Url.Content("~/Content/twitter.gif")%>" width="25px" /></a>
+    <a title="Fotos en Panoramio" target="_blank" href="http://www.panoramio.com/">
+        <img src="<%=Url.Content("~/Content/panoramio.png")%>" width="25px" /></a>
     <a title="<%=ResourceEmpresa.English%>" href="<%=Url.Action("Ingles", "Home")%>">
         <img src="<%=Url.Content("~/Content/english.png")%>" width="24px" /></a>  
     <a title="<%=ResourceEmpresa.Spanish%>"  href="<%=Url.Action("Espanol", "Home")%>">
