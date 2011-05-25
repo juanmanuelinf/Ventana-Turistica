@@ -287,15 +287,12 @@ TABLE TH
 }
 #menucontainer
 {
-	float: left;
+	float: right;
 	margin-top: 20px;
-	margin-left: 15px;
-	width:771px;
 }
 DIV#title
 {
 	float: left;
-	margin-left: 20px;
 }
 DIV#title2
 {
