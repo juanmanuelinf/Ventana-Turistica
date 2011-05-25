@@ -7,8 +7,7 @@
         <li><%: Html.ActionLink(ResourceEmpresa.BioUs, "Index", "Home")%></li>
         <li><%: Html.ActionLink(ResourceEmpresa.BioContac, "Index", "Home")%></li>
         </ul>
-        </li>
-        <li><%: Html.ActionLink("Blog", "Principal", "Blog")%></li>       
+        </li>     
         <% 
         if (Model != null)
         {

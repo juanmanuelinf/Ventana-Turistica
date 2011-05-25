@@ -180,6 +180,9 @@
   <data name="Notes" xml:space="preserve">
     <value>Notas</value>
   </data>
+  <data name="Panoramio" xml:space="preserve">
+    <value>Fotos en Panoramio</value>
+  </data>
   <data name="Price" xml:space="preserve">
     <value>Precio</value>
   </data>
