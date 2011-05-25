@@ -22,8 +22,14 @@
         <img src="<%=Url.Content("~/Content/facebook.png")%>" width="25px" /></a>
     <a title="Twitter" target="_blank" href="#">
         <img src="<%=Url.Content("~/Content/twitter.gif")%>" width="25px" /></a>
+<<<<<<< HEAD
     <a title="Fotos en Panoramio" target="_blank" href="http://www.panoramio.com/user/691632">
+=======
+    <a title="<%=ResourceEmpresa.Panoramio%>" target="_blank" href="http://www.panoramio.com/">
+>>>>>>> 2b5b1719d7306fc0e51b6d2b037f6a2067f7d65e
         <img src="<%=Url.Content("~/Content/panoramio.png")%>" width="25px" /></a>
+    <a title="Blog" href="<%=Url.Action("Principal", "Blog")%>">
+        <img src="<%=Url.Content("~/Content/blog.png")%>" width="24px" /></a> 
     <a title="<%=ResourceEmpresa.English%>" href="<%=Url.Action("Ingles", "Home")%>">
         <img src="<%=Url.Content("~/Content/english.png")%>" width="24px" /></a>  
     <a title="<%=ResourceEmpresa.Spanish%>"  href="<%=Url.Action("Espanol", "Home")%>">

@@ -250,6 +250,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Fotos en Panoramio.
+        /// </summary>
+        internal static string Panoramio {
+            get {
+                return ResourceManager.GetString("Panoramio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Precio.
         /// </summary>
         internal static string Price {
