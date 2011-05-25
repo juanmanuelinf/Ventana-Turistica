@@ -72,7 +72,7 @@ namespace VentanaTuristica.Controllers
         // **************************************
         // URL: /Account/Register
         // **************************************
-       // [Authorize(Users = "admin,j2lteam")]
+       //[Authorize(Users = "admin,j2lteam")]
         public ActionResult Register()
         {
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
@@ -80,7 +80,7 @@ namespace VentanaTuristica.Controllers
         }
 
         [HttpPost]
-      //  [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "j2lteam")]
         public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -109,14 +109,14 @@ namespace VentanaTuristica.Controllers
         // URL: /Account/ChangePassword
         // **************************************
 
-        [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "j2lteam")]
         public ActionResult ChangePassword()
         {
             ViewData["PasswordLength"] = MembershipService.MinPasswordLength;
             return View();
         }
 
-        [Authorize(Users = "admin,j2lteam")]
+        [Authorize(Users = "j2lteam")]
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {

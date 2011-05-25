@@ -84,6 +84,7 @@ ancho de pÃƒÆ’Ã‚Â¡gina. O bien puede especificar un ancho de pÃƒÆ�
 .page2
 {
 	width: 770px;
+	
 }
 #Header{
 	display:table;
@@ -2445,8 +2446,8 @@ Dialog
 DIV.cell
 {
 	display: table-cell;
-	height: 50px;
-	vertical-align: bottom;
+	height: 80px;
+	vertical-align: middle;
 	padding-left: 10px;
 	padding-right: 10px;
 	text-align: center;
