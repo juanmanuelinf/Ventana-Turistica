@@ -91,7 +91,6 @@
             <legend>Categorias:</legend>
             <div class="editor-field">
               <%= Html.DropDownListFor(model => model.SubCategorium.Nombre, (SelectList)ViewData["SubCategorium.Nombre"])%>
-            <%= Html.DropDownList("SubCategorium.Nombre") %>
             <%= Html.ValidationMessage("SubCategorium.Nombre", "*")%>
         </div>
         </fieldset>
