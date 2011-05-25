@@ -71,7 +71,7 @@
           }%>
         <%if (Html.Encode(Model.Empresa.Website).CompareTo("") != 0)
           {%>
-          <div id="publiWeb" class="descripcionContDere"><b>Website:</b> <a target="_blank"  href=" <%=Html.Encode(Model.Empresa.Website)%>"> <%=Html.Encode(Model.Empresa.Website)%></a></div>
+          <div id="publiWeb" class="descripcionContDere"><b>Website:</b> <a target="_blank"  href=" <%=Html.Encode(Model.Empresa.Website)%>"> Ir al sitio... </a></div>
         <%}%>
         <% if (Html.Encode(Model.Latitud).CompareTo("") != 0)
            {%>
@@ -137,23 +137,25 @@
 </td></tr></table>
 
 
-<table style="border: 2px none #C0C0C0;width:750px;">
+<table style="border: 2px none #C0C0C0;width:770px">
 <tr>
-<td class="tituloTabla2"><%=ResourceEmpresa.Description%></td>
 <td class="tituloTabla2"><%=ResourceEmpresa.Services%></td>
 </tr>
 <tr>
-<td class="contenidoDescripcionTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
-&nbsp;<%=Model.Idioma[0].Descripcion%></td>
-<td class="contenidoServiciosTabla" rowspan="3"  style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
+<td class="contenidoServiciosTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
 <%foreach (var servicio in Model.Servicios)
   {%>
   
-  *<%=servicio.Nombre %><br />
+  &bull;&nbsp;<%=servicio.Nombre %>&nbsp;&nbsp;
 <%
   }%>
 
 </td>
+</tr>
+<tr><td class="tituloTabla2"><%=ResourceEmpresa.Description%></td></tr>
+<tr>
+<td class="contenidoDescripcionTabla" style=" background-image: url('../../Content/lineaDetails.jpg'); background-repeat: repeat-x repeat-y;">
+&nbsp;<%=Model.Idioma[0].Descripcion%></td>
 </tr>
 <tr>
 <td class="tituloTabla2"><%=ResourceEmpresa.Notes%> </td>

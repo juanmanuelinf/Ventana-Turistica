@@ -16,10 +16,10 @@
     <link href="../../Content/floatbox/floatbox.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="<%:Url.Content("~/Content/floatbox/floatbox.js") %>"></script>
     <style>
-    .bl3 {background: url(../../Content/bl2.jpg) 0 100% no-repeat #cdc9c9; width:910px; margin-left:auto; margin-right:auto;}
-    .br3 {background: url(../../Content/br2.jpg) 100% 100% no-repeat; height:25px; margin-top:5px; margin-bottom:5px}
-    .tl3 {background: url(../../Content/tl2.jpg) 0 0 no-repeat}
-    .tr3 {background: url(../../Content/tr2.jpg) 100% 0 no-repeat; padding:10px; text-align:center}
+    .bl3 {background-color: #cdc9c9; width:910px; margin-left:auto; margin-right:auto;}
+    .br3 {background-color: #cdc9c9; height:25px; margin-top:5px; margin-bottom:5px}
+    .tl3 {background-color: #cdc9c9; }
+    .tr3 {background-color: #cdc9c9; padding:10px; text-align:center}
     
     </style>
      <script type="text/javascript">
@@ -31,7 +31,8 @@
              var div2 = document.getElementById("compFooterDer");
              var div3 = document.getElementById("compHeaderIzq");
              var div4 = document.getElementById("compHeaderDer");
-        
+             var div11 = document.getElementById("Header");
+             var div12 = document.getElementById("Footer");
              var ancho = 0;
              try {
                  if (window.innerHeight) { //if browser supports window.innerWidth
@@ -40,12 +41,13 @@
                      if (ancho <= 960)
                          ancho = 0
                      else
-                         ancho = (ancho - 960) / 2;
+                         ancho = ((ancho - 970) / 2) - 3;
 
                      div.style.width = ancho + 'px';
                      div2.style.width = ancho + 'px';
                      div3.style.width = ancho + 'px';
                      div4.style.width = ancho + 'px';
+                     div11.style.width = div12.offsetWidth + 'px';
                     
 
                  }
@@ -54,12 +56,13 @@
                      if (ancho <= 960)
                          ancho = 0
                      else
-                         ancho = (ancho - 960) / 2;
+                         ancho = ((ancho - 970) / 2) - 3;
 
                      div.style.width = ancho + 'px';
                      div2.style.width = ancho + 'px';
                      div3.style.width = (ancho + 9) + 'px';
                      div4.style.width = (ancho + 9) + 'px';
+                     div11.style.width = div12.offsetWidth + 'px';
               
 
                  }
@@ -140,37 +143,36 @@
             var root = jQuery("#scroller").scrollable({ circular: true }).autoscroll({ autoplay: true });
             window.api = root.data("scrollable");
         });
-        var div7 = document.getElementById("contMain");
-        var div5 = document.getElementById("compMainIzq");
-        var div6 = document.getElementById("compMainDer");
-        var div = document.getElementById("Main");
-        div5.style.height = div7.offsetHeight + 'px';
-        div6.style.height = div7.offsetHeight + 'px';
-        div.style.height = div7.offsetHeight + 'px';
-
-
+        
 
         window.onresize = fillWindow;
 
 
         function fillWindow() {
-
+            var div7 = document.getElementById("contMain");
+            var div8 = document.getElementById("compMainIzq");
+            var div9 = document.getElementById("compMainDer");
+            var div10 = document.getElementById("Main");
+            var div1 = document.getElementById("contFooter");
             var div = document.getElementById("compFooterIzq");
             var div2 = document.getElementById("compFooterDer");
             var div3 = document.getElementById("compHeaderIzq");
             var div4 = document.getElementById("compHeaderDer");
             var div5 = document.getElementById("compMainIzq");
             var div6 = document.getElementById("compMainDer");
+            var div11 = document.getElementById("Header");
+            var div12 = document.getElementById("Footer");
+           
             
             var ancho = 0;
             try {
                 if (window.innerHeight) { //if browser supports window.innerWidth
                     // mapDiv.style.height = window.innerHeight + 'px';
                     ancho = eval(window.innerWidth);
-                    if (ancho <= 960)
+                    if (ancho <= 970)
                         ancho = 0
                     else
-                        ancho = (ancho - 960) / 2;
+                        ancho = ((ancho - 970) / 2) - 3;
 
                     div.style.width = ancho + 'px';
                     div2.style.width = ancho + 'px';
@@ -178,15 +180,52 @@
                     div4.style.width = ancho + 'px';
                     div5.style.width = ancho + 'px';
                     div6.style.width = ancho + 'px';
-                  
+                    div8.style.height = eval(div7.offsetHeight + 4) + 'px';
+                    div9.style.height = eval(div7.offsetHeight + 4) + 'px';
+                    div10.style.height = eval(div7.offsetHeight+4) + 'px';
+                    div11.style.width = div12.offsetWidth + 'px';
+                   
+                   var suma= eval(div7.offsetWidth) + eval(div8.offsetWidth) + eval(div9.offsetWidth);
+                   var total = eval(div10.offsetWidth);
+                   var residuo = 0;
+                   var ladoIzq = div8;
+                   var ladoDer = div9;
+                   if (suma > total) {
+                       residuo = ((total - suma) / 2)+1;
+                       ladoDer.offsetWidth = eval(ladoDer.offsetWidth - residuo) + px;
+                       ladoIzq.offsetWidth = eval(ladoIzq.offsetWidth - residuo) + px;
+                   }
+
+                   suma = eval(div1.offsetWidth) + eval(div.offsetWidth) + eval(div2.offsetWidth);
+                   total = eval(div12.offsetWidth);
+                   residuo = 0;
+                   ladoIzq = div;
+                   ladoDer = div2;
+                   if (suma > total) {
+                       residuo = ((total - suma) / 2) + 1;
+                       ladoDer.offsetWidth = eval(ladoDer.offsetWidth - residuo) + px;
+                       ladoIzq.offsetWidth = eval(ladoIzq.offsetWidth - residuo) + px;
+                   }
+                   suma = eval(div7.offsetHeight);
+                   total = eval(div10.offsetHeight);
+                   residuo = 0;
+                   ladoIzq = div7;
+                   ladoDer = div10;
+                   if (suma > total) {
+                       residuo = suma - total;
+                       ladoDer.style.height = eval(ladoDer.offsetHeight + residuo) + 'px';
+                   }
+
 
                 }
                 else {	//MSIE
                     ancho = eval(document.body.clientWidth);
-                    if (ancho <= 960)
+                    if (ancho <= 970)
                         ancho = 0
                     else
-                        ancho = (ancho - 960) / 2;
+                        ancho = ((ancho - 970) / 2) - 3;
+
+                    
 
                     div.style.width = ancho + 'px';
                     div2.style.width = ancho + 'px';
@@ -194,7 +233,38 @@
                     div4.style.width = (ancho +9) + 'px';
                     div5.style.width = ancho + 'px';
                     div6.style.width = ancho + 'px';
+                    div11.style.width = div12.offsetWidth + 'px';
 
+                    var suma = eval(div7.offsetWidth) + eval(div8.offsetWidth) + eval(div9.offsetWidth);
+                    var total = eval(div10.offsetWidth);
+                    var residuo = 0;
+                    var ladoIzq = div8;
+                    var ladoDer = div9;
+                    if (suma > total) {
+                        residuo = ((total - suma) / 2) + 1;
+                        ladoDer.offsetWidth = eval(ladoDer.offsetWidth - residuo) + px;
+                        ladoIzq.offsetWidth = eval(ladoIzq.offsetWidth - residuo) + px;
+                    }
+
+                    suma = eval(div1.offsetWidth) + eval(div.offsetWidth) + eval(div2.offsetWidth);
+                    total = eval(div12.offsetWidth);
+                    residuo = 0;
+                    ladoIzq = div;
+                    ladoDer = div2;
+                    if (suma > total) {
+                        residuo = ((total - suma) / 2) + 1;
+                        ladoDer.offsetWidth = eval(ladoDer.offsetWidth - residuo) + px;
+                        ladoIzq.offsetWidth = eval(ladoIzq.offsetWidth - residuo) + px;
+                    }
+                    suma = eval(div7.offsetHeight);
+                    total = eval(div10.offsetHeight);
+                    residuo = 0;
+                    ladoIzq = div7;
+                    ladoDer = div10;
+                    if (suma > total) {
+                        residuo = (suma - total) + 3;
+                        ladoDer.style.height = eval(ladoDer.offsetHeight + residuo) + 'px';
+                    }
                 }
 
             }
@@ -203,6 +273,9 @@
 
         }
         fillWindow();
+        jQuery(window).load(function () {
+            fillWindow();
+        });
     </script>
 
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>

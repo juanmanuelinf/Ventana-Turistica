@@ -19,7 +19,6 @@
     <div id="Header">
 	    <div id="compHeaderIzq"></div><div id="contHeader">
         <div id="title">
-                <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
             </div>
               
             <div id="logindisplay">
@@ -27,6 +26,7 @@
             </div> 
             
             <div id="menucontainer">
+                <%if(Request.IsAuthenticated){ %>
                 <ul id="nav">         
                         <li><%: Html.ActionLink("Categorias", "Index", "Categorium")%></li>
                         <li><%: Html.ActionLink("Subcategorias", "Index", "SubCategorium")%></li>     
@@ -38,6 +38,7 @@
                         <li><%: Html.ActionLink("Imagenes", "Index", "Imagene")%></li>
                         <li><%: Html.ActionLink("Blog", "Index", "Blog")%></li>
                     </ul>
+                    <%} %>
             </div>
         
         </div><div id="compHeaderDer"></div>
@@ -52,14 +53,6 @@
             </div><div id="compMainDer2"></div>
             </div>
           
-         <div id="Footer">
-	        <div id="compFooterIzq"><div id="MountainIzq2"></div></div><div id="contFooter"><div id="Mountain"></div>
-            <div>
-                <br /><br />
-                Ventana Turistica &copy;
-                </div>            
-            </div><div id="compFooterDer"><div id="MountainDer2"></div></div>
-        </div>
 
         
     
@@ -82,8 +75,7 @@
 
         function fillWindow() {
 
-            var div = document.getElementById("compFooterIzq");
-            var div2 = document.getElementById("compFooterDer");
+           
             var div3 = document.getElementById("compHeaderIzq");
             var div4 = document.getElementById("compHeaderDer");
             var div5 = document.getElementById("compMainIzq2");
@@ -99,8 +91,7 @@
                     else
                         ancho = (ancho - 960) / 2;
 
-                    div.style.width = ancho + 'px';
-                    div2.style.width = ancho + 'px';
+                 
                     div3.style.width = ancho + 'px';
                     div4.style.width = ancho + 'px';
                     div5.style.width = ancho + 'px';
@@ -115,8 +106,7 @@
                     else
                         ancho = (ancho - 960) / 2;
 
-                    div.style.width = ancho + 'px';
-                    div2.style.width = ancho + 'px';
+             
                     div3.style.width = (ancho +9) + 'px';
                     div4.style.width = (ancho +9) + 'px';
                     div5.style.width = ancho + 'px';

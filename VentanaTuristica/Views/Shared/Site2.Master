@@ -28,7 +28,8 @@
     <div id="Header">
 	    <div id="compHeaderIzq"></div><div id="contHeader">
         <div id="title">
-                <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" /></a>
+            <a href="http://www.ventanaturistica.com" ><img src="../../Content/logo.png" height="140px" /></a>
+<img src="../../Content/mapaHeader.png" height="140px" />
             </div>
               
             <div id="logindisplay">
@@ -44,7 +45,7 @@
 
         
             <div id="Main">
-	        <div id="compMainIzq2"></div><div id="contMain">
+	        <div id="compMainIzq"></div><div id="contMain">
             <div style=" height:27px"></div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
                 <div class="bl3"><div class="br3"><div class="tl3"><div class="tr3">
@@ -65,16 +66,16 @@
                 <% Html.RenderAction("Logos","Patrocinante");%>
                
             
-            </div><div id="compMainDer2"></div>
+            </div><div id="compMainDer"></div>
             </div>
           
          <div id="Footer">
-	        <div id="compFooterIzq"><div id="MountainIzq2"></div></div><div id="contFooter"><div id="Mountain"></div>
+	        <div id="compFooterIzq"><div id="MountainIzq"></div></div><div id="contFooter"><div id="Mountain"></div>
             <div>
                 <br /><br />
                 Ventana Turistica &copy;
                 </div>            
-            </div><div id="compFooterDer"><div id="MountainDer2"></div></div>
+            </div><div id="compFooterDer"><div id="MountainDer"></div></div>
         </div>
 
         
@@ -89,8 +90,8 @@
         });
 
         var div7 = document.getElementById("contMain");
-        var div5 = document.getElementById("compMainIzq2");
-        var div6 = document.getElementById("compMainDer2");
+        var div5 = document.getElementById("compMainIzq");
+        var div6 = document.getElementById("compMainDer");
         var div = document.getElementById("Main");
         div5.style.height = (div7.offsetHeight+100) + 'px';
         div6.style.height = (div7.offsetHeight + 100) + 'px';
@@ -107,8 +108,8 @@
             var div2 = document.getElementById("compFooterDer");
             var div3 = document.getElementById("compHeaderIzq");
             var div4 = document.getElementById("compHeaderDer");
-            var div5 = document.getElementById("compMainIzq2");
-            var div6 = document.getElementById("compMainDer2");
+            var div5 = document.getElementById("compMainIzq");
+            var div6 = document.getElementById("compMainDer");
 
             var ancho = 0;
             try {
@@ -118,7 +119,7 @@
                     if (ancho <= 960)
                         ancho = 0
                     else
-                        ancho = (ancho - 960) / 2;
+                        ancho = (ancho - 959) / 2;
 
                     div.style.width = ancho + 'px';
                     div2.style.width = ancho + 'px';
@@ -134,7 +135,7 @@
                     if (ancho <= 960)
                         ancho = 0
                     else
-                        ancho = (ancho - 960) / 2;
+                        ancho = (ancho - 959) / 2;
 
                     div.style.width = ancho + 'px';
                     div2.style.width = ancho + 'px';
@@ -152,6 +153,15 @@
         }
         fillWindow();
     </script>
+    
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
+    <script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
+    
+	<!-- Create a MenuMatic Instance -->
+	<script type="text/javascript" >
+	    var myMenu = new MenuMatic({/*options here*/
+	});	
+	</script>
 
 
 </html>
