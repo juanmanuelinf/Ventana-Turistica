@@ -92,16 +92,11 @@
         <div id="publiPre" class="descripcionContDere">
         <b><%=ResourceEmpresa.Price%>:</b>
             <%foreach (var precio in Model.Precios)
-            {%><br />
-                <%if (precio.Tipo.CompareTo("TA") == 0)
+            {%>&nbsp;
+                <%if (precio.Tipo.CompareTo("TB") == 0)
                   {%>
-                <%=ResourceEmpresa.SeasonHigh%>: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
+               <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
                 <%
-                    }
-                  else
-                    {%>
-                   <%=ResourceEmpresa.SeasonLow%>: <%=precio.PrecioMin%> - <%=precio.PrecioMax%> <%=precio.Moneda%>
-                    <%
                     }%>
             <%}%>   
         </div>

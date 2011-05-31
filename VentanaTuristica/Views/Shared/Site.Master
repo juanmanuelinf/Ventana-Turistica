@@ -20,8 +20,19 @@
     .br3 {background-color: #cdc9c9; height:25px; margin-top:5px; margin-bottom:5px}
     .tl3 {background-color: #cdc9c9; }
     .tr3 {background-color: #cdc9c9; padding:10px; text-align:center}
-    
+    #loading-image {
+	background-color:White;
+	width: 100%;
+	height: 100%;
+	position:absolute;
+	z-index: 1;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px; /* future proofing */
+	-khtml-border-radius: 10px;
+}
     </style>
+
      <script type="text/javascript">
          
        
@@ -78,6 +89,30 @@
 </head>
 
 <body>
+        <div id="loading-image">
+            <table><tr>
+            <td align=center valign=middle>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div> <img src="../../Content/logo.png" alt="Cargando..." /></div>     
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div><img src="../../Content/ajax-loader.gif" alt="Cargando..." /></div>
+            </td>
+            </tr></table>
+	        
+        </div>
+    <div id="all" style="display:none;">
     <div id="Header">
 	    <div id="compHeaderIzq"></div><div id="contHeader">
         <div id="title">
@@ -133,9 +168,9 @@
         </div>
 
         
-    
+    </div>
 </body>
-
+    
     <!-- javascript coding -->
     <script type="text/javascript">
         jQuery.noConflict();
@@ -233,6 +268,9 @@
                     div4.style.width = (ancho +9) + 'px';
                     div5.style.width = ancho + 'px';
                     div6.style.width = ancho + 'px';
+                    div8.style.height = eval(div7.offsetHeight + 4) + 'px';
+                    div9.style.height = eval(div7.offsetHeight + 4) + 'px';
+                    div10.style.height = eval(div7.offsetHeight + 4) + 'px';
                     div11.style.width = div12.offsetWidth + 'px';
 
                     var suma = eval(div7.offsetWidth) + eval(div8.offsetWidth) + eval(div9.offsetWidth);
@@ -274,10 +312,13 @@
         }
         fillWindow();
         jQuery(window).load(function () {
-            fillWindow();
+             jQuery('#loading-image').hide();
+             jQuery('#all').fadeIn(2000);
+             fillWindow();
         });
+       
     </script>
-
+    
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/mootools-1.2.1-core.js") %>"></script>
     <script type="text/javascript" src="<%:Url.Content("~/Scripts/MenuMatic_0.68.3.js") %>"></script>
     

@@ -423,7 +423,7 @@ namespace VentanaTuristica.Controllers
 
         public ActionResult Lista(int pagActual, int orden, string cat, string sub, string lug)
         {
-
+            
             var myRepoPublicacion = new PublicacionRepositorio();
             var myRepoSubCat = new SubCategoriumRepositorio();
             var myRepoCat = new CategoriumRepositorio();
@@ -514,7 +514,15 @@ namespace VentanaTuristica.Controllers
                     }
                 }
             }
-
+            IOrderedEnumerable<Publicacion> lista;
+            if (orden != 1)
+            {
+                lista =listaPub.OrderBy(model => model.Precios[0].PrecioMin);
+            }else
+            {
+                lista =listaPub.OrderByDescending(model => model.Precios[0].PrecioMax);
+            }
+            listaPub=lista.ToList();
             int nroPaginas = listaPub.Count/8;
             IList<Publicacion> listaPubAux = new List<Publicacion>();
             var cont = 0;

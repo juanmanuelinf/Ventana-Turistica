@@ -51,29 +51,22 @@
             </div>
 
             <div class="editor-label">
-                Temporada Baja Precio Min
+                Precio Min
             </div>
             <div class="editor-field">
                <%: Html.Label(Model.Precios[0].Moneda)%> <%: Html.TextBoxFor(model => model.Precios[0].PrecioMin)%>
             </div>
             <div class="editor-label">
-                Temporada Baja Precio Max
+                Precio Max
             </div>
             <div class="editor-field">
                <%: Html.Label(Model.Precios[0].Moneda)%> <%: Html.TextBoxFor(model => model.Precios[0].PrecioMax)%>
             </div>
-            <div class="editor-label">
-                Temporada Alta Precio Min
-            </div>
-            <div class="editor-field">
-              <%: Html.Label(Model.Precios[1].Moneda)%>  <%: Html.TextBoxFor(model => model.Precios[1].PrecioMin)%>
-            </div>
-            <div class="editor-label">
-                Temporada Alta Precio Max
-            </div>
-            <div class="editor-field">
-               <%: Html.Label(Model.Precios[1].Moneda)%> <%: Html.TextBoxFor(model => model.Precios[1].PrecioMax)%>
-            </div>
+           
+              <%: Html.TextBoxFor(model => model.Precios[1].PrecioMin, new { type = "hidden" })%>
+            
+             <%: Html.TextBoxFor(model => model.Precios[1].PrecioMax, new { type = "hidden" })%>
+           
 
             <div class="editor-label">
                Servicios

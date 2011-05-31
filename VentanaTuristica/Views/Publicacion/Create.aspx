@@ -157,9 +157,9 @@
           </fieldset>
         
         <fieldset>
-        <legend>Precios:</legend>
+        <legend>Precio:</legend>
         <div class="editor-field">
-        <label for="TBaja"> Temporada Baja:</label>
+        
         <label for="PrecioMinTb"> Min:</label>
         <%= Html.TextBoxFor(model => model.Precios[0].PrecioMin)%>
         <label for="PrecioMaxTb"> Max:</label>
@@ -170,13 +170,12 @@
         </div>
 
         <div class="editor-field">
-        <label for="TBaja"> Temporada  Alta:</label>
-        <label for="PrecioMinTa"> Min:</label>
-        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMin)%>
-        <label for="PrecioMaxTa"> Max:</label>
-        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMax)%>
-        <%= Html.DropDownListFor(model => model.Precios[1].Moneda, (SelectList)ViewData["Precios[1].Moneda"])%>
+     
+        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMin, new { type = "hidden", value = "0", text ="0" })%>
+        <%= Html.TextBoxFor(model => model.Precios[1].PrecioMax, new { type = "hidden", value = "0", text = "0" })%>
+
         <input type="hidden" id="Precios[1].Tipo" name="Precios[1].Tipo" value="TA" /> 
+        <input type="hidden" id="Precios[1].Moneda" name="Precios[1].Moneda" value="Bs" /> 
        
         </div>
         </fieldset>
