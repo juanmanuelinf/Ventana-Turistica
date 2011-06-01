@@ -112,7 +112,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
@@ -129,7 +129,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
@@ -149,7 +149,7 @@
              <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
            <%}%>   
         </div>
        <%}%>
@@ -167,7 +167,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
@@ -186,7 +186,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
@@ -204,7 +204,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
@@ -225,7 +225,7 @@
            <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
              <%}%>   
         </div>
        <%}%>
@@ -242,7 +242,7 @@
             <img  height="150px" width="188px"  src='<%=Url.Action("Show", "Publicacion", new {id = Model.ElementAt(valor).Imagen.IdImagen})%>'/></a><br />
             <b style=" text-align:left"><%= Model.ElementAt(valor).Nombre%></b><br />
             <b style=" font-size:11px;text-align:left;"><%= Model.ElementAt(valor).Estado%> - <%= Model.ElementAt(valor).Ciudad%></b><br />
-            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[0].PrecioMax%></b><br />
+            <b style="font-size:12px; text-align:right;"><%= Model.ElementAt(valor).Precios[0].Moneda%> <%= Model.ElementAt(valor).Precios[0].PrecioMin%> - <%= Model.ElementAt(valor).Precios[1].PrecioMax%></b><br />
             <%}%>   
         </div>
        <%}%>
