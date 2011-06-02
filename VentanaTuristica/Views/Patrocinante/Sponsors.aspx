@@ -8,7 +8,7 @@
                 contador++;
                 if (contador == 1)
                 {%>
-                    <div>
+                    <div class="item">
                     <%
                 }%>
                     <a target="_blank"  href="<%=item.Link %>"><img src='<%=Url.Action("Show", "Patrocinante", new {id = item.IdImagen})%>' width="212px"/></a>

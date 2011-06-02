@@ -76,8 +76,8 @@
                     <%:item.Contacto[0].Nombre%>
                 </td>
                 <td>
-                    <%:item.Contacto[0].Telefono[0].CodigoInt + " " + item.Contacto[0].Telefono[0].CodigoLoc +
-                              " " + item.Contacto[0].Telefono[0].Numero%>
+                    <%:item.Contacto[0].ListaTelefonos[0].CodigoInt + " " + item.Contacto[0].ListaTelefonos[0].CodigoLoc +
+                                                      " " + item.Contacto[0].ListaTelefonos[0].Numero%>
                 </td>
                 <td>
                     <a title="Eliminar Patrocinante" href="<%=Url.Action("Delete", "Patrocinante", new {id = item.IdPatrocinante}, null)%>">

@@ -59,11 +59,14 @@ namespace VentanaTuristica.Controllers
                                 telefonos.Add(telefono);
                             }
                         }
-                        contacto.Telefono = telefonos;
+                        contacto.ListaTelefonos = telefonos;
+                        telefonos = new List<Telefono>();
                         contactos.Add(contacto);
                     }
                 }
                 patrocinante.Contacto = contactos;
+                contactos = new List<Contacto>();
+
                 foreach (var imagene in imagenes)
                 {
                     if (imagene.IdPatrocinante != null)
@@ -100,6 +103,11 @@ namespace VentanaTuristica.Controllers
             return View();
         }
 
+        public ActionResult Ofertas()
+        {
+            return View();
+        }
+
         //
         // GET: /Empresa/Create
         [Authorize(Users = "admin,j2lteam")]
@@ -114,30 +122,35 @@ namespace VentanaTuristica.Controllers
         [HttpPost]
         public ActionResult Create(Patrocinante patrocinante)
         {
-            if (patrocinante.File != null)
+
+            if (patrocinante.Nombre != null && patrocinante.Contacto[0].Nombre != null && patrocinante.Contacto[0].ListaTelefonos[0].CodigoInt != 0 &&
+                patrocinante.Contacto[0].ListaTelefonos[0].CodigoLoc != 0 && patrocinante.Contacto[0].ListaTelefonos[0].Numero != 0)
             {
-                HttpFileCollectionBase files = ControllerContext.HttpContext.Request.Files;
-                var repoImagen = new ImageneRepositorio();
-                patrocinante.Imagene = new Imagene();
-                patrocinante.Imagene.DatosOriginal = ConvertFile(patrocinante.File);
-                patrocinante.Imagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
-                patrocinante.Imagene.Link = patrocinante.Link;
-                patrocinante.Contacto[0].Tipo = "P";
-                patrocinante.Contacto[0].Telefono[0].Tipo = "P";
-                patrocinante.Contacto[0].IdEmpresa = null;
-
-                var tipo = Request["Logo"] as string;
-                if (tipo == "Sponsor")
+                if (patrocinante.File != null)
                 {
-                    patrocinante.Imagene.Tipo = "S";
-                }
-                else
-                {
-                    patrocinante.Imagene.Tipo = "L";
-                }
+                    HttpFileCollectionBase files = ControllerContext.HttpContext.Request.Files;
+                    var repoImagen = new ImageneRepositorio();
+                    patrocinante.Imagene = new Imagene();
+                    patrocinante.Imagene.DatosOriginal = ConvertFile(patrocinante.File);
+                    patrocinante.Imagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
+                    patrocinante.Imagene.Link = patrocinante.Link;
+                    patrocinante.Contacto[0].Tipo = "P";
+                    for (int i = 0; i < patrocinante.Contacto[0].ListaTelefonos.Count; i++)
+                    {
+                        patrocinante.Contacto[0].ListaTelefonos[i].Tipo = "P";    
+                    }
+                    patrocinante.Contacto[0].IdEmpresa = null;
 
-              if (ModelState.IsValid)
-              {
+                    var tipo = Request["Logo"] as string;
+                    if (tipo == "Sponsor")
+                    {
+                        patrocinante.Imagene.Tipo = "S";
+                    }
+                    else
+                    {
+                        patrocinante.Imagene.Tipo = "L";
+                    }
+
                     IRepositorio<Patrocinante> repoPatrocinante = new PatrocinanteRepositorio();
                     repoPatrocinante.Save(patrocinante);
 
@@ -146,9 +159,12 @@ namespace VentanaTuristica.Controllers
                     repoContacto.Save(patrocinante.Contacto[0]);
 
                     IRepositorio<Telefono> repoTelefono = new TelefonoRepositorio();
-                    patrocinante.Contacto[0].Telefono[0].IdContacto = patrocinante.Contacto[0].IdContacto;
-                    repoTelefono.Save(patrocinante.Contacto[0].Telefono[0]);
-
+                    foreach (var telefono in patrocinante.Contacto[0].ListaTelefonos)
+                    {
+                        telefono.IdContacto = patrocinante.Contacto[0].IdContacto;
+                        repoTelefono.Save(telefono);
+                    }
+                    
                     patrocinante.Imagene.IdPatrocinante = patrocinante.IdPatrocinante;
                     repoImagen.Save(patrocinante.Imagene);
 
@@ -156,6 +172,10 @@ namespace VentanaTuristica.Controllers
                }
             }
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            while (patrocinante.Contacto[0].ListaTelefonos.Count < 4)
+            {
+                patrocinante.Contacto[0].ListaTelefonos.Add(new Telefono());    
+            }
             return View(patrocinante);
         }
         
@@ -190,7 +210,7 @@ namespace VentanaTuristica.Controllers
                             telefonos.Add(telefono);
                         }
                     }
-                    contacto.Telefono = telefonos;
+                    contacto.ListaTelefonos = telefonos;
                     contactos.Add(contacto);
                 }
             }
@@ -202,7 +222,10 @@ namespace VentanaTuristica.Controllers
                     patrocinante.Imagene = imagene;
                 }
             }
-            
+            while (patrocinante.Contacto[0].ListaTelefonos.Count < 4)
+            {
+                patrocinante.Contacto[0].ListaTelefonos.Add(new Telefono());
+            }
             return View(patrocinante);
 
         }
@@ -215,7 +238,10 @@ namespace VentanaTuristica.Controllers
         {
             patrocinante.Contacto[0].Tipo = "P";
             patrocinante.Contacto[0].IdPatrocinante = patrocinante.IdPatrocinante;
-            patrocinante.Contacto[0].Telefono[0].Tipo = "P";
+            foreach (var telefono in patrocinante.Contacto[0].ListaTelefonos)
+            {
+                telefono.Tipo = "P";
+            }
             patrocinante.Contacto[0].IdEmpresa = null;
 
             IRepositorio<Imagene> repoImagen = new ImageneRepositorio();
@@ -225,8 +251,6 @@ namespace VentanaTuristica.Controllers
                 HttpFileCollectionBase files = ControllerContext.HttpContext.Request.Files;
                 myImagene.DatosOriginal = ConvertFile(patrocinante.File);
                 myImagene.DatosTrans = Resize(ConvertFile(patrocinante.File));
-                patrocinante.Contacto[0].Tipo = "P";
-                patrocinante.Contacto[0].Telefono[0].Tipo = "P";
                 patrocinante.Contacto[0].IdEmpresa = null;
                 
                 IList<Imagene> imagenes = repoImagen.GetAll();
@@ -257,16 +281,22 @@ namespace VentanaTuristica.Controllers
                 repoContacto.Update(patrocinante.Contacto[0]);
 
                 IRepositorio<Telefono> repoTelefono = new TelefonoRepositorio();
-                patrocinante.Contacto[0].Telefono[0].IdContacto = patrocinante.Contacto[0].IdContacto;
-                repoTelefono.Update(patrocinante.Contacto[0].Telefono[0]);
+                foreach (var telefono in patrocinante.Contacto[0].ListaTelefonos)
+                {
+                    telefono.IdContacto = patrocinante.Contacto[0].IdContacto;
+                    repoTelefono.Save(telefono);
+                }
 
                 myImagene.IdPatrocinante = patrocinante.IdPatrocinante;
                 repoImagen.Update(myImagene);
 
                 return RedirectToAction("Index");
             }
-
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            while (patrocinante.Contacto[0].ListaTelefonos.Count < 4)
+            {
+                patrocinante.Contacto[0].ListaTelefonos.Add(new Telefono());
+            }
             return View(patrocinante);
         }
 

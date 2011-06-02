@@ -209,7 +209,8 @@ CREATE TABLE [Contacto]
  [Nombre] Varchar(100) NOT NULL,
  [Tipo] Varchar(1) NOT NULL,
  [Cargo] Varchar(50) NULL,
- [Mail] Varchar(50) NULL,
+ [Mail] Varchar(max) NULL,
+ [Mail2] Varchar(max) NULL,
  [IdEmpresa] Int NULL,
  [IdPatrocinante] Int NULL
 )

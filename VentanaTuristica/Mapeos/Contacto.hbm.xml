@@ -7,7 +7,8 @@
 		<property name="Cargo" column="`Cargo`" length="50" />
 		<property name="IdEmpresa" column="`IdEmpresa`" />
 		<property name="IdPatrocinante" column="`IdPatrocinante`" />
-		<property name="Mail" column="`Mail`" length="50" />
+		<property name="Mail" column="`Mail`" />
+    <property name="Mail2" column="`Mail2`" />
 		<property name="Nombre" column="`Nombre`" length="100" />
 		<property name="Tipo" column="`Tipo`" length="20" />
 	</class>
