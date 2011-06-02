@@ -385,13 +385,6 @@ namespace VentanaTuristica.Controllers
                 sponsorImage.RemoveAt(val);
             }
 
-            int contador = 0;
-            while (sponsorImageDesordenada.Count % 4 != 0)
-            {
-                sponsorImageDesordenada.Add(sponsorImageCopy.ElementAt(contador));
-                if (contador < sponsorImageCopy.Count - 1)
-                   contador++;
-            }
             return View(sponsorImageDesordenada);
         }
 
